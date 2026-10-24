@@ -5,9 +5,10 @@ import { WeatherService } from '../weather.service'
 import { Weather } from '../weather.model'
 
 @Component({
-  selector: 'app-city-weather',
-  templateUrl: './city-weather.component.html',
-  styleUrls: ['./city-weather.component.scss']
+    selector: 'app-city-weather',
+    templateUrl: './city-weather.component.html',
+    styleUrls: ['./city-weather.component.scss'],
+    standalone: false
 })
 export class CityWeatherComponent  {
   weather: Weather | null = null

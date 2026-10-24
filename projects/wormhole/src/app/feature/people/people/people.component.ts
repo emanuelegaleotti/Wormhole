@@ -8,9 +8,10 @@ import { PeopleService } from '../people.service';
 import { Person } from '../person.model';
 
 @Component({
-  selector: 'wormhole-people',
-  templateUrl: './people.component.html',
-  styleUrls: ['./people.component.scss']
+    selector: 'wormhole-people',
+    templateUrl: './people.component.html',
+    styleUrls: ['./people.component.scss'],
+    standalone: false
 })
 export class PeopleComponent implements OnInit {
   currentPage$: Observable<number> = this.store.select(PersonSelector.selectCurrentPage)

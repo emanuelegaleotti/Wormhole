@@ -4,7 +4,8 @@ import { LoaderSelectors } from '../loader-state/selectors'
 
 
 @Directive({
-  selector: '[lorentzLoader]'
+    selector: '[lorentzLoader]',
+    standalone: false
 })
 export class LoaderDirective implements OnInit {
 

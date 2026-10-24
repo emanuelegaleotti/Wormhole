@@ -4,7 +4,8 @@ import { CognitoSelectors } from '../state/selectors'
 
 
 @Directive({
-  selector: '[lorentzCognitoIsNotAuthenticated]'
+    selector: '[lorentzCognitoIsNotAuthenticated]',
+    standalone: false
 })
 export class IsNotAuthenticatedDirective implements OnInit {
 

@@ -7,14 +7,13 @@ import { TranslocoModule } from '@ngneat/transloco'
 import { AsyncPipe } from '@angular/common'
 
 @Component({
-  selector: 'lorentz-snackbar',
-  templateUrl: './snackbar.component.html',
-  styleUrls: ['./snackbar.component.scss'],
-  imports: [
-    AsyncPipe,
-    TranslocoModule
-  ],
-  standalone: true
+    selector: 'lorentz-snackbar',
+    templateUrl: './snackbar.component.html',
+    styleUrls: ['./snackbar.component.scss'],
+    imports: [
+        AsyncPipe,
+        TranslocoModule
+    ]
 })
 export class SnackbarComponent {
   message$: Observable<string>

@@ -4,9 +4,10 @@ import { Planet } from '../planet-model'
 import { PlanetsService } from '../planets.service'
 
 @Component({
-  selector: 'wormhole-planet',
-  templateUrl: './planet.component.html',
-  styleUrls: ['./planet.component.scss']
+    selector: 'wormhole-planet',
+    templateUrl: './planet.component.html',
+    styleUrls: ['./planet.component.scss'],
+    standalone: false
 })
 export class PlanetComponent implements OnInit {
   planetId: string = ''

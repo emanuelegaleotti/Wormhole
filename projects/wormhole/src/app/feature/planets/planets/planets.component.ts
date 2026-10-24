@@ -3,9 +3,10 @@ import { Planet } from '../planet-model'
 import { PlanetsService } from '../planets.service'
 
 @Component({
-  selector: 'wormhole-planets',
-  templateUrl: './planets.component.html',
-  styleUrls: ['./planets.component.scss']
+    selector: 'wormhole-planets',
+    templateUrl: './planets.component.html',
+    styleUrls: ['./planets.component.scss'],
+    standalone: false
 })
 export class PlanetsComponent implements OnInit {
   planets: Planet[] = []

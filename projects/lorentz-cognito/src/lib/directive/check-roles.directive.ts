@@ -3,7 +3,8 @@ import { Store } from '@ngrx/store'
 import { CognitoSelectors } from '../state/selectors'
 
 @Directive({
-  selector: '[lorentzCognitoCheckRoles]'
+    selector: '[lorentzCognitoCheckRoles]',
+    standalone: false
 })
 export class CheckRolesDirective implements OnInit {
   @Input() cognitoCheckRoles: { roles: string[], condition: 'AND' | 'OR' } = { roles: [], condition: 'AND' }

@@ -2,16 +2,17 @@ import { Component, ElementRef, forwardRef, OnInit, QueryList, Renderer2, ViewCh
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
-  selector: 'wormhole-rating',
-  templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => RatingComponent),
-      multi: true
-    }
-  ]
+    selector: 'wormhole-rating',
+    templateUrl: './rating.component.html',
+    styleUrls: ['./rating.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => RatingComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class RatingComponent implements ControlValueAccessor {
   @ViewChildren('star') stars: QueryList<ElementRef<HTMLButtonElement>> = new QueryList<ElementRef<HTMLButtonElement>>()

@@ -4,9 +4,10 @@ import { PeopleService } from '../people.service';
 import { Person } from '../person.model';
 
 @Component({
-  selector: 'wormhole-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.scss']
+    selector: 'wormhole-person',
+    templateUrl: './person.component.html',
+    styleUrls: ['./person.component.scss'],
+    standalone: false
 })
 export class PersonComponent implements OnInit {
   personId: string = ''

@@ -8,10 +8,11 @@ import { StarshipSelectors } from '../starships-state/selectors'
 import { StarshipsModuleState } from '../starships-state/starships.reducer'
 
 @Component({
-  selector: 'wormhole-starship',
-  templateUrl: './starship.component.html',
-  styleUrls: ['./starship.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'wormhole-starship',
+    templateUrl: './starship.component.html',
+    styleUrls: ['./starship.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class StarshipComponent implements OnInit{
   starship$: Observable<Starship | null> = this.store.select(StarshipSelectors.selectStarship)

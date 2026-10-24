@@ -5,9 +5,10 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms'
 import { take } from 'rxjs'
 
 @Component({
-  selector: 'wormhole-films',
-  templateUrl: './films.component.html',
-  styleUrls: ['./films.component.scss']
+    selector: 'wormhole-films',
+    templateUrl: './films.component.html',
+    styleUrls: ['./films.component.scss'],
+    standalone: false
 })
 export class FilmsComponent implements OnInit {
   films: Film[] = []

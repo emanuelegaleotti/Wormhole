@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 
 @Component({
-  selector: 'lorentz-pager',
-  templateUrl: './pager.component.html',
-  styleUrls: ['./pager.component.scss']
+    selector: 'lorentz-pager',
+    templateUrl: './pager.component.html',
+    styleUrls: ['./pager.component.scss'],
+    standalone: false
 })
 export class PagerComponent implements OnChanges {
   @Input() totalItems: number = 0

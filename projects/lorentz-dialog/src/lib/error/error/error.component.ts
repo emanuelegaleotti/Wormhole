@@ -7,15 +7,14 @@ import { TranslocoModule } from '@ngneat/transloco'
 import { Observable } from 'rxjs'
 
 @Component({
-  selector: 'lorentz-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss'],
-  imports: [
-    NgIf,
-    AsyncPipe,
-    TranslocoModule
-  ],
-  standalone: true
+    selector: 'lorentz-error',
+    templateUrl: './error.component.html',
+    styleUrls: ['./error.component.scss'],
+    imports: [
+        NgIf,
+        AsyncPipe,
+        TranslocoModule
+    ]
 })
 export class ErrorComponent{
   error$: Observable<{ error: any }>

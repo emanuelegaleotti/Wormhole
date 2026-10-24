@@ -4,9 +4,10 @@ import { TranslocoService } from '@ngneat/transloco'
 import { LocalStorageService } from 'ngx-webstorage'
 
 @Component({
-  selector: 'wormhole-locale-selector',
-  templateUrl: './locale-selector.component.html',
-  styleUrls: ['./locale-selector.component.scss']
+    selector: 'wormhole-locale-selector',
+    templateUrl: './locale-selector.component.html',
+    styleUrls: ['./locale-selector.component.scss'],
+    standalone: false
 })
 export class LocaleSelectorComponent implements OnInit {
   locale: { label: string, value: string }[] = [

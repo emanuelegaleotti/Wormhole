@@ -3,7 +3,8 @@ import { loadRemoteModule } from '@angular-architects/module-federation'
 import { error } from 'ng-packagr/lib/utils/log'
 
 @Directive({
-  selector: '[lorentzSetComponent]'
+    selector: '[lorentzSetComponent]',
+    standalone: false
 })
 export class SetComponentDirective implements OnInit {
   @Input() lorentzSetComponent: string = ''
