@@ -1,6 +1,5 @@
 import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core'
 import { loadRemoteModule } from '@angular-architects/module-federation'
-import { error } from 'ng-packagr/lib/utils/log'
 
 @Directive({
     selector: '[lorentzSetComponent]',
