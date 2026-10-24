@@ -30,7 +30,7 @@ import { appRoutes } from './app-routing.module'
     SharedModule,
     HttpClientModule,
     StoreModule.forRoot(AppReducer, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production , connectInZone: true}),
     EffectsModule.forRoot([]),
     MatDialogModule,
     TranslocoRootModule,
