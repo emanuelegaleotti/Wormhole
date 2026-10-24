@@ -1,7 +1,5 @@
 import { inject } from '@angular/core'
-import {
-  HttpRequest, HttpErrorResponse, HttpHandlerFn, HttpEvent
-} from '@angular/common/http'
+import { HttpRequest, HttpErrorResponse, HttpHandlerFn, HttpEvent } from '@angular/common/http'
 import { catchError, finalize, Observable, throwError } from 'rxjs'
 import { Store } from '@ngrx/store'
 import { LoaderActions } from '../loader-state/actions/loader.action'
