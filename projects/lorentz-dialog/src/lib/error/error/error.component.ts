@@ -18,10 +18,12 @@ import { Observable } from 'rxjs'
   standalone: true
 })
 export class ErrorComponent{
-  error$: Observable<{ error: any }> = this.store.select(ErrorSelectors.selectError)
+  error$: Observable<{ error: any }>
   constructor (
     public readonly store: Store
-  ) { }
+  ) {
+    this.error$ = this.store.select(ErrorSelectors.selectError)
+  }
 
   closeModal():void{
     this.store.dispatch(ErrorActions.close_dialog())

@@ -17,11 +17,13 @@ import { AsyncPipe } from '@angular/common'
   standalone: true
 })
 export class SnackbarComponent {
-  message$: Observable<string> = this.store.select(SnackbarSelectors.selectMessage)
+  message$: Observable<string>
 
   constructor (
     private readonly store: Store
-  ) {}
+  ) {
+    this.message$ = this.store.select(SnackbarSelectors.selectMessage)
+  }
 
   close (): void {
     this.store.dispatch(SnackbarActions.close_snackbar())

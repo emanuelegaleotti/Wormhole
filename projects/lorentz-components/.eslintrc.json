@@ -20,7 +20,10 @@
           "error",
           {
             "type": "attribute",
-            "prefix": ["lib", "lorentz"],
+            "prefix": [
+              "lib",
+              "lorentz"
+            ],
             "style": "camelCase"
           }
         ],
@@ -28,7 +31,10 @@
           "error",
           {
             "type": "element",
-            "prefix": ["lib", "lorentz"],
+            "prefix": [
+              "lib",
+              "lorentz"
+            ],
             "style": "kebab-case"
           }
         ]
