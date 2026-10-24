@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Vehicle } from '../vehicle.model';
 import { VehiclesService } from '../vehicles.service';
 
@@ -6,6 +6,7 @@ import { VehiclesService } from '../vehicles.service';
     selector: 'app-vehicles',
     templateUrl: './vehicles.component.html',
     styleUrls: ['./vehicles.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class VehiclesComponent implements OnInit {

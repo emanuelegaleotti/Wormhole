@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Weather } from '../weather.model';
 import { WeatherService } from '../weather.service';
 
@@ -6,6 +6,7 @@ import { WeatherService } from '../weather.service';
     selector: 'app-weather',
     templateUrl: './weather.component.html',
     styleUrls: ['./weather.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class WeatherComponent implements OnInit {

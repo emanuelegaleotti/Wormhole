@@ -2,11 +2,11 @@
     <dt>City:</dt>
     <dd>{{weather?.name}}</dd>
     <dt>Temperature:</dt>
-    <dd>{{weather?.temp | toCelsius}}</dd>
+    <dd>{{$safeNavigationMigration(weather?.temp) | toCelsius}}</dd>
     <dt>Min Temperature:</dt>
-    <dd>{{weather?.temp_min | toCelsius}}</dd>
+    <dd>{{$safeNavigationMigration(weather?.temp_min) | toCelsius}}</dd>
     <dt>Max Temperature:</dt>
-    <dd>{{weather?.temp_max | toCelsius}}</dd>
+    <dd>{{$safeNavigationMigration(weather?.temp_max) | toCelsius}}</dd>
     <dt>Humidity:</dt>
     <dd>{{weather?.humidity}}</dd>
     <dt>Pressure:</dt>

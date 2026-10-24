@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Planet } from '../planet-model'
 import { PlanetsService } from '../planets.service'
@@ -7,6 +7,7 @@ import { PlanetsService } from '../planets.service'
     selector: 'wormhole-planet',
     templateUrl: './planet.component.html',
     styleUrls: ['./planet.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PlanetComponent implements OnInit {

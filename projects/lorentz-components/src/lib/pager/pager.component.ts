@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ChangeDetectionStrategy } from '@angular/core'
 
 @Component({
     selector: 'lorentz-pager',
     templateUrl: './pager.component.html',
     styleUrls: ['./pager.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PagerComponent implements OnChanges {

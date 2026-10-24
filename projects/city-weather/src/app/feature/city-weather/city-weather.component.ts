@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { WeatherService } from '../weather.service'
@@ -8,6 +8,7 @@ import { Weather } from '../weather.model'
     selector: 'app-city-weather',
     templateUrl: './city-weather.component.html',
     styleUrls: ['./city-weather.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CityWeatherComponent  {

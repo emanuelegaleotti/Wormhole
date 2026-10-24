@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { FilmService } from '../film.service'
 import { Film } from '../film.model'
 import { FormArray, FormControl, FormGroup } from '@angular/forms'
@@ -8,6 +8,7 @@ import { take } from 'rxjs'
     selector: 'wormhole-films',
     templateUrl: './films.component.html',
     styleUrls: ['./films.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FilmsComponent implements OnInit {

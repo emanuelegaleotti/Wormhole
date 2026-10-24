@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { ErrorSelectors } from '../error-state/selectors'
 import { ErrorActions } from '../error-state/actions/error.action'
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs'
     selector: 'lorentz-error',
     templateUrl: './error.component.html',
     styleUrls: ['./error.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
         NgIf,
         AsyncPipe,

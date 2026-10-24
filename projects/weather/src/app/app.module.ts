@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,5 +12,5 @@ import { SharedModule } from './shared/shared.module';
     ],
     exports: [WeatherComponent],
     bootstrap: [AppComponent], imports: [BrowserModule,
-        SharedModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        SharedModule], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule { }

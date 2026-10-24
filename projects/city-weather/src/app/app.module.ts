@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module'
 import { CityWeatherComponent } from './feature/city-weather/city-weather.component'
 import { ReactiveFormsModule } from '@angular/forms'
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http'
 
 @NgModule({ declarations: [
         AppComponent,
@@ -14,5 +14,5 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     exports: [CityWeatherComponent],
     bootstrap: [AppComponent], imports: [BrowserModule,
         SharedModule,
-        ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        ReactiveFormsModule], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PersonActions } from '../people-state/actions';
@@ -11,6 +11,7 @@ import { Person } from '../person.model';
     selector: 'wormhole-people',
     templateUrl: './people.component.html',
     styleUrls: ['./people.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PeopleComponent implements OnInit {

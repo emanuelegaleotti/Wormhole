@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core'
+import { Component, ElementRef, forwardRef, OnInit, QueryList, Renderer2, ViewChildren, ChangeDetectionStrategy } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
@@ -12,6 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
             multi: true
         }
     ],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RatingComponent implements ControlValueAccessor {

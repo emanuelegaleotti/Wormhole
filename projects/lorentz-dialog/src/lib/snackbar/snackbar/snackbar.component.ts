@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ChangeDetectionStrategy } from '@angular/core'
 import {  Observable } from 'rxjs'
 import { Store } from '@ngrx/store'
 import { SnackbarActions } from '../snackbar-state/actions/snackbar.action'
@@ -10,6 +10,7 @@ import { AsyncPipe } from '@angular/common'
     selector: 'lorentz-snackbar',
     templateUrl: './snackbar.component.html',
     styleUrls: ['./snackbar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
         AsyncPipe,
         TranslocoModule

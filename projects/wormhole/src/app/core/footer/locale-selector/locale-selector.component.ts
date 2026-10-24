@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { TranslocoService } from '@ngneat/transloco'
 import { LocalStorageService } from 'ngx-webstorage'
@@ -7,6 +7,7 @@ import { LocalStorageService } from 'ngx-webstorage'
     selector: 'wormhole-locale-selector',
     templateUrl: './locale-selector.component.html',
     styleUrls: ['./locale-selector.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LocaleSelectorComponent implements OnInit {
