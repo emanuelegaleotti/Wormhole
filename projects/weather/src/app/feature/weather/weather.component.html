@@ -1,22 +1,29 @@
 @if (weather(); as w) {
-  <dl>
-    <dt>City:</dt>
-    <dd>{{w.name}}</dd>
-    <dt>Temperature:</dt>
-    <dd>{{w.temp | toCelsius}}</dd>
-    <dt>Min Temperature:</dt>
-    <dd>{{w.temp_min | toCelsius}}</dd>
-    <dt>Max Temperature:</dt>
-    <dd>{{w.temp_max | toCelsius}}</dd>
-    <dt>Humidity:</dt>
-    <dd>{{w.humidity}}</dd>
-    <dt>Pressure:</dt>
-    <dd>{{w.pressure}}</dd>
-  </dl>
-  @for (d of w.weather; track $index) {
+  <section class="weather">
+    <header>
+      <h5>{{w.name}}</h5>
+      <p class="temperature">{{w.temp | toCelsius}}</p>
+      @for (d of w.weather; track $index) {
+        <p class="condition">{{d.main}} <small>{{d.description}}</small></p>
+      }
+    </header>
     <dl>
-      <dt>{{d.main}}</dt>
-      <dd>{{d.description}}</dd>
+      <div>
+        <dt>Min</dt>
+        <dd>{{w.temp_min | toCelsius}}</dd>
+      </div>
+      <div>
+        <dt>Max</dt>
+        <dd>{{w.temp_max | toCelsius}}</dd>
+      </div>
+      <div>
+        <dt>Humidity</dt>
+        <dd>{{w.humidity}} %</dd>
+      </div>
+      <div>
+        <dt>Pressure</dt>
+        <dd>{{w.pressure}} hPa</dd>
+      </div>
     </dl>
-  }
+  </section>
 }

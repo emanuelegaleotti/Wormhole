@@ -1,0 +1,67 @@
+.weather {
+  display: grid;
+  gap: var(--wormhole-space-xs, 1.5rem);
+}
+
+header {
+  display: grid;
+  gap: var(--wormhole-space-4xs, .25rem);
+
+  h5,
+  p {
+    margin: 0;
+  }
+
+  h5 {
+    color: var(--wormhole-primary, #e3b72d);
+    font-family: var(--wormhole-font-title);
+    font-size: var(--wormhole-size-lg, 1rem);
+    font-weight: normal;
+    letter-spacing: var(--wormhole-tracking-md, .15em);
+    text-transform: uppercase;
+  }
+
+  .temperature {
+    font-family: var(--wormhole-font-title);
+    font-size: var(--wormhole-size-4xl, 2rem);
+    line-height: 1.1;
+  }
+
+  .condition {
+    letter-spacing: var(--wormhole-tracking-sm, .1em);
+    text-transform: uppercase;
+
+    small {
+      color: var(--wormhole-grey-xl, #8d9b98);
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: var(--wormhole-space-2xs, 1rem);
+  margin: 0;
+
+  div {
+    display: grid;
+    gap: var(--wormhole-space-4xs, .25rem);
+    padding: var(--wormhole-space-2xs, 1rem);
+    border: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+    background: color-mix(in srgb, var(--wormhole-grey-xs, #050607) 55%, transparent);
+  }
+
+  dt {
+    color: var(--wormhole-grey-xl, #8d9b98);
+    font-size: var(--wormhole-size-xs, .75rem);
+    letter-spacing: var(--wormhole-tracking-md, .15em);
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    font-size: var(--wormhole-size-xl, 1.125rem);
+  }
+}
