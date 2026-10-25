@@ -1,0 +1,5 @@
+// Font stacks, exposed as --wormhole-font-*. Cinzel is bundled in assets/fonts (OFL).
+$fonts: (
+  body: ('Ubuntu', 'Helvetica Neue', sans-serif),
+  title: ('Cinzel', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif)
+) !default;

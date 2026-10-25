@@ -1,22 +1,22 @@
-@use "../abstract/functions" as fn;
+@use "../abstract/tokens" as t;
 
 dl {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: var(--wormhole-space-4xs) var(--wormhole-space-xs);
-  margin: 0 0 var(--wormhole-space-2xs);
+  gap: t.space("4xs") t.space(xs);
+  margin: 0 0 t.space("2xs");
 
   dt {
-    color: var(--wormhole-text-muted);
-    font-size: fn.toRem(12);
-    letter-spacing: .2em;
+    color: t.token(text-muted);
+    font-size: t.size(xs);
+    letter-spacing: t.tracking(md);
     text-transform: uppercase;
     align-self: center;
   }
 
   dd {
     margin: 0;
-    font-size: fn.toRem(17);
+    font-size: t.size(xl);
   }
 }
 

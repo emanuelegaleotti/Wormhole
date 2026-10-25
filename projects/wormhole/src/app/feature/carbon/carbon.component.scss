@@ -1,17 +1,21 @@
+wormhole-card {
+  grid-column: span 4;
+}
+
 .carbon-value {
   margin: 0 0 var(--wormhole-space-3xs);
   color: var(--wormhole-accent);
   font-family: var(--wormhole-font-title);
-  font-size: 2rem;
+  font-size: var(--wormhole-size-4xl);
   font-weight: 300;
-  letter-spacing: .08em;
-  text-shadow: 0 0 1.5rem var(--wormhole-accent-glow);
+  letter-spacing: var(--wormhole-tracking-xs);
+  text-shadow: 0 0 var(--wormhole-space-xs) var(--wormhole-accent-glow);
 
   small {
     color: var(--wormhole-text-muted);
     font-family: var(--wormhole-font-body);
-    font-size: .8rem;
-    letter-spacing: .15em;
+    font-size: var(--wormhole-size-sm);
+    letter-spacing: var(--wormhole-tracking-sm);
   }
 }
 
@@ -22,7 +26,7 @@
 
 .carbon-index {
   font-weight: 500;
-  letter-spacing: .15em;
+  letter-spacing: var(--wormhole-tracking-sm);
   text-transform: uppercase;
 
   &-very-low, &-low { color: var(--wormhole-success); }
@@ -31,35 +35,47 @@
 }
 
 .carbon-mix {
+  grid-template-columns: 5rem minmax(3rem, 1fr) 3.5rem;
+  align-items: center;
+  gap: var(--wormhole-space-3xs) var(--wormhole-space-2xs);
   margin: 0;
-  padding: 0;
-  list-style: none;
+  font-size: var(--wormhole-size-md);
 
-  li {
-    display: grid;
-    grid-template-columns: 6rem 1fr 3.5rem;
-    align-items: center;
-    gap: .75rem;
-    margin-bottom: .6rem;
-    font-size: .9rem;
+  dt {
+    color: var(--wormhole-text-muted);
+    font-size: inherit;
+    letter-spacing: var(--wormhole-tracking-sm);
   }
-}
 
-.carbon-fuel {
-  color: var(--wormhole-text-muted);
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
+  dd {
+    margin: 0;
+    font-size: inherit;
+  }
 
-.carbon-bar {
-  height: 2px;
-  background: var(--wormhole-border);
-
-  span {
+  meter {
     display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
-    box-shadow: 0 0 .6rem var(--wormhole-accent-glow);
-    transition: width .8s ease-out;
+    width: 100%;
+    height: 2px;
+    border: 0;
+    background: var(--wormhole-border);
+    appearance: none;
+
+    &::-webkit-meter-bar {
+      height: 2px;
+      border: 0;
+      border-radius: var(--wormhole-radius-none);
+      background: var(--wormhole-border);
+    }
+
+    &::-webkit-meter-optimum-value,
+    &::-webkit-meter-suboptimum-value,
+    &::-webkit-meter-even-less-good-value {
+      background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
+      box-shadow: 0 0 var(--wormhole-space-3xs) var(--wormhole-accent-glow);
+    }
+
+    &::-moz-meter-bar {
+      background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
+    }
   }
 }

@@ -21,7 +21,7 @@
 @keyframes dialog-in {
   from {
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY(var(--wormhole-space-2xs, 1rem));
   }
 }
 

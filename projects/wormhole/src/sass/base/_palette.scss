@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:string";
 
 // Winden palette: cold cave blacks, fog greens and the yellow raincoat.
 $void: #050607;
@@ -11,6 +12,8 @@ $bone: #d9d6cc;
 $raincoat: #e3b72d;
 $ember: #c2492b;
 $moss: #6f9a7c;
+$teal: #344e4e;
+$amber: #46300c;
 $white: #ffffff;
 $black: #000000;
 
@@ -25,6 +28,8 @@ $colors: (
   raincoat: $raincoat,
   ember: $ember,
   moss: $moss,
+  teal: $teal,
+  amber: $amber,
   white: $white,
   black: $black
 ) !default;
@@ -41,7 +46,31 @@ $tokens: (
   accent: $raincoat,
   accent-contrast: $void,
   danger: $ember,
-  success: $moss
+  success: $moss,
+  accent-glow: color.change($raincoat, $alpha: .35),
+  accent-soft: color.change($raincoat, $alpha: .08),
+  danger-glow: color.change($ember, $alpha: .35),
+  mist: color.change($fog, $alpha: .09),
+  atmosphere-cold: color.change($teal, $alpha: .45),
+  atmosphere-warm: color.change($amber, $alpha: .35),
+  overlay-veil: color.change($black, $alpha: .35),
+  overlay-shade: color.change($black, $alpha: .55),
+  overlay-dim: color.change($black, $alpha: .72),
+  overlay-curtain: color.change($void, $alpha: .88)
 ) !default;
 
-$accent-glow: color.change($raincoat, $alpha: .35);
+// Composed values (shadows, dialog contract) built on top of the tokens.
+$shadows: (
+  panel: 0 1rem 2.5rem color.change($black, $alpha: .55),
+  panel-hover: (0 1rem 2.5rem color.change($black, $alpha: .55), 0 0 2rem color.change($raincoat, $alpha: .08)),
+  dialog: (0 0 4rem color.change($black, $alpha: .85), 0 0 1px $raincoat),
+  dialog-danger: (0 0 4rem color.change($black, $alpha: .85), 0 0 2.5rem color.change($ember, $alpha: .35)),
+  snackbar: 0 1rem 2.5rem color.change($black, $alpha: .7)
+) !default;
+
+// Frame used as border-image: steel edges with raincoat corner marks (the titles' framing).
+@function svg-hex($c) {
+  @return "%23" + string.slice("#{$c}", 2);
+}
+
+$frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='.5' y='.5' width='23' height='23' stroke='#{svg-hex($steel)}' stroke-opacity='.55'/%3E%3Cpath d='M.5 8V.5H8M16 .5h7.5V8M23.5 16v7.5H16M8 23.5H.5V16' stroke='#{svg-hex($raincoat)}'/%3E%3C/svg%3E") !default;

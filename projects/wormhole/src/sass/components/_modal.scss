@@ -1,11 +1,13 @@
+@use "../abstract/tokens" as t;
+
 // Content blocks for the dialogs opened through DialogService.
 .wormhole-dialog-header {
-  padding: var(--wormhole-space-2xs) var(--wormhole-space-xs);
-  border-bottom: 1px solid var(--wormhole-border);
+  padding: t.space("2xs") t.space(xs);
+  border-bottom: 1px solid t.token(border);
 }
 
 .wormhole-dialog-body {
-  padding: var(--wormhole-space-xs);
+  padding: t.space(xs);
   min-width: min(22rem, 80vw);
 
   p {
@@ -16,16 +18,16 @@
 .wormhole-dialog-footer {
   display: flex;
   justify-content: flex-end;
-  gap: var(--wormhole-space-2xs);
-  padding: var(--wormhole-space-2xs) var(--wormhole-space-xs);
-  border-top: 1px solid var(--wormhole-border);
+  gap: t.space("2xs");
+  padding: t.space("2xs") t.space(xs);
+  border-top: 1px solid t.token(border);
 }
 
 .wormhole-dialog-error {
-  --wormhole-dialog-border-color: var(--wormhole-ember);
-  --wormhole-dialog-shadow: 0 0 4rem rgb(0 0 0 / 85%), 0 0 2.5rem rgb(194 73 43 / 35%);
+  --wormhole-dialog-border-color: #{t.token(danger)};
+  --wormhole-dialog-shadow: #{t.shadow(dialog-danger)};
 
   .wormhole-dialog-header h4 {
-    color: var(--wormhole-ember);
+    color: t.token(danger);
   }
 }

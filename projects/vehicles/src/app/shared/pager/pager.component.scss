@@ -15,18 +15,22 @@
 
     li {
       display: inline-block;
-      padding: var(--wormhole-space-3xs) var(--wormhole-space-2xs);
 
-      &.active a {
-        color: var(--wormhole-accent, #e3b72d);
-        text-shadow: 0 0 .8rem var(--wormhole-accent-glow, rgb(227 183 45 / 35%));
-        border-bottom: 1px solid var(--wormhole-accent, #e3b72d);
+      .page {
+        min-height: var(--wormhole-space-md, 2.5rem);
+        border-color: transparent;
+
+        &[aria-current="page"] {
+          color: var(--wormhole-accent, #e3b72d);
+          text-shadow: 0 0 var(--wormhole-space-2xs, 1rem) var(--wormhole-accent-glow, rgb(227 183 45 / 35%));
+          border-bottom-color: var(--wormhole-accent, #e3b72d);
+        }
       }
     }
   }
 
   button {
-    min-height: 2.5rem;
+    min-height: var(--wormhole-space-md, 2.5rem);
     padding: 0 var(--wormhole-space-2xs);
   }
 }

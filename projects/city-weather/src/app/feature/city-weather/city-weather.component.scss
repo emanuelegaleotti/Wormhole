@@ -4,4 +4,9 @@ form {
   align-items: end;
   gap: var(--wormhole-space-2xs);
   margin-bottom: var(--wormhole-space-xs);
+
+  label {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
 }

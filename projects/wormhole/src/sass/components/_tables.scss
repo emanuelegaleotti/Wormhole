@@ -1,31 +1,31 @@
-@use "../abstract/functions" as fn;
+@use "../abstract/tokens" as t;
 
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid var(--wormhole-border);
-  background: var(--wormhole-surface);
+  border: 1px solid t.token(border);
+  background: t.token(surface);
 
   th, td {
-    padding: var(--wormhole-space-2xs);
+    padding: t.space("2xs");
     text-align: left;
   }
 
   thead tr {
-    border-bottom: 1px solid var(--wormhole-accent);
+    border-bottom: 1px solid t.token(accent);
 
     th {
-      color: var(--wormhole-accent);
-      font-family: var(--wormhole-font-title);
-      font-size: fn.toRem(13);
+      color: t.token(accent);
+      font-family: t.font(title);
+      font-size: t.size(sm);
       font-weight: 400;
-      letter-spacing: .3em;
+      letter-spacing: t.tracking(lg);
       text-transform: uppercase;
     }
   }
 
   tbody tr {
-    border-bottom: 1px solid var(--wormhole-border);
+    border-bottom: 1px solid t.token(border);
     transition: background-color .3s;
 
     &:last-child {
@@ -33,7 +33,7 @@ table {
     }
 
     &:hover {
-      background: rgb(227 183 45 / 7%);
+      background: t.token(accent-soft);
     }
   }
 }

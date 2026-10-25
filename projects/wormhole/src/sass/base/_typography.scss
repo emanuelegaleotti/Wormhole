@@ -1,6 +1,13 @@
-@use "../abstract/functions" as fn;
+@use "../abstract/tokens" as t;
 
 $font-url: "../../assets/fonts/";
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url($font-url + "Cinzel.ttf");
+  font-weight: 400 900;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Ubuntu';
@@ -59,17 +66,17 @@ $font-url: "../../assets/fonts/";
 }
 
 .wormhole-text-1 {
-  font-size: fn.toRem(18);
+  font-size: t.size(xl);
 }
 
 .wormhole-text-2 {
-  font-size: fn.toRem(16);
+  font-size: t.size(lg);
 }
 
 .wormhole-text-3 {
-  font-size: fn.toRem(14);
+  font-size: t.size(md);
 }
 
 .wormhole-text-4 {
-  font-size: fn.toRem(12);
+  font-size: t.size(xs);
 }

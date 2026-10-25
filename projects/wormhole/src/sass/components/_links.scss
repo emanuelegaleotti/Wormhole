@@ -1,11 +1,13 @@
+@use "../abstract/tokens" as t;
+
 a {
-  color: var(--wormhole-text);
+  color: t.token(text);
   text-decoration: none;
   cursor: pointer;
   transition: color .3s, text-shadow .3s;
 
   &:hover {
-    color: var(--wormhole-accent);
-    text-shadow: 0 0 .8rem var(--wormhole-accent-glow);
+    color: t.token(accent);
+    text-shadow: 0 0 t.space("2xs") t.token(accent-glow);
   }
 }

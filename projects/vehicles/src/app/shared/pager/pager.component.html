@@ -1,13 +1,16 @@
-<div class="lorenz-pager">
-  <button type="button" (click)="setPage(1)"><<</button>
-  <button type="button" (click)="setPage(currentPage() - 1)"><</button>
+<nav class="lorenz-pager" aria-label="Pagination">
+  <button type="button" (click)="setPage(1)" aria-label="First page"><<</button>
+  <button type="button" (click)="setPage(currentPage() - 1)" aria-label="Previous page"><</button>
   <ul class="pagination">
     @for (p of pages(); track p) {
-      <li [class.active]="p === currentPage()">
-        <a (click)="setPage(p)">{{p}}</a>
+      <li>
+        <button type="button"
+                class="page"
+                [attr.aria-current]="p === currentPage() ? 'page' : null"
+                (click)="setPage(p)">{{p}}</button>
       </li>
     }
   </ul>
-  <button type="button" (click)="setPage(currentPage() + 1)">></button>
-  <button type="button" (click)="setPage(pagesLength())">>></button>
-</div>
+  <button type="button" (click)="setPage(currentPage() + 1)" aria-label="Next page">></button>
+  <button type="button" (click)="setPage(pagesLength())" aria-label="Last page">>></button>
+</nav>

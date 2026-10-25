@@ -22,8 +22,8 @@ aside {
       padding: var(--wormhole-space-4xs) 0;
       color: var(--wormhole-text-muted);
       font-family: var(--wormhole-font-title);
-      font-size: .85rem;
-      letter-spacing: .3em;
+      font-size: var(--wormhole-size-md);
+      letter-spacing: var(--wormhole-tracking-lg);
       text-transform: uppercase;
 
       &::after {

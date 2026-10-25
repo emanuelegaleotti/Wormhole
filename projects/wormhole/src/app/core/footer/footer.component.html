@@ -1,9 +1,9 @@
 <footer class="wormhole-grid"
         *transloco="let t">
-  <p class="quote">
+  <blockquote class="quote">
     <wormhole-triquetra></wormhole-triquetra>
-    <span>{{t('footer.quote')}}</span>
-  </p>
+    {{t('footer.quote')}}
+  </blockquote>
   <nav class="site-map">
     <ul>
       <li><a routerLinkActive="active" routerLink="/vehicles">{{t('menu.vehicles')}}</a></li>
@@ -11,5 +11,5 @@
     </ul>
   </nav>
   <wormhole-locale-selector></wormhole-locale-selector>
-  <p class="author">By: Emanuele Galeotti</p>
+  <small class="author">By: Emanuele Galeotti</small>
 </footer>

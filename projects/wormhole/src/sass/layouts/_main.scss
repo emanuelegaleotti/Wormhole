@@ -1,5 +1,6 @@
 @use "../abstract/mixins" as mixins;
 @use "../abstract/variables" as vars;
+@use "../abstract/tokens" as t;
 
 main {
   position: relative;
@@ -13,7 +14,7 @@ main {
   }
 
   section {
-    padding-top: var(--wormhole-space-sm);
-    padding-bottom: var(--wormhole-space-3xl);
+    padding-top: t.space(sm);
+    padding-bottom: t.space("3xl");
   }
 }

@@ -31,7 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Standalone components only (no NgModule), zoneless change detection, signals, `@use` Sass, no Angular Material.
 
 ## Theme
-Visual identity inspired by the Netflix series *Dark*: Winden palette (void black, fog grey, raincoat yellow), serif uppercase titles, film grain, vignette, drifting fog and the triquetra symbol. Colours and spacing are CSS custom properties (`--wormhole-*`) shared with the micro frontends.
+Visual identity inspired by the Netflix series *Dark*: Winden palette (void black, fog grey, raincoat yellow), serif uppercase titles, film grain, vignette, drifting fog and the triquetra symbol. Titles use Cinzel (OFL, bundled in `assets/fonts`). Design tokens live in Sass maps (palette, spaces, sizes for font sizes, radius, tracking, fonts, shadows): global styles read the maps through `abstract/tokens` accessors, while components consume the generated CSS custom properties (`--wormhole-*`), also shared with the micro frontends.
 
 ## Dialogs
 `DialogService` (`core/dialog`) follows the approach of `angular-develop-universe`: `createDialog(Component, { id, className, dialogData })` builds a container hosting a native `<dialog>` opened with `showModal()`, injects the component with an `dialogData` input binding and exposes `whenOpen/whenOpened/whenClose/whenClosed`; then `show()` / `hide(data)`. Styling via `--wormhole-dialog-*` variables.

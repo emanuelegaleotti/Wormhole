@@ -1,0 +1,8 @@
+// Letter spacing scale, exposed as --wormhole-tracking-*.
+$tracking: (
+  xs: .05em,
+  sm: .15em,
+  md: .25em,
+  lg: .3em,
+  xl: .4em
+) !default;

@@ -1,15 +1,15 @@
-<div class="wormhole-card">
-  <div class="wormhole-card-header"
-       #header
-       [hidden]="!header?.hasChildNodes()">
+<article class="wormhole-card">
+  <header class="wormhole-card-header"
+          #header
+          [hidden]="!header?.hasChildNodes()">
     <ng-content select="[card-header]"></ng-content>
-  </div>
+  </header>
   <div class="wormhole-card-body">
     <ng-content select="[card-body]"></ng-content>
   </div>
-  <div class="wormhole-card-footer"
-       #footer
-       [hidden]="!footer?.hasChildNodes()">
+  <footer class="wormhole-card-footer"
+          #footer
+          [hidden]="!footer?.hasChildNodes()">
     <ng-content select="[card-footer]"></ng-content>
-  </div>
-</div>
+  </footer>
+</article>

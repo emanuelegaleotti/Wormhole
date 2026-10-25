@@ -1,8 +1,8 @@
 @if (isOpen()) {
-  <div class="snackbar" role="status" *transloco="let t">
-    <span>{{message()}}</span>
+  <output class="snackbar" *transloco="let t">
+    {{message()}}
     <button type="button" (click)="close()">
       {{t('button.close')}}
     </button>
-  </div>
+  </output>
 }

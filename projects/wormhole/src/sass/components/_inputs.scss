@@ -1,16 +1,16 @@
-@use "../abstract/functions" as fn;
 @use "../abstract/mixins" as mixins;
 @use "../abstract/variables" as vars;
+@use "../abstract/tokens" as t;
 
 label {
   display: block;
-  margin-bottom: var(--wormhole-space-3xs);
+  margin-bottom: t.space("3xs");
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--wormhole-text-muted);
-  font-size: fn.toRem(12);
-  letter-spacing: .25em;
+  color: t.token(text-muted);
+  font-size: t.size(xs);
+  letter-spacing: t.tracking(md);
   text-transform: uppercase;
 }
 
@@ -18,25 +18,25 @@ input,
 select {
   width: 100%;
   min-height: vars.$input-height;
-  padding: 0 var(--wormhole-space-2xs);
-  border: 1px solid var(--wormhole-border);
-  border-bottom-color: var(--wormhole-border-strong);
-  border-radius: 0;
-  background: rgb(0 0 0 / 35%);
-  color: var(--wormhole-text);
-  font-family: var(--wormhole-font-body);
-  font-size: fn.toRem(16);
-  letter-spacing: .05em;
+  padding: 0 t.space("2xs");
+  border: 1px solid t.token(border);
+  border-bottom-color: t.token(border-strong);
+  border-radius: t.radius(none);
+  background: t.token(overlay-veil);
+  color: t.token(text);
+  font-family: t.font(body);
+  font-size: t.size(lg);
+  letter-spacing: t.tracking(xs);
   transition: border-color .3s, box-shadow .3s;
-  @include mixins.placeholder(var(--wormhole-text-muted));
+  @include mixins.placeholder(t.token(text-muted));
 
   &:focus {
-    border-color: var(--wormhole-accent);
-    box-shadow: 0 0 1.2rem var(--wormhole-accent-glow);
+    border-color: t.token(accent);
+    box-shadow: 0 0 t.space("2xs") t.token(accent-glow);
   }
 }
 
 select option {
-  background: var(--wormhole-night);
-  color: var(--wormhole-text);
+  background: t.hue(night);
+  color: t.token(text);
 }

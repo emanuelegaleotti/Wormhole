@@ -4,7 +4,7 @@ header {
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--wormhole-border);
-  background: linear-gradient(180deg, rgb(0 0 0 / 70%), transparent);
+  background: linear-gradient(180deg, var(--wormhole-overlay-dim), transparent);
 
   &::after {
     content: "";
@@ -17,11 +17,9 @@ header {
     opacity: .6;
   }
 
-  nav {
-    align-items: center;
-    padding-top: var(--wormhole-space-2xs);
-    padding-bottom: var(--wormhole-space-2xs);
-  }
+  align-items: center;
+  padding-top: var(--wormhole-space-2xs);
+  padding-bottom: var(--wormhole-space-2xs);
 
   h1 {
     grid-column: 1 / -1;
@@ -33,18 +31,15 @@ header {
       display: inline-flex;
       align-items: center;
       gap: var(--wormhole-space-2xs);
+      animation: wormhole-flicker 7s infinite;
     }
   }
 
   .brand-mark {
-    font-size: 2.2rem;
+    font-size: var(--wormhole-size-4xl);
     color: var(--wormhole-accent);
-    filter: drop-shadow(0 0 .6rem var(--wormhole-accent-glow));
+    filter: drop-shadow(0 0 var(--wormhole-space-3xs) var(--wormhole-accent-glow));
     animation: wormhole-spin 40s linear infinite;
-  }
-
-  .brand-name {
-    animation: wormhole-flicker 7s infinite;
   }
 
   .tagline {
@@ -52,9 +47,9 @@ header {
     margin: 0;
     color: var(--wormhole-text-muted);
     font-family: var(--wormhole-font-title);
-    font-size: .85rem;
+    font-size: var(--wormhole-size-md);
     font-style: italic;
-    letter-spacing: .3em;
+    letter-spacing: var(--wormhole-tracking-lg);
     text-transform: uppercase;
     @include mixins.media-breakpoint-up(md) {
       grid-column: 7 / -1;
@@ -76,7 +71,7 @@ header {
 
 @media (prefers-reduced-motion: reduce) {
   header .brand-mark,
-  header .brand-name {
+  header h1 a {
     animation: none;
   }
 }

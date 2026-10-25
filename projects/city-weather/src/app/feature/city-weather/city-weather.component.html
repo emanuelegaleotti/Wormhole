@@ -1,15 +1,13 @@
 <form (submit)="getWeather($event)">
-  <div class="wormhole-input">
-    <label for="search-city"
-           class="wormhole-text-1">City:</label>
-    <input type="text"
-           id="search-city"
-           class="wormhole-text-1"
-           placeholder="Insert city to search"
-           required
-           [value]="city()"
-           (input)="city.set($any($event.target).value)">
-  </div>
+  <label for="search-city"
+         class="wormhole-text-1">City:</label>
+  <input type="text"
+         id="search-city"
+         class="wormhole-text-1"
+         placeholder="Insert city to search"
+         required
+         [value]="city()"
+         (input)="city.set($any($event.target).value)">
   <button type="submit"
           class="wormhole-btn wormhole-btn-primary">Cerca</button>
 </form>
@@ -35,5 +33,5 @@
     </dl>
   }
 } @else {
-  Nessuna città selezionata
+  <p>Nessuna città selezionata</p>
 }

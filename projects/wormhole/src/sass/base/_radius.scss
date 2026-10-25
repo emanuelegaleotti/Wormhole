@@ -1,5 +1,9 @@
+@use "../abstract/functions" as fn;
+
+// Border radius scale, exposed as --wormhole-radius-*. The Dark look is square-cut, hence "none" is the default.
 $radius: (
-  sm: 2rem,
-  md: 2.5rem,
-  lg: 3rem,
+  none: 0,
+  sm: fn.toRem(2),
+  md: fn.toRem(4),
+  lg: fn.toRem(8)
 ) !default;

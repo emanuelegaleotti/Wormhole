@@ -2,7 +2,7 @@
          *transloco="let t">
   @if (error()) {
     <wormhole-card>
-      <p card-body class="carbon-error">{{t('carbon.error')}}</p>
+      <p card-body class="carbon-error" role="alert">{{t('carbon.error')}}</p>
     </wormhole-card>
   } @else {
     <wormhole-card>
@@ -12,9 +12,9 @@
           <p class="carbon-value">{{currentValue() | number}} <small>{{t('carbon.unit')}}</small></p>
           <p>{{t('carbon.forecast')}}: {{data.intensity.forecast | number}} {{t('carbon.unit')}}</p>
           <p>{{t('carbon.index')}}:
-            <span class="carbon-index" [class]="'carbon-index-' + indexKey().replace(' ', '-')">
+            <strong class="carbon-index" [class]="'carbon-index-' + indexKey().replace(' ', '-')">
               {{t('carbon.indexes.' + indexKey())}}
-            </span>
+            </strong>
           </p>
         }
       </div>
@@ -22,15 +22,13 @@
     </wormhole-card>
     <wormhole-card>
       <h4 card-header>{{t('carbon.mix')}}</h4>
-      <ul card-body class="carbon-mix">
+      <dl card-body class="carbon-mix">
         @for (item of mix(); track item.fuel) {
-          <li>
-            <span class="carbon-fuel">{{item.fuel}}</span>
-            <span class="carbon-bar"><span [style.width.%]="item.perc"></span></span>
-            <span>{{item.perc | number:'1.0-1'}}%</span>
-          </li>
+          <dt>{{item.fuel}}</dt>
+          <dd><meter min="0" max="100" [value]="item.perc" [attr.aria-label]="item.fuel"></meter></dd>
+          <dd><data [value]="item.perc">{{item.perc | number:'1.0-1'}}%</data></dd>
         }
-      </ul>
+      </dl>
     </wormhole-card>
     <wormhole-card>
       <h4 card-header>{{t('carbon.calculator')}}</h4>
@@ -38,9 +36,9 @@
         <label for="carbon-kwh">{{t('carbon.kwh')}}</label>
         <input id="carbon-kwh" type="number" min="0" step="any"
                [value]="kwh()" (input)="kwh.set($any($event.target).valueAsNumber)">
-        <p class="carbon-value">
+        <output for="carbon-kwh" class="carbon-value">
           {{t('carbon.result')}}: {{emissions() | number:'1.0-1'}} {{t('carbon.grams')}}
-        </p>
+        </output>
       </div>
     </wormhole-card>
   }
