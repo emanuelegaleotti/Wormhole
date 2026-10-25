@@ -2,19 +2,19 @@
          *transloco="let t">
   <wormhole-card>
     <h4 card-header>{{t('homepage.weather.title')}}</h4>
-    <div [lorentzSetComponent]="'WeatherComponent'"
-         [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
-         [remoteName]="'weather'"
-         card-body
-    ></div>
+    <ng-container [lorentzSetComponent]="'WeatherComponent'"
+                  [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
+                  [remoteName]="'weather'"
+                  ngProjectAs="[card-body]"
+    ></ng-container>
   </wormhole-card>
   <wormhole-card>
     <h4 card-header>{{t('homepage.cityWeather.title')}}</h4>
-    <div [lorentzSetComponent]="'CityWeatherComponent'"
-         [remoteUrl]="'http://localhost:3600/cityWeatherEntry.js'"
-         [remoteName]="'cityWeather'"
-         card-body
-    ></div>
+    <ng-container [lorentzSetComponent]="'CityWeatherComponent'"
+                  [remoteUrl]="'http://localhost:3600/cityWeatherEntry.js'"
+                  [remoteName]="'cityWeather'"
+                  ngProjectAs="[card-body]"
+    ></ng-container>
   </wormhole-card>
   <header>
     <h2>{{t('homepage.timelines.title')}}</h2>
@@ -22,26 +22,26 @@
   </header>
   <wormhole-card class="timeline">
     <h4 card-header>1953</h4>
-    <div [lorentzSetComponent]="'Timeline1953Component'"
-         [remoteUrl]="'http://localhost:3953/timeline1953Entry.js'"
-         [remoteName]="'timeline1953'"
-         card-body
-    ></div>
+    <ng-container [lorentzSetComponent]="'Timeline1953Component'"
+                  [remoteUrl]="'http://localhost:3953/timeline1953Entry.js'"
+                  [remoteName]="'timeline1953'"
+                  ngProjectAs="[card-body]"
+    ></ng-container>
   </wormhole-card>
   <wormhole-card class="timeline">
     <h4 card-header>1986</h4>
-    <div [lorentzSetComponent]="'Timeline1986Component'"
-         [remoteUrl]="'http://localhost:3986/timeline1986Entry.js'"
-         [remoteName]="'timeline1986'"
-         card-body
-    ></div>
+    <ng-container [lorentzSetComponent]="'Timeline1986Component'"
+                  [remoteUrl]="'http://localhost:3986/timeline1986Entry.js'"
+                  [remoteName]="'timeline1986'"
+                  ngProjectAs="[card-body]"
+    ></ng-container>
   </wormhole-card>
   <wormhole-card class="timeline">
     <h4 card-header>2019</h4>
-    <div [lorentzSetComponent]="'Timeline2019Component'"
-         [remoteUrl]="'http://localhost:4019/timeline2019Entry.js'"
-         [remoteName]="'timeline2019'"
-         card-body
-    ></div>
+    <ng-container [lorentzSetComponent]="'Timeline2019Component'"
+                  [remoteUrl]="'http://localhost:4019/timeline2019Entry.js'"
+                  [remoteName]="'timeline2019'"
+                  ngProjectAs="[card-body]"
+    ></ng-container>
   </wormhole-card>
 </section>
