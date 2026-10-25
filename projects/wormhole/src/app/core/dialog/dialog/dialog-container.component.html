@@ -1,0 +1,8 @@
+<dialog #dialog
+        class="wormhole-dialog"
+        [class]="dialogConfig()?.className ?? ''"
+        [id]="dialogConfig()?.id ?? ''"
+        (click)="onClick($event)"
+        (close)="onNativeClose()">
+  <ng-container #outlet />
+</dialog>

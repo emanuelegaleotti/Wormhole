@@ -1,38 +1,32 @@
 .lorenz-pager {
   display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: auto auto 2fr auto auto;
+  grid-template-columns: auto auto 1fr auto auto;
   align-items: center;
   justify-content: center;
-
-  h4 {
-    grid-column: 1/6;
-  }
+  margin-top: var(--wormhole-space-xs);
 
   .pagination {
-    list-style: none;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0;
     padding-left: 0;
+    list-style: none;
 
     li {
       display: inline-block;
-      padding: var(--wormhole-space-2xs);
+      padding: var(--wormhole-space-3xs) var(--wormhole-space-2xs);
 
-      &:not(:last-child) {
-        margin-right: var(--wormhole-space-3xs);
-      }
-
-      &.active {
-        color: blue;
-      }
-
-      a {
+      &.active a {
+        color: var(--wormhole-accent, #e3b72d);
+        text-shadow: 0 0 .8rem var(--wormhole-accent-glow, rgb(227 183 45 / 35%));
+        border-bottom: 1px solid var(--wormhole-accent, #e3b72d);
       }
     }
   }
 
   button {
-    padding: var(--wormhole-space-2xs);
+    min-height: 2.5rem;
+    padding: 0 var(--wormhole-space-2xs);
   }
 }

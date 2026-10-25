@@ -1,0 +1,32 @@
+.wormhole-dialog {
+  max-width: min(36rem, 92vw);
+  padding: var(--wormhole-dialog-padding, 0);
+  border: var(--wormhole-dialog-border, 1px solid);
+  border-color: var(--wormhole-dialog-border-color, #3a4540);
+  border-radius: var(--wormhole-dialog-border-radius, 0);
+  background: var(--wormhole-dialog-background, #0d1011);
+  color: var(--wormhole-dialog-color, #d9d6cc);
+  box-shadow: var(--wormhole-dialog-shadow, 0 0 4rem rgb(0 0 0 / 80%));
+
+  &[open] {
+    animation: dialog-in .35s ease-out;
+  }
+
+  &::backdrop {
+    background: var(--wormhole-dialog-backdrop-background, rgb(0 0 0 / 80%));
+    backdrop-filter: blur(3px);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wormhole-dialog[open] {
+    animation: none;
+  }
+}

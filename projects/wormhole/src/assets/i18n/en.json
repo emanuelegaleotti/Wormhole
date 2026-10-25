@@ -12,7 +12,17 @@
   },
   "button": {
     "detail": "Detail",
-    "back": "Back"
+    "back": "Back",
+    "close": "Close"
+  },
+  "header": {
+    "tagline": "Everything is connected"
+  },
+  "footer": {
+    "quote": "Sic mundus creatus est"
+  },
+  "loader": {
+    "loading": "Loading"
   },
   "homepage": {
     "weather": {

@@ -1,10 +1,25 @@
 @use "../abstract/functions" as fn;
 
 dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--wormhole-space-4xs) var(--wormhole-space-xs);
+  margin: 0 0 var(--wormhole-space-2xs);
+
   dt {
-    font-size: fn.toRem(14);
+    color: var(--wormhole-text-muted);
+    font-size: fn.toRem(12);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    align-self: center;
   }
-  dd{
-    font-size: fn.toRem(18);
+
+  dd {
+    margin: 0;
+    font-size: fn.toRem(17);
   }
+}
+
+p {
+  margin-top: 0;
 }

@@ -1,26 +1,80 @@
 @use "../abstract/functions" as fn;
-@use "../base/palette";
+
+// Film grain and vignette, drawn once on top of the whole app.
+$grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
 html {
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+  scrollbar-color: var(--wormhole-steel) var(--wormhole-void);
 
   body {
+    position: relative;
     margin: 0;
     padding: 0;
-    background-color: palette.$ash-gray-100;
-    color: palette.$raisin-black-800;
-    font-size: fn.toRem(18);
-    font-weight: 400;
-    font-family: 'Ubuntu', sans-serif;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgb(52 78 78 / 45%), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 50% 115%, rgb(70 48 12 / 35%), transparent 70%),
+      var(--wormhole-void);
+    background-attachment: fixed;
+    color: var(--wormhole-text);
+    font-size: fn.toRem(17);
+    font-weight: 300;
+    font-family: var(--wormhole-font-body);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+
+    &::before,
+    &::after {
+      content: "";
+      position: fixed;
+      inset: -10%;
+      z-index: 9000;
+      pointer-events: none;
+    }
+
+    &::before {
+      background-image: $grain;
+      opacity: .09;
+      mix-blend-mode: overlay;
+      animation: wormhole-grain 1.2s steps(6) infinite;
+    }
+
+    &::after {
+      background: radial-gradient(ellipse at center, transparent 45%, rgb(0 0 0 / 70%) 100%);
+    }
   }
+}
+
+::selection {
+  background: var(--wormhole-accent);
+  color: var(--wormhole-accent-contrast);
 }
 
 * {
   &:focus {
     outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--wormhole-accent);
+    outline-offset: 3px;
+  }
+}
+
+@keyframes wormhole-grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body::before {
+    animation: none;
   }
 }

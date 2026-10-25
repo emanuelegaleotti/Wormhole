@@ -2,18 +2,33 @@
 @use "palette";
 @use "spaces";
 
-:root{
+:root {
+  color-scheme: dark;
+
   @each $color, $value in palette.$colors {
     --wormhole-#{$color}: #{$value};
+  }
+  @each $token, $value in palette.$tokens {
+    --wormhole-#{$token}: #{$value};
   }
   @each $size, $space in spaces.$spaces {
     --wormhole-space-#{$size}: #{$space};
   }
-  @each $name, $color in palette.$ash-grays {
-    wormhole-#{$name}: #{$color};
-  }
-  --wormhole-border-radius: #{vars.$border-radius} ;
-  --wormhole-border-radius-xl: #{vars.$border-radius-xl} ;
+
+  --wormhole-accent-glow: #{palette.$accent-glow};
+  --wormhole-border-radius: #{vars.$border-radius};
+  --wormhole-border-radius-xl: #{vars.$border-radius-xl};
+  --wormhole-font-body: 'Ubuntu', 'Helvetica Neue', sans-serif;
+  --wormhole-font-title: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+
+  // Same contract as the dialogs of angular-develop-universe, themed for Winden.
+  --wormhole-dialog-background: #{palette.$night};
+  --wormhole-dialog-border: 1px solid;
+  --wormhole-dialog-border-color: #{palette.$steel};
+  --wormhole-dialog-border-radius: 0;
+  --wormhole-dialog-color: #{palette.$bone};
+  --wormhole-dialog-shadow: 0 0 4rem rgb(0 0 0 / 85%), 0 0 1px #{palette.$raincoat};
+  --wormhole-dialog-backdrop-background: rgb(2 3 3 / 82%);
 }
 
 *, *::before, *::after {

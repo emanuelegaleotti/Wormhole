@@ -1,44 +1,65 @@
 .carbon-value {
-  font-size: 1.5rem;
-  font-weight: bold;
+  margin: 0 0 var(--wormhole-space-3xs);
+  color: var(--wormhole-accent);
+  font-family: var(--wormhole-font-title);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1.5rem var(--wormhole-accent-glow);
+
+  small {
+    color: var(--wormhole-text-muted);
+    font-family: var(--wormhole-font-body);
+    font-size: .8rem;
+    letter-spacing: .15em;
+  }
+}
+
+.carbon-error {
+  margin: 0;
+  color: var(--wormhole-danger);
 }
 
 .carbon-index {
-  font-weight: bold;
-  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 
-  &-very-low, &-low { color: #2e7d32; }
-  &-moderate { color: #f9a825; }
-  &-high, &-very-high { color: #c62828; }
+  &-very-low, &-low { color: var(--wormhole-success); }
+  &-moderate { color: var(--wormhole-accent); }
+  &-high, &-very-high { color: var(--wormhole-danger); }
 }
 
 .carbon-mix {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 
   li {
     display: grid;
     grid-template-columns: 6rem 1fr 3.5rem;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
+    gap: .75rem;
+    margin-bottom: .6rem;
+    font-size: .9rem;
   }
 }
 
 .carbon-fuel {
-  text-transform: capitalize;
+  color: var(--wormhole-text-muted);
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 .carbon-bar {
-  background: #e0e0e0;
-  height: 0.5rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
+  height: 2px;
+  background: var(--wormhole-border);
 
   span {
     display: block;
     height: 100%;
-    background: #2e7d32;
+    background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
+    box-shadow: 0 0 .6rem var(--wormhole-accent-glow);
+    transition: width .8s ease-out;
   }
 }

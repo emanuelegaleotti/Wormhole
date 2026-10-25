@@ -1,5 +1,6 @@
 @if (loading() > 0) {
-  <div class="loader">
-    <p>Loader...</p>
+  <div class="loader" role="status" aria-live="polite" *transloco="let t">
+    <wormhole-triquetra class="loader-mark"></wormhole-triquetra>
+    <p>{{t('loader.loading')}}</p>
   </div>
 }

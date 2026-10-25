@@ -7,8 +7,24 @@
   display: flex;
   align-items: center;
   gap: var(--wormhole-space-2xs);
-  padding: var(--wormhole-space-2xs) var(--wormhole-space-xs);
-  border-radius: var(--wormhole-border-radius);
-  background: var(--wormhole-raisin-black);
-  color: var(--wormhole-white);
+  padding: var(--wormhole-space-3xs) var(--wormhole-space-2xs) var(--wormhole-space-3xs) var(--wormhole-space-xs);
+  border: 1px solid var(--wormhole-border-strong);
+  border-left: 3px solid var(--wormhole-accent);
+  background: var(--wormhole-night);
+  color: var(--wormhole-text);
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 70%);
+  animation: snackbar-in .35s ease-out;
+
+  button {
+    min-height: 2rem;
+    padding: 0 var(--wormhole-space-2xs);
+    font-size: .7rem;
+  }
+}
+
+@keyframes snackbar-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
 }

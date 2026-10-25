@@ -1,12 +1,7 @@
 form {
   display: grid;
-  grid-template-columns: repeat(6,1fr);
-  grid-template-rows: auto auto;
-  .wormhole-input{
-    grid-column: 1/13;
-  }
-  button {
-    grid-column: 5/7;
-    margin-top: var(--wormhole-space-3xs);
-  }
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--wormhole-space-2xs);
+  margin-bottom: var(--wormhole-space-xs);
 }

@@ -30,6 +30,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Architecture
 Standalone components only (no NgModule), zoneless change detection, signals, `@use` Sass, no Angular Material.
 
+## Theme
+Visual identity inspired by the Netflix series *Dark*: Winden palette (void black, fog grey, raincoat yellow), serif uppercase titles, film grain, vignette, drifting fog and the triquetra symbol. Colours and spacing are CSS custom properties (`--wormhole-*`) shared with the micro frontends.
+
+## Dialogs
+`DialogService` (`core/dialog`) follows the approach of `angular-develop-universe`: `createDialog(Component, { id, className, dialogData })` builds a container hosting a native `<dialog>` opened with `showModal()`, injects the component with an `dialogData` input binding and exposes `whenOpen/whenOpened/whenClose/whenClosed`; then `show()` / `hide(data)`. Styling via `--wormhole-dialog-*` variables.
+
 ## Feature
 - Carbon footprint: carbon intensity of the electricity grid, generation mix and a kWh to gCO2 calculator (free [Carbon Intensity API](https://carbonintensity.org.uk), no key required)
 - Vehicles: micro FE exposing standalone routes (`./Routes`)
@@ -37,5 +43,5 @@ Standalone components only (no NgModule), zoneless change detection, signals, `@
 - City-Weather: micro FE component with signals
 - Lorentz event bus: library for communication between micro frontends
 - Loader: Http interceptor with ngrx and signals
-- Http error: Http interceptor
+- Http error: Http interceptor opening an error dialog through `DialogService`
 - Compodoc

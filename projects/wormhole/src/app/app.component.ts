@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { AsideComponent } from './core/aside/aside.component'
-import { ErrorComponent, SnackbarComponent } from './core/dialog'
+import { SnackbarComponent } from './core/dialog'
 import { FooterComponent } from './core/footer/footer.component'
 import { HeaderComponent } from './core/header/header.component'
 import { LoaderComponent } from './core/loader/loader.component'
@@ -16,7 +16,6 @@ import { LoaderComponent } from './core/loader/loader.component'
     AsideComponent,
     FooterComponent,
     LoaderComponent,
-    ErrorComponent,
     SnackbarComponent
   ]
 })

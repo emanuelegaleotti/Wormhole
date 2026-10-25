@@ -1,10 +1,11 @@
-@use "../base/palette";
-
 a {
+  color: var(--wormhole-text);
   text-decoration: none;
-  color: palette.$black;
+  cursor: pointer;
+  transition: color .3s, text-shadow .3s;
 
   &:hover {
-    color: palette.$bronze;
+    color: var(--wormhole-accent);
+    text-shadow: 0 0 .8rem var(--wormhole-accent-glow);
   }
 }

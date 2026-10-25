@@ -1,9 +1,11 @@
-<header>
-    <nav class="wormhole-grid">
-        <h1>
-            <a routerLink="/home">
-                Wormhole
-            </a>
-        </h1>
-    </nav>
+<header *transloco="let t">
+  <nav class="wormhole-grid">
+    <h1>
+      <a routerLink="/home">
+        <wormhole-triquetra class="brand-mark"></wormhole-triquetra>
+        <span class="brand-name">Wormhole</span>
+      </a>
+    </h1>
+    <p class="tagline">{{t('header.tagline')}}</p>
+  </nav>
 </header>

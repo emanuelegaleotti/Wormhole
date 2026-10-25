@@ -1,17 +1,25 @@
 import { inject } from '@angular/core'
 import { HttpRequest, HttpErrorResponse, HttpHandlerFn, HttpEvent } from '@angular/common/http'
-import { catchError, finalize, Observable, throwError } from 'rxjs'
-import { Store } from '@ngrx/store'
-import { ErrorActions } from '../error-state/actions/error.action'
+import { catchError, Observable, throwError } from 'rxjs'
+import { DialogService } from '../../dialog/dialog.service'
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component'
+
+const ERROR_DIALOG_ID = 'wormhole-error-dialog'
 
 export function ErrorInterceptor (req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
-  const store = inject(Store)
+  const dialogService = inject(DialogService)
 
   return next(req).pipe(
     catchError((e: HttpErrorResponse) => {
-      store.dispatch(ErrorActions.open_dialog())
-      store.dispatch(ErrorActions.store_error({ e }))
-      return throwError(e)
+      if (!dialogService.isOpen(ERROR_DIALOG_ID)) {
+        dialogService.createDialog(ErrorDialogComponent, {
+          id: ERROR_DIALOG_ID,
+          className: 'wormhole-dialog-error',
+          dialogData: e
+        })
+        dialogService.show()
+      }
+      return throwError(() => e)
     }),
   )
 }

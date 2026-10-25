@@ -1,9 +1,9 @@
 @use "../abstract/mixins" as mixins;
 @use "../abstract/variables" as vars;
-@use "../base/palette";
 
 main {
-  background-color: palette.$ash-gray-100;
+  position: relative;
+  z-index: 1;
   min-height: calc(100vh - vars.$header-xs-height);
   @include mixins.media-breakpoint-up(md) {
     min-height: calc(100vh - vars.$header-md-height);
@@ -13,7 +13,6 @@ main {
   }
 
   section {
-    background-color: palette.$ash-gray-100;
     padding-top: var(--wormhole-space-sm);
     padding-bottom: var(--wormhole-space-3xl);
   }

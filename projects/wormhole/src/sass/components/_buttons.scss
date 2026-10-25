@@ -1,27 +1,44 @@
+@use "../abstract/functions" as fn;
 @use "../abstract/variables" as vars;
-@use "../base/palette";
 
 button {
-  &.wormhole {
-    &-btn {
-      border: 2px solid palette.$black;
-      border-radius: vars.$border-radius;
-      padding-left: var(--wormhole-space-xs);
-      padding-right: var(--wormhole-space-xs);
-      height: vars.$button-height;
-      text-transform: uppercase;
-      font-weight: 700;
-      box-shadow: 2px 4px #000;
-      transition: all .3s;
-      &-primary {
-        background-color: palette.$giants-orange;
-        &:hover{
-          background-color: palette.$bronze;
-        }
-      }
-      &-outline {
-        background-color: transparent;
-      }
+  min-height: vars.$button-height;
+  padding: 0 var(--wormhole-space-xs);
+  border: 1px solid var(--wormhole-border-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--wormhole-text);
+  font-family: var(--wormhole-font-body);
+  font-size: fn.toRem(13);
+  font-weight: 500;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .3s, border-color .3s, background-color .3s, box-shadow .3s;
+
+  &:hover {
+    border-color: var(--wormhole-accent);
+    color: var(--wormhole-accent);
+    box-shadow: 0 0 1.2rem var(--wormhole-accent-glow);
+  }
+
+  &:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &.wormhole-btn-primary {
+    border-color: var(--wormhole-accent);
+    color: var(--wormhole-accent);
+
+    &:hover {
+      background: var(--wormhole-accent);
+      color: var(--wormhole-accent-contrast);
     }
+  }
+
+  &.wormhole-btn-outline {
+    border-color: var(--wormhole-border);
   }
 }

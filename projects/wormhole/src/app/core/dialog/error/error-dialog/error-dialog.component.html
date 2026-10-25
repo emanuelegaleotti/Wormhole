@@ -1,0 +1,13 @@
+<div role="alertdialog" *transloco="let t">
+  <div class="wormhole-dialog-header">
+    <h4>{{dialogData()?.status}} — {{dialogData()?.statusText}}</h4>
+  </div>
+  <div class="wormhole-dialog-body">
+    <p>{{dialogData()?.error?.message ?? dialogData()?.message}}</p>
+  </div>
+  <div class="wormhole-dialog-footer">
+    <button type="button" class="wormhole-btn wormhole-btn-primary" (click)="close()">
+      {{t('button.close')}}
+    </button>
+  </div>
+</div>

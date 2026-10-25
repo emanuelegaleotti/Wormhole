@@ -12,7 +12,17 @@
   },
   "button": {
     "detail": "Dettagli",
-    "back": "Indietro"
+    "back": "Indietro",
+    "close": "Chiudi"
+  },
+  "header": {
+    "tagline": "Tutto è connesso"
+  },
+  "footer": {
+    "quote": "Sic mundus creatus est"
+  },
+  "loader": {
+    "loading": "Caricamento"
   },
   "homepage": {
     "weather": {

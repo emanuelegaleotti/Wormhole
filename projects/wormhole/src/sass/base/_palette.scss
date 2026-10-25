@@ -1,116 +1,47 @@
-@use "../abstract/functions" as fn;
+@use "sass:color";
 
-$lavender-blush: #f3e8ee;
-$ash-gray: #bacdb0;
-$cambridge-blue: #729b79;
-$paynes-gray: #475b63;
-$raisin-black: #2e2c2f;
+// Winden palette: cold cave blacks, fog greens and the yellow raincoat.
+$void: #050607;
+$night: #0b0e10;
+$cave: #12171a;
+$slate: #1b2327;
+$steel: #3a4a4f;
+$fog: #8d9b98;
+$bone: #d9d6cc;
+$raincoat: #e3b72d;
+$ember: #c2492b;
+$moss: #6f9a7c;
 $white: #ffffff;
 $black: #000000;
-$giants-orange:#F46036;
-$bronze:#D58936;
-
 
 $colors: (
-  lavender-blush:$lavender-blush,
-  ash-gray:$ash-gray,
-  cambridge-blue:$cambridge-blue,
-  paynes-gray:$paynes-gray,
-  raisin-black:$raisin-black,
+  void: $void,
+  night: $night,
+  cave: $cave,
+  slate: $slate,
+  steel: $steel,
+  fog: $fog,
+  bone: $bone,
+  raincoat: $raincoat,
+  ember: $ember,
+  moss: $moss,
   white: $white,
-  black:$black,
-  giants-orange:$giants-orange,
-  bronze:$bronze
+  black: $black
 ) !default;
 
-$lavender-blush-100: fn.tint-color($lavender-blush, 10%);
-$lavender-blush-200: fn.tint-color($lavender-blush, 20%);
-$lavender-blush-300: fn.tint-color($lavender-blush, 30%);
-$lavender-blush-400: fn.tint-color($lavender-blush, 40%);
-$lavender-blush-500: $lavender-blush;
-$lavender-blush-600: fn.shade-color($lavender-blush, 60%);
-$lavender-blush-700: fn.shade-color($lavender-blush, 70%);
-$lavender-blush-800: fn.shade-color($lavender-blush, 80%);
-$lavender-blush-900: fn.shade-color($lavender-blush, 90%);
-
-$ash-gray-100: fn.tint-color($ash-gray, 10%);
-$ash-gray-200: fn.tint-color($ash-gray, 20%);
-$ash-gray-300: fn.tint-color($ash-gray, 30%);
-$ash-gray-400: fn.tint-color($ash-gray, 40%);
-$ash-gray-500: $ash-gray;
-$ash-gray-600: fn.shade-color($ash-gray, 60%);
-$ash-gray-700: fn.shade-color($ash-gray, 70%);
-$ash-gray-800: fn.shade-color($ash-gray, 80%);
-$ash-gray-900: fn.shade-color($ash-gray, 90%);
-
-$ash-grays: (
-  ash-gray-100:$ash-gray-100,
-  ash-gray-200:$ash-gray-200,
-  ash-gray-300:$ash-gray-300,
-  ash-gray-400:$ash-gray-400,
-  ash-gray-500:$ash-gray-500,
-  ash-gray-600:$ash-gray-600,
-  ash-gray-700:$ash-gray-700,
-  ash-gray-800:$ash-gray-800,
-  ash-gray-900:$ash-gray-900
+// Semantic tokens consumed by the components (also by the micro frontends).
+$tokens: (
+  background: $void,
+  surface: color.change($cave, $alpha: .72),
+  surface-raised: $slate,
+  border: color.change($steel, $alpha: .55),
+  border-strong: $steel,
+  text: $bone,
+  text-muted: $fog,
+  accent: $raincoat,
+  accent-contrast: $void,
+  danger: $ember,
+  success: $moss
 ) !default;
 
-$cambridge-blue-100: fn.tint-color($cambridge-blue, 10%);
-$cambridge-blue-200: fn.tint-color($cambridge-blue, 20%);
-$cambridge-blue-300: fn.tint-color($cambridge-blue, 30%);
-$cambridge-blue-400: fn.tint-color($cambridge-blue, 40%);
-$cambridge-blue-500: $cambridge-blue;
-$cambridge-blue-600: fn.shade-color($cambridge-blue, 60%);
-$cambridge-blue-700: fn.shade-color($cambridge-blue, 70%);
-$cambridge-blue-800: fn.shade-color($cambridge-blue, 80%);
-$cambridge-blue-900: fn.shade-color($cambridge-blue, 90%);
-
-$paynes-gray-100: fn.tint-color($paynes-gray, 10%);
-$paynes-gray-200: fn.tint-color($paynes-gray, 20%);
-$paynes-gray-300: fn.tint-color($paynes-gray, 30%);
-$paynes-gray-400: fn.tint-color($paynes-gray, 40%);
-$paynes-gray-500: $paynes-gray;
-$paynes-gray-600: fn.shade-color($paynes-gray, 60%);
-$paynes-gray-700: fn.shade-color($paynes-gray, 70%);
-$paynes-gray-800: fn.shade-color($paynes-gray, 80%);
-$paynes-gray-900: fn.shade-color($paynes-gray, 90%);
-
-$raisin-black-100: fn.tint-color($raisin-black, 10%);
-$raisin-black-200: fn.tint-color($raisin-black, 20%);
-$raisin-black-300: fn.tint-color($raisin-black, 30%);
-$raisin-black-400: fn.tint-color($raisin-black, 40%);
-$raisin-black-500: $raisin-black;
-$raisin-black-600: fn.shade-color($raisin-black, 60%);
-$raisin-black-700: fn.shade-color($raisin-black, 70%);
-$raisin-black-800: fn.shade-color($raisin-black, 80%);
-$raisin-black-900: fn.shade-color($raisin-black, 90%);
-
-$black-100: fn.tint-color($black, 10%);
-$black-200: fn.tint-color($black, 20%);
-$black-300: fn.tint-color($black, 30%);
-$black-400: fn.tint-color($black, 40%);
-$black-500: $black;
-$black-600: fn.shade-color($black, 60%);
-$black-700: fn.shade-color($black, 70%);
-$black-800: fn.shade-color($black, 80%);
-$black-900: fn.shade-color($black, 90%);
-
-$bronze-100: fn.tint-color($bronze, 10%);
-$bronze-200: fn.tint-color($bronze, 20%);
-$bronze-300: fn.tint-color($bronze, 30%);
-$bronze-400: fn.tint-color($bronze, 40%);
-$bronze-500: $bronze;
-$bronze-600: fn.shade-color($bronze, 60%);
-$bronze-700: fn.shade-color($bronze, 70%);
-$bronze-800: fn.shade-color($bronze, 80%);
-$bronze-900: fn.shade-color($bronze, 90%);
-
-$giants-orange-100: fn.tint-color($giants-orange, 10%);
-$giants-orange-200: fn.tint-color($giants-orange, 20%);
-$giants-orange-300: fn.tint-color($giants-orange, 30%);
-$giants-orange-400: fn.tint-color($giants-orange, 40%);
-$giants-orange-500: $giants-orange;
-$giants-orange-600: fn.shade-color($giants-orange, 60%);
-$giants-orange-700: fn.shade-color($giants-orange, 70%);
-$giants-orange-800: fn.shade-color($giants-orange, 80%);
-$giants-orange-900: fn.shade-color($giants-orange, 90%);
+$accent-glow: color.change($raincoat, $alpha: .35);

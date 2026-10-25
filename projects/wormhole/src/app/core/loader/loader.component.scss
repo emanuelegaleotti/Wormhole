@@ -1,15 +1,49 @@
 .loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  background: aliceblue;
-  height: 100%;
-  width: 100vw;
+  inset: 0;
+  z-index: 1000;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-content: center;
+  gap: var(--wormhole-space-xs);
+  background: rgb(2 3 3 / 88%);
+  backdrop-filter: blur(4px);
+  animation: loader-in .4s ease-out;
+
+  .loader-mark {
+    font-size: 5rem;
+    color: var(--wormhole-accent);
+    filter: drop-shadow(0 0 1.2rem var(--wormhole-accent-glow));
+    animation: loader-spin 6s linear infinite, loader-pulse 2.4s ease-in-out infinite;
+  }
 
   p {
-    align-self: center;
+    margin: 0;
+    color: var(--wormhole-text-muted);
+    font-family: var(--wormhole-font-title);
+    font-size: .85rem;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+    animation: loader-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes loader-in {
+  from { opacity: 0; }
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes loader-pulse {
+  50% { opacity: .35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader .loader-mark,
+  .loader p {
+    animation: none;
   }
 }
