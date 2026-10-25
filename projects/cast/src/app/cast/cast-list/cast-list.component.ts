@@ -6,6 +6,7 @@ import { PAGE_SIZE, PagerComponent } from '../../shared/pager/pager.component'
 import { CastService } from '../cast.service'
 
 @Component({
+  standalone: true,
   selector: 'app-cast-list',
   templateUrl: './cast-list.component.html',
   styleUrls: ['./cast-list.component.scss'],

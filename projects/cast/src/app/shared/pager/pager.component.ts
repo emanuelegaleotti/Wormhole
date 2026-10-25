@@ -3,6 +3,7 @@ import { Component, computed, input, linkedSignal, output } from '@angular/core'
 export const PAGE_SIZE = 10
 
 @Component({
+  standalone: true,
   selector: 'app-pager',
   templateUrl: './pager.component.html',
   styleUrls: ['./pager.component.scss']

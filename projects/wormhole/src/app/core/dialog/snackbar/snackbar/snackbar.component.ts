@@ -5,6 +5,7 @@ import { SnackbarActions } from '../snackbar-state/actions/snackbar.action'
 import { SnackbarSelectors } from '../snackbar-state/selectors'
 
 @Component({
+  standalone: true,
   selector: 'lorentz-snackbar',
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.scss'],

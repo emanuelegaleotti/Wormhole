@@ -7,6 +7,7 @@ import { HeaderComponent } from './core/header/header.component'
 import { LoaderComponent } from './core/loader/loader.component'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

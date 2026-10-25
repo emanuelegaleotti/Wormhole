@@ -4,6 +4,7 @@ import { WeatherService } from '../weather.service'
 import { ToCelsiusPipe } from '../../shared/pipes/to-celsius.pipe'
 
 @Component({
+  standalone: true,
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],

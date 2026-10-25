@@ -4,6 +4,7 @@ import { LocalStorageService } from 'ngx-webstorage'
 import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from '../../locale'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-locale-selector',
   templateUrl: './locale-selector.component.html',
   styleUrls: ['./locale-selector.component.scss'],

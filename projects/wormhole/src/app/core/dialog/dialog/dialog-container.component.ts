@@ -3,6 +3,7 @@ import { Subject } from 'rxjs'
 import { DialogModel } from './dialog.model'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-dialog-container',
   templateUrl: './dialog-container.component.html',
   styleUrl: './dialog-container.component.scss'

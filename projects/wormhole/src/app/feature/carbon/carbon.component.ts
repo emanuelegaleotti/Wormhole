@@ -7,6 +7,7 @@ import { CardComponent } from '../../shared/card/card.component'
 import { CarbonService } from './carbon.service'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-carbon',
   templateUrl: './carbon.component.html',
   styleUrls: ['./carbon.component.scss'],

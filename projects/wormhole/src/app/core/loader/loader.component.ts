@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store'
 import { LoaderSelectors } from '../dialog/loader/loader-state/selectors'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss'],

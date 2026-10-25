@@ -30,6 +30,16 @@ bus.listen('1986').pipe(takeUntilDestroyed()).subscribe(m => console.log(m.from,
 
 The home of Wormhole shows the bus at work: the `timeline-1953`, `timeline-1986` and `timeline-2019` micro frontends simulate a chat between the three timelines of Dark, passing every message through the bus.
 
+## Loading a micro frontend
+
+`SetComponentDirective` (`[lorentzSetComponent]`) loads a component exposed as `./Component` by a Module Federation remote and renders it next to the anchor. Use it on an `ng-container` so no extra element is rendered:
+
+```html
+<ng-container [lorentzSetComponent]="'WeatherComponent'"
+              [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
+              [remoteName]="'weather'"></ng-container>
+```
+
 ## Build and test
 
 ```

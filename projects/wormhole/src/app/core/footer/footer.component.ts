@@ -4,6 +4,7 @@ import { TranslocoDirective } from '@jsverse/transloco'
 import { LocaleSelectorComponent } from './locale-selector/locale-selector.component'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],

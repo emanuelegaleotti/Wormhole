@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
 import { TranslocoDirective } from '@jsverse/transloco'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-aside',
   templateUrl: './aside.component.html',
   styleUrls: ['./aside.component.scss'],

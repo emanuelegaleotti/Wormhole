@@ -3,6 +3,7 @@ import { TimelineChatComponent } from '../../../timeline-chat/timeline-chat.comp
 import { Timeline } from '../../../timeline-chat/timeline-chat.model'
 
 @Component({
+  standalone: true,
   selector: 'app-timeline-2019',
   template: '<app-timeline-chat [timeline]="timeline" />',
   styles: ':host { display: contents }',

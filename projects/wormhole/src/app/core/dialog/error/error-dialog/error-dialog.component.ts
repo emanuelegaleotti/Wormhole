@@ -4,6 +4,7 @@ import { TranslocoDirective } from '@jsverse/transloco'
 import { DialogService } from '../../dialog/dialog.service'
 
 @Component({
+  standalone: true,
   selector: 'wormhole-error-dialog',
   templateUrl: './error-dialog.component.html',
   imports: [TranslocoDirective]

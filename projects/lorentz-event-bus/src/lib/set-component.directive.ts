@@ -2,6 +2,7 @@ import { Directive, OnInit, Type, ViewContainerRef, inject, input } from '@angul
 import { loadRemoteModule } from '@angular-architects/module-federation'
 
 @Directive({
+  standalone: true,
   selector: '[lorentzSetComponent]'
 })
 export class SetComponentDirective implements OnInit {

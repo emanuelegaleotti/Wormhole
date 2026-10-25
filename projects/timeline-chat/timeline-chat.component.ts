@@ -7,6 +7,7 @@ import { ChatMessage, Recipient, Timeline, TimelineYear, TIMELINES } from './tim
 
 // One side of the chat between the timelines: everything it says and hears goes through the Lorentz event bus.
 @Component({
+  standalone: true,
   selector: 'app-timeline-chat',
   templateUrl: './timeline-chat.component.html',
   styleUrls: ['./timeline-chat.component.scss'],
