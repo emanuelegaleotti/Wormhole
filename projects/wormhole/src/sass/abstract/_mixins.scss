@@ -1,12 +1,14 @@
 @use "sass:map";
 
 $breakpoints-map: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
+  '2xs': 0,
+  xs: 414px,
+  sm: 800px,
+  md: 1280px,
   lg: 1366px,
   xl: 1536px,
-  xxl: 1920px
+  '2xl': 1920px,
+  '3xl': 2560px
 ) !default;
 
 @function breakpoint-min($name, $breakpoints: $breakpoints-map) {
@@ -25,15 +27,6 @@ $breakpoints-map: (
   }
 }
 
-@mixin full-grid() {
-  grid-column: 1/5;
-  @include media-breakpoint-up(md) {
-    grid-column: 1/9;
-  }
-  @include media-breakpoint-up(lg) {
-    grid-column: 1/13;
-  }
-}
 
 @mixin placeholder($color) {
   &::placeholder {

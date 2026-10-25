@@ -11,7 +11,7 @@ footer {
   background: linear-gradient(0deg, color-mix(in srgb, var(--wormhole-black, #000) 72%, transparent), transparent);
 
   .quote {
-    @include mixins.full-grid();
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@ footer {
   }
 
   .author {
-    @include mixins.full-grid();
+    grid-column: 1 / -1;
     margin: var(--wormhole-space-xs) 0 0;
     color: var(--wormhole-grey-xl, #8d9b98);
     font-size: var(--wormhole-size-xs);

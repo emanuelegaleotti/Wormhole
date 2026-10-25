@@ -1,10 +1,8 @@
-@use '../../../sass/abstract/mixins' as mixins;
-
 section {
   grid-template-rows: auto auto;
 
   article {
-    @include mixins.full-grid();
+    grid-column: 1 / -1;
 
     table {
       width: 100%;
@@ -43,7 +41,7 @@ section {
     }
 
     &.wormhole-alert {
-      @include mixins.full-grid();
+      grid-column: 1 / -1;
     }
   }
 }
