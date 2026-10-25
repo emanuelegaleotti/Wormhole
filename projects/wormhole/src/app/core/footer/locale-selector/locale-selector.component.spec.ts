@@ -1,23 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LocaleSelectorComponent } from './locale-selector.component';
+import { TestBed } from '@angular/core/testing'
+import { LocalStorageService } from 'ngx-webstorage'
+import { provideTestApp } from '../../../../testing/test-providers'
+import { LOCALE_STORAGE_KEY } from '../../locale'
+import { LocaleSelectorComponent } from './locale-selector.component'
 
 describe('LocaleSelectorComponent', () => {
-  let component: LocaleSelectorComponent;
-  let fixture: ComponentFixture<LocaleSelectorComponent>;
+  beforeEach(() => {
+    TestBed.configureTestingModule({ providers: provideTestApp() })
+    TestBed.inject(LocalStorageService).clear(LOCALE_STORAGE_KEY)
+  })
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LocaleSelectorComponent ]
-    })
-    .compileComponents();
+  it('should default to en-US', () => {
+    const component = TestBed.createComponent(LocaleSelectorComponent).componentInstance
+    expect(component.locale()).toBe('en-US')
+  })
 
-    fixture = TestBed.createComponent(LocaleSelectorComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('should keep the stored locale', () => {
+    TestBed.inject(LocalStorageService).store(LOCALE_STORAGE_KEY, 'it-IT')
+    const component = TestBed.createComponent(LocaleSelectorComponent).componentInstance
+    expect(component.locale()).toBe('it-IT')
+    TestBed.inject(LocalStorageService).clear(LOCALE_STORAGE_KEY)
+  })
+})

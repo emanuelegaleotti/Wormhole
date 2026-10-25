@@ -1,34 +1,32 @@
-import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core'
+import { Directive, OnInit, Type, ViewContainerRef, inject, input } from '@angular/core'
 import { loadRemoteModule } from '@angular-architects/module-federation'
 
 @Directive({
-    selector: '[lorentzSetComponent]',
-    standalone: false
+  selector: '[lorentzSetComponent]'
 })
 export class SetComponentDirective implements OnInit {
-  @Input() lorentzSetComponent: string = ''
-  @Input() remoteUrl: string = ''
-  @Input() remoteName: string = ''
+  private readonly view = inject(ViewContainerRef)
 
-  constructor (
-    private readonly view: ViewContainerRef
-  ) { }
+  readonly lorentzSetComponent = input.required<string>()
+  readonly remoteUrl = input.required<string>()
+  readonly remoteName = input.required<string>()
 
   ngOnInit (): void {
     this.loadComponent()
   }
 
-  loadComponent (): void {
-    loadRemoteModule({
+  private loadComponent (): void {
+    loadRemoteModule<Record<string, Type<unknown>>>({
       exposedModule: './Component',
-      remoteEntry: this.remoteUrl,
-     remoteName: this.remoteName
-    }).then(c => {
-        this.view.clear();
-        this.view.createComponent(c[this.lorentzSetComponent])
+      remoteEntry: this.remoteUrl(),
+      remoteName: this.remoteName()
+    }).then(
+      m => {
+        this.view.clear()
+        const ref = this.view.createComponent(m[this.lorentzSetComponent()])
+        ref.changeDetectorRef.markForCheck()
       },
-      e => {
-        console.error(e)
-      })
+      e => console.error(e)
+    )
   }
 }

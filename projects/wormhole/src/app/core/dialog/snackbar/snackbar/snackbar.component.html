@@ -1,8 +1,8 @@
-<span>
-  {{message$ | async}}
-</span>
-<span *transloco="let t">
-  <button type="button" (click)="close()">
-     {{t('button.close')}}
-  </button>
-</span>
+@if (isOpen()) {
+  <div class="snackbar" role="status" *transloco="let t">
+    <span>{{message()}}</span>
+    <button type="button" (click)="close()">
+      {{t('button.close')}}
+    </button>
+  </div>
+}

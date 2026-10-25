@@ -1,0 +1,14 @@
+.snackbar {
+  position: fixed;
+  bottom: var(--wormhole-space-xs);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--wormhole-space-2xs);
+  padding: var(--wormhole-space-2xs) var(--wormhole-space-xs);
+  border-radius: var(--wormhole-border-radius);
+  background: var(--wormhole-raisin-black);
+  color: var(--wormhole-white);
+}

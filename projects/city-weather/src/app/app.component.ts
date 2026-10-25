@@ -1,12 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core'
+import { CityWeatherComponent } from './feature/city-weather/city-weather.component'
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [CityWeatherComponent]
 })
-export class AppComponent {
-  title = 'cityWeather';
-}
+export class AppComponent {}

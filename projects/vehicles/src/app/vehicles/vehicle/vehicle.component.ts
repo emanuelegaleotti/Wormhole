@@ -1,40 +1,22 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Vehicle } from '../vehicle.model';
-import { VehiclesService } from '../vehicles.service';
+import { Component, inject } from '@angular/core'
+import { rxResource, toSignal } from '@angular/core/rxjs-interop'
+import { ActivatedRoute, RouterLink } from '@angular/router'
+import { map } from 'rxjs'
+import { VehiclesService } from '../vehicles.service'
 
 @Component({
-    selector: 'app-vehicle',
-    templateUrl: './vehicle.component.html',
-    styleUrls: ['./vehicle.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-vehicle',
+  templateUrl: './vehicle.component.html',
+  styleUrls: ['./vehicle.component.scss'],
+  imports: [RouterLink]
 })
-export class VehicleComponent implements OnInit {
-  vehicleId: string = ''
-  vehicle: Vehicle | null = null
-  constructor (
-    private readonly route: ActivatedRoute,
-    private readonly vehiclesService: VehiclesService
-  ) { }
+export class VehicleComponent {
+  private readonly vehiclesService = inject(VehiclesService)
 
-  ngOnInit (): void {
-    this.getPlanetId()
-  }
-
-  getPlanetId (): void {
-    this.route.params.subscribe(v => {
-      if (v['id']) {
-        this.vehicleId = v['id']
-        this.getPlanet()
-      }
-    })
-  }
-
-  getPlanet (): void {
-    this.vehiclesService.getVehicleById(this.vehicleId).subscribe(v => {
-      this.vehicle = v
-    })
-  }
-
+  private readonly vehicleId = toSignal(inject(ActivatedRoute).paramMap.pipe(map(p => p.get('id'))))
+  readonly vehicleResource = rxResource({
+    params: () => this.vehicleId() ?? undefined,
+    stream: ({ params }) => this.vehiclesService.getVehicleById(params)
+  })
+  readonly vehicle = this.vehicleResource.value
 }

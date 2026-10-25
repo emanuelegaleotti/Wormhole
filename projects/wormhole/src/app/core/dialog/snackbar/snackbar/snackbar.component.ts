@@ -1,29 +1,20 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core'
-import {  Observable } from 'rxjs'
+import { Component, inject } from '@angular/core'
 import { Store } from '@ngrx/store'
+import { TranslocoDirective } from '@jsverse/transloco'
 import { SnackbarActions } from '../snackbar-state/actions/snackbar.action'
 import { SnackbarSelectors } from '../snackbar-state/selectors'
-import { TranslocoModule } from '@ngneat/transloco'
-import { AsyncPipe } from '@angular/common'
 
 @Component({
-    selector: 'lorentz-snackbar',
-    templateUrl: './snackbar.component.html',
-    styleUrls: ['./snackbar.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [
-        AsyncPipe,
-        TranslocoModule
-    ]
+  selector: 'lorentz-snackbar',
+  templateUrl: './snackbar.component.html',
+  styleUrls: ['./snackbar.component.scss'],
+  imports: [TranslocoDirective]
 })
 export class SnackbarComponent {
-  message$: Observable<string>
+  private readonly store = inject(Store)
 
-  constructor (
-    private readonly store: Store
-  ) {
-    this.message$ = this.store.select(SnackbarSelectors.selectMessage)
-  }
+  readonly isOpen = this.store.selectSignal(SnackbarSelectors.selectIsOpen)
+  readonly message = this.store.selectSignal(SnackbarSelectors.selectMessage)
 
   close (): void {
     this.store.dispatch(SnackbarActions.close_snackbar())

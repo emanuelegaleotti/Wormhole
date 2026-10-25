@@ -1,8 +1,10 @@
+@use "../base/palette";
+
 a {
   text-decoration: none;
-  color: $black;
+  color: palette.$black;
 
   &:hover {
-    color: $bronze;
+    color: palette.$bronze;
   }
 }

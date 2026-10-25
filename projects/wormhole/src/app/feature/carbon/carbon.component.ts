@@ -1,46 +1,36 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core'
-import { DecimalPipe, NgClass } from '@angular/common'
-import { FormsModule } from '@angular/forms'
-import { TranslocoModule } from '@ngneat/transloco'
+import { Component, computed, inject, signal } from '@angular/core'
+import { rxResource } from '@angular/core/rxjs-interop'
+import { DecimalPipe } from '@angular/common'
+import { TranslocoDirective } from '@jsverse/transloco'
 import { forkJoin } from 'rxjs'
-import { SharedModule } from '../../shared/shared.module'
-import { CarbonIntensity, CarbonService, GenerationMixItem } from './carbon.service'
+import { CardComponent } from '../../shared/card/card.component'
+import { CarbonService } from './carbon.service'
 
 @Component({
   selector: 'wormhole-carbon',
   templateUrl: './carbon.component.html',
   styleUrls: ['./carbon.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [DecimalPipe, NgClass, FormsModule, TranslocoModule, SharedModule]
+  imports: [DecimalPipe, TranslocoDirective, CardComponent]
 })
-export class CarbonComponent implements OnInit {
-  intensity = signal<CarbonIntensity | null>(null)
-  mix = signal<GenerationMixItem[]>([])
-  error = signal(false)
-  kwh = signal(1)
+export class CarbonComponent {
+  private readonly carbonService = inject(CarbonService)
 
-  constructor (private readonly carbonService: CarbonService) {}
-
-  ngOnInit (): void {
-    forkJoin([this.carbonService.getIntensity(), this.carbonService.getGenerationMix()]).subscribe({
-      next: ([intensity, mix]) => {
-        this.intensity.set(intensity)
-        this.mix.set(mix)
-      },
-      error: () => this.error.set(true)
+  private readonly data = rxResource({
+    stream: () => forkJoin({
+      intensity: this.carbonService.getIntensity(),
+      mix: this.carbonService.getGenerationMix()
     })
-  }
+  })
 
-  get currentValue (): number {
+  readonly intensity = computed(() => this.data.value()?.intensity ?? null)
+  readonly mix = computed(() => this.data.value()?.mix ?? [])
+  readonly error = computed(() => this.data.error() !== undefined)
+  readonly kwh = signal(1)
+
+  readonly currentValue = computed(() => {
     const i = this.intensity()?.intensity
     return i?.actual ?? i?.forecast ?? 0
-  }
-
-  get emissions (): number {
-    return this.currentValue * (Number(this.kwh()) || 0)
-  }
-
-  indexKey (): string {
-    return (this.intensity()?.intensity.index ?? '').toLowerCase()
-  }
+  })
+  readonly emissions = computed(() => this.currentValue() * (this.kwh() || 0))
+  readonly indexKey = computed(() => (this.intensity()?.intensity.index ?? '').toLowerCase())
 }

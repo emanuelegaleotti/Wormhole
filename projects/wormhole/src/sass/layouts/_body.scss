@@ -1,3 +1,6 @@
+@use "../abstract/functions" as fn;
+@use "../base/palette";
+
 html {
   line-height: 1.5;
   overflow-x: hidden;
@@ -6,9 +9,9 @@ html {
   body {
     margin: 0;
     padding: 0;
-    background-color: $ash-gray-100;
-    color: $raisin-black-800;
-    font-size: toRem(18);
+    background-color: palette.$ash-gray-100;
+    color: palette.$raisin-black-800;
+    font-size: fn.toRem(18);
     font-weight: 400;
     font-family: 'Ubuntu', sans-serif;
     -webkit-text-size-adjust: 100%;

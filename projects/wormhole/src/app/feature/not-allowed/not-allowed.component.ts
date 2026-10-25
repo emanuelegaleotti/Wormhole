@@ -1,15 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core'
-import { SharedModule } from '../../shared/shared.module'
+import { Component } from '@angular/core'
+import { CardComponent } from '../../shared/card/card.component'
 
 @Component({
-    selector: 'wormhole-not-allowed',
-    templateUrl: './not-allowed.component.html',
-    styleUrls: ['./not-allowed.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [
-        SharedModule
-    ]
+  selector: 'wormhole-not-allowed',
+  templateUrl: './not-allowed.component.html',
+  styleUrls: ['./not-allowed.component.scss'],
+  imports: [CardComponent]
 })
-export class NotAllowedComponent {
-
-}
+export class NotAllowedComponent {}

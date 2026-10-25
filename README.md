@@ -27,12 +27,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
+## Architecture
+Standalone components only (no NgModule), zoneless change detection, signals, `@use` Sass, no Angular Material.
+
 ## Feature
 - Carbon footprint: carbon intensity of the electricity grid, generation mix and a kWh to gCO2 calculator (free [Carbon Intensity API](https://carbonintensity.org.uk), no key required)
-- Vehicles: crud with micro FE module
+- Vehicles: micro FE exposing standalone routes (`./Routes`)
 - Weather: micro FE components
-- City-Weather: micro fe components with reactive form
+- City-Weather: micro FE component with signals
 - Lorentz event bus: library for communication between micro frontends
-- Loader: Http interceptor with ngrx and dynamic components
+- Loader: Http interceptor with ngrx and signals
 - Http error: Http interceptor
 - Compodoc

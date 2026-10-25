@@ -9,10 +9,10 @@
       <h4 card-header>{{t('carbon.current')}}</h4>
       <div card-body>
         @if (intensity(); as data) {
-          <p class="carbon-value">{{currentValue | number}} <small>{{t('carbon.unit')}}</small></p>
+          <p class="carbon-value">{{currentValue() | number}} <small>{{t('carbon.unit')}}</small></p>
           <p>{{t('carbon.forecast')}}: {{data.intensity.forecast | number}} {{t('carbon.unit')}}</p>
           <p>{{t('carbon.index')}}:
-            <span class="carbon-index" [ngClass]="'carbon-index-' + indexKey().replace(' ', '-')">
+            <span class="carbon-index" [class]="'carbon-index-' + indexKey().replace(' ', '-')">
               {{t('carbon.indexes.' + indexKey())}}
             </span>
           </p>
@@ -37,9 +37,9 @@
       <div card-body>
         <label for="carbon-kwh">{{t('carbon.kwh')}}</label>
         <input id="carbon-kwh" type="number" min="0" step="any"
-               [ngModel]="kwh()" (ngModelChange)="kwh.set($event)">
+               [value]="kwh()" (input)="kwh.set($any($event.target).valueAsNumber)">
         <p class="carbon-value">
-          {{t('carbon.result')}}: {{emissions | number:'1.0-1'}} {{t('carbon.grams')}}
+          {{t('carbon.result')}}: {{emissions() | number:'1.0-1'}} {{t('carbon.grams')}}
         </p>
       </div>
     </wormhole-card>

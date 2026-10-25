@@ -1,55 +1,43 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ChangeDetectionStrategy } from '@angular/core'
+import { Component, computed, input, linkedSignal, output } from '@angular/core'
+
+const PAGE_SIZE = 10
 
 @Component({
-    selector: 'app-pager',
-    templateUrl: './pager.component.html',
-    styleUrls: ['./pager.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-pager',
+  templateUrl: './pager.component.html',
+  styleUrls: ['./pager.component.scss']
 })
-export class PagerComponent implements OnChanges {
-  @Input() totalItems: number = 0
-  @Input() pageIndex: number = 1
-  @Output() whenPageSelected: EventEmitter<number> = new EventEmitter()
-  pages: number[] = []
-  pagesLength: number = 0
-  currentPage: number = 1
+export class PagerComponent {
+  readonly totalItems = input(0)
+  readonly pageIndex = input(1)
+  readonly whenPageSelected = output<number>()
 
-  ngOnChanges (changes: SimpleChanges): void {
-    if (changes['totalItems']?.currentValue) {
-      this.pagesLength = this.totalItems % 10 ? (Math.floor(this.totalItems / 10)) + 1 : this.totalItems / 10
-      // this.pages = Array(this.totalItems % 10 ? (Math.floor(this.totalItems / 10)) + 1 : this.totalItems / 10).fill('').map((p, i) => i + 1)
-      this.filterPager()
-    }
-    if (changes['pageIndex']?.currentValue) {
-      this.currentPage = this.pageIndex
-      this.filterPager()
-    }
-  }
-
-  filterPager (): void {
-    this.pages = []
+  readonly currentPage = linkedSignal(() => this.pageIndex())
+  readonly pagesLength = computed(() => Math.ceil(this.totalItems() / PAGE_SIZE))
+  readonly pages = computed(() => {
+    const current = this.currentPage()
+    const length = this.pagesLength()
+    const pages: number[] = []
     let ignoredIndex = 0
-    for (let i = this.currentPage - 2; i <= this.currentPage + 2; i++) {
-      if (i > 0 && i <= this.pagesLength) {
-        this.pages.push(i)
+    for (let i = current - 2; i <= current + 2; i++) {
+      if (i > 0 && i <= length) {
+        pages.push(i)
       } else {
         ignoredIndex++
       }
     }
     for (let i = 1; i <= ignoredIndex; i++) {
-      if (this.currentPage > 2) {
-        this.pages.unshift(this.currentPage - 2 - i)
+      if (current > 2) {
+        pages.unshift(current - 2 - i)
       } else {
-        this.pages.push(this.currentPage + 2 + i)
+        pages.push(current + 2 + i)
       }
     }
-  }
+    return pages
+  })
 
   setPage (pn: number): void {
-    this.currentPage = pn
-    this.filterPager()
+    this.currentPage.set(pn)
     this.whenPageSelected.emit(pn)
   }
-
 }

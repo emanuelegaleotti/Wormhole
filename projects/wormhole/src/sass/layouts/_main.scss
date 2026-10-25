@@ -1,15 +1,19 @@
+@use "../abstract/mixins" as mixins;
+@use "../abstract/variables" as vars;
+@use "../base/palette";
+
 main {
-  background-color: $ash-gray-100;
-  min-height: calc(100vh - $header-xs-height);
-  @include media-breakpoint-up(md) {
-    min-height: calc(100vh - $header-md-height);
+  background-color: palette.$ash-gray-100;
+  min-height: calc(100vh - vars.$header-xs-height);
+  @include mixins.media-breakpoint-up(md) {
+    min-height: calc(100vh - vars.$header-md-height);
   }
-  @include media-breakpoint-up(lg) {
-    min-height: calc(100vh - $header-lg-height);
+  @include mixins.media-breakpoint-up(lg) {
+    min-height: calc(100vh - vars.$header-lg-height);
   }
 
   section {
-    background-color: $ash-gray-100;
+    background-color: palette.$ash-gray-100;
     padding-top: var(--wormhole-space-sm);
     padding-bottom: var(--wormhole-space-3xl);
   }

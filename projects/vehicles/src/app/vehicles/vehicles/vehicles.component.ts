@@ -1,35 +1,29 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Vehicle } from '../vehicle.model';
-import { VehiclesService } from '../vehicles.service';
+import { Component, computed, inject, signal } from '@angular/core'
+import { rxResource } from '@angular/core/rxjs-interop'
+import { RouterLink } from '@angular/router'
+import { TranslocoDirective } from '@jsverse/transloco'
+import { PagerComponent } from '../../shared/pager/pager.component'
+import { VehiclesService } from '../vehicles.service'
 
 @Component({
-    selector: 'app-vehicles',
-    templateUrl: './vehicles.component.html',
-    styleUrls: ['./vehicles.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-vehicles',
+  templateUrl: './vehicles.component.html',
+  styleUrls: ['./vehicles.component.scss'],
+  imports: [RouterLink, TranslocoDirective, PagerComponent]
 })
-export class VehiclesComponent implements OnInit {
+export class VehiclesComponent {
+  private readonly vehiclesService = inject(VehiclesService)
 
-  vehicles: Vehicle[] = []
-  currentPage: number = 1
-  allVehicles: number = 0
+  readonly currentPage = signal(1)
+  private readonly page = rxResource({
+    params: () => this.currentPage(),
+    stream: ({ params }) => this.vehiclesService.getVehicles(params)
+  })
 
-  constructor(private readonly vehiclesService: VehiclesService) { }
-  ngOnInit(): void {
-    this.geVehicles()
+  readonly vehicles = computed(() => this.page.value()?.results ?? [])
+  readonly allVehicles = computed(() => this.page.value()?.count ?? 0)
+
+  setPage (id: number): void {
+    this.currentPage.set(id)
   }
-
-  geVehicles(): void {
-    this.vehiclesService.getVehicles(this.currentPage).subscribe(v => {
-      this.vehicles = v.results
-      this.allVehicles = v.count
-    })
-  }
-
-  setPage(id: number): void {
-    this.currentPage = id
-    this.geVehicles()
-  }
-
 }

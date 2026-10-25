@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Swapi } from '../shared/models/swapi-model';
@@ -9,8 +9,8 @@ import { Vehicle } from './vehicle.model';
   providedIn: 'root'
 })
 export class VehiclesService {
+  private readonly http = inject(HttpClient)
 
-  constructor (private readonly http: HttpClient) { }
 
   getVehicles (idPage: number): Observable<Swapi> {
     return this.http.get<Swapi>(`${environment.swapiUrl}/vehicles/?page=${idPage}`).pipe(

@@ -1,24 +1,25 @@
-<div *transloco="let t">
-  <div class="error-modal-header" *ngIf="error$ | async as e">
-    <h4>{{e['error']?.status}} - {{e['error']?.statusText}}</h4>
-    <button type="button" (click)="closeModal()">
-      {{t('button.close')}}
-    </button>
+@if (isOpen()) {
+  <div class="error-backdrop" (click)="closeModal()">
+    <div class="error-modal"
+         role="alertdialog"
+         *transloco="let t"
+         (click)="$event.stopPropagation()">
+      <div class="error-modal-header">
+        <h4>{{error()?.status}} - {{error()?.statusText}}</h4>
+        <button type="button" (click)="closeModal()">
+          {{t('button.close')}}
+        </button>
+      </div>
+      <div class="error-modal-body">
+        <dl>
+          <dd>{{error()?.error?.message ?? error()?.message}}</dd>
+        </dl>
+      </div>
+      <div class="error-modal-footer">
+        <button type="button" (click)="closeModal()">
+          {{t('button.close')}}
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="error-modal-body" *ngIf="error$ | async as e">
-    <dl>
-      <dd *ngIf="e['error']?.error.message; else genericMessage">
-        {{e['error']?.error.message}}
-      </dd>
-      <ng-template #genericMessage>
-        <dd>{{e['error']?.message}}</dd>
-      </ng-template>
-    </dl>
-  </div>
-  <div class="error-modal-footer">
-    <button type="button" (click)="closeModal()">
-      {{t('button.close')}}
-    </button>
-  </div>
-</div>
-
+}

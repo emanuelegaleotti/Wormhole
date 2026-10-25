@@ -23,8 +23,8 @@ export const appRoutes: Routes = [
     loadChildren: () => loadRemoteModule({
       remoteEntry: 'http://localhost:3000/vehiclesEntry.js',
       remoteName: 'vehicles',
-      exposedModule: './VehiclesModule'
-    }).then(m => m.VehiclesModule)
+      exposedModule: './Routes'
+    }).then(m => m.VEHICLES_ROUTES)
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }

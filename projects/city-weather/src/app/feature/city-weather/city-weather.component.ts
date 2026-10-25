@@ -1,30 +1,26 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Component, inject, signal } from '@angular/core'
 import { WeatherService } from '../weather.service'
 import { Weather } from '../weather.model'
+import { ToCelsiusPipe } from '../../shared/pipes/to-celsius.pipe'
 
 @Component({
-    selector: 'app-city-weather',
-    templateUrl: './city-weather.component.html',
-    styleUrls: ['./city-weather.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-city-weather',
+  templateUrl: './city-weather.component.html',
+  styleUrls: ['./city-weather.component.scss'],
+  imports: [ToCelsiusPipe]
 })
-export class CityWeatherComponent  {
-  weather: Weather | null = null
-  cityForm: FormGroup = new FormGroup({
-    city: new FormControl('', [Validators.required])
-  })
-  constructor(
-    private readonly weatherService: WeatherService
-  ) { }
-  getWeather(): void {
-    this.weatherService.getWeatherByCity(
-      this.cityForm.controls['city']?.value
-    ).subscribe(r => {
-      this.weather = r
-    })
-  }
+export class CityWeatherComponent {
+  private readonly weatherService = inject(WeatherService)
 
+  readonly weather = signal<Weather | null>(null)
+  readonly city = signal('')
+
+  getWeather (event: Event): void {
+    event.preventDefault()
+    const city = this.city().trim()
+    if (!city) {
+      return
+    }
+    this.weatherService.getWeatherByCity(city).subscribe(r => this.weather.set(r))
+  }
 }

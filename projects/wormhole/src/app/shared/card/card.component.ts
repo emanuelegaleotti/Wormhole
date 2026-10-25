@@ -1,12 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
-    selector: 'wormhole-card',
-    templateUrl: './card.component.html',
-    styleUrls: ['./card.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'wormhole-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
-
-}
+export class CardComponent {}

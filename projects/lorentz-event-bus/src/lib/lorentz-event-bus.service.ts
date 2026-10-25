@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core'
 import { EventMessage } from './event-message.model'
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage'
 
@@ -10,10 +10,10 @@ export class LorentzEventBusService {
     'lorentz-event-bus',
     { detail: new EventMessage('all', 'Init event bus', 'lorentz service') })
 
-  constructor (
-    private readonly sessionStorage: SessionStorageService,
-    private readonly localStorage: LocalStorageService,
-  ) {
+  private readonly sessionStorage = inject(SessionStorageService)
+  private readonly localStorage = inject(LocalStorageService)
+
+  constructor () {
     this.dispatchEvent()
   }
 

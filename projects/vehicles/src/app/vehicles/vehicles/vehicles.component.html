@@ -2,27 +2,31 @@
   <h2>
     {{t('vehicles.vehicles.title')}}
   </h2>
-  <article *ngIf="vehicles.length; else noResult">
-    <table>
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let p of vehicles">
-        <td>{{p.id}}</td>
-        <td>{{p.name}}</td>
-        <td><a [routerLink]="p.id">Detail</a></td>
-      </tbody>
-    </table>
-    <app-pager [totalItems]="allVehicles" (whenPageSelected)="setPage($event)"></app-pager>
-  </article>
-  <ng-template #noResult>
+  @if (vehicles().length) {
+    <article>
+      <table>
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (p of vehicles(); track p.id) {
+          <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td><a [routerLink]="p.id">Detail</a></td>
+          </tr>
+        }
+        </tbody>
+      </table>
+      <app-pager [totalItems]="allVehicles()" (whenPageSelected)="setPage($event)"></app-pager>
+    </article>
+  } @else {
     <article class="wormhole-alert">
       {{t('vehicles.vehicles.noResult')}}
     </article>
-  </ng-template>
+  }
 </section>

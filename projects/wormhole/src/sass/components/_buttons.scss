@@ -1,19 +1,22 @@
+@use "../abstract/variables" as vars;
+@use "../base/palette";
+
 button {
   &.wormhole {
     &-btn {
-      border: 2px solid $black;
-      border-radius: $border-radius;
+      border: 2px solid palette.$black;
+      border-radius: vars.$border-radius;
       padding-left: var(--wormhole-space-xs);
       padding-right: var(--wormhole-space-xs);
-      height: $button-height;
+      height: vars.$button-height;
       text-transform: uppercase;
       font-weight: 700;
       box-shadow: 2px 4px #000;
       transition: all .3s;
       &-primary {
-        background-color: $giants-orange;
+        background-color: palette.$giants-orange;
         &:hover{
-          background-color: $bronze;
+          background-color: palette.$bronze;
         }
       }
       &-outline {

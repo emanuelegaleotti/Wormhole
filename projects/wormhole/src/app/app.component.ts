@@ -1,16 +1,23 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core'
+import { Component } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
+import { AsideComponent } from './core/aside/aside.component'
+import { ErrorComponent, SnackbarComponent } from './core/dialog'
+import { FooterComponent } from './core/footer/footer.component'
+import { HeaderComponent } from './core/header/header.component'
+import { LoaderComponent } from './core/loader/loader.component'
 
 @Component({
-    selector: 'wormhole-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'wormhole-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    AsideComponent,
+    FooterComponent,
+    LoaderComponent,
+    ErrorComponent,
+    SnackbarComponent
+  ]
 })
-export class AppComponent {
-  constructor (
-
-  ) {}
-
-
-}
+export class AppComponent {}

@@ -1,5 +1,6 @@
 {
   "vehicles": {
-    "title": "Vehicles"
+    "title": "Vehicles",
+    "noResult": "No vehicles found"
   }
 }

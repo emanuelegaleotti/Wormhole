@@ -1,35 +1,16 @@
 import { TestBed } from '@angular/core/testing'
-import { RouterTestingModule } from '@angular/router/testing'
+import { provideTestApp } from '../testing/test-providers'
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ]
-    }).compileComponents()
-  })
+  beforeEach(() => TestBed.configureTestingModule({ providers: provideTestApp() }))
 
-  it('should create the app', () => {
+  it('should render the layout', async () => {
     const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app).toBeTruthy()
-  })
-
-  it('should have as title \'Wormhole\'', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.title).toEqual('Wormhole')
-  })
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Wormhole app is running!')
+    await fixture.whenStable()
+    const el: HTMLElement = fixture.nativeElement
+    expect(el.querySelector('wormhole-header')).toBeTruthy()
+    expect(el.querySelector('wormhole-aside')).toBeTruthy()
+    expect(el.querySelector('wormhole-footer')).toBeTruthy()
   })
 })

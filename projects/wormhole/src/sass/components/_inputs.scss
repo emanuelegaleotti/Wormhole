@@ -1,3 +1,7 @@
+@use "../abstract/mixins" as mixins;
+@use "../abstract/variables" as vars;
+@use "../base/palette";
+
 .wormhole-input {
   label {
     text-overflow: ellipsis;
@@ -8,22 +12,22 @@
 
   input {
     width: 100%;
-    min-height: $input-height;
+    min-height: vars.$input-height;
     letter-spacing: .009375em;
     padding: 0 var(--wormhole-space-2xs);
-    border: 2px solid $black;
-    border-radius: $border-radius;
+    border: 2px solid palette.$black;
+    border-radius: vars.$border-radius;
     background: transparent;
-    @include placeholder($black-100)
+    @include mixins.placeholder(palette.$black-100);
   }
 
   select {
     width: 100%;
-    min-height: $input-height;
+    min-height: vars.$input-height;
     letter-spacing: .009375em;
     padding: 0 var(--wormhole-space-2xs);
-    border: 2px solid $black;
-    border-radius: $border-radius;
+    border: 2px solid palette.$black;
+    border-radius: vars.$border-radius;
     background: transparent;
   }
 }

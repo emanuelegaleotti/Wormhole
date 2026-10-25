@@ -1,5 +1,8 @@
+@use "sass:color";
+@use "sass:math";
+
 @function toRem($pixel) {
-  @return calc($pixel / 16)+ rem;
+  @return math.div($pixel, 16) * 1rem;
 }
 
 /// Slightly lighten a color
@@ -8,7 +11,7 @@
 /// @param {Number} $percentage - percentage of `$color` in returned color
 /// @return {Color}
 @function tint-color($color, $percentage) {
-  @return mix(#ffffff, $color, $percentage);
+  @return color.mix(#ffffff, $color, $percentage);
 }
 
 /// Slightly darken a color
@@ -17,6 +20,6 @@
 /// @param {Number} $percentage - percentage of `$color` in returned color
 /// @return {Color}
 @function shade-color($color, $percentage) {
-  @return mix(#000000, $color, $percentage);
+  @return color.mix(#000000, $color, $percentage);
 }
 

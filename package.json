@@ -25,18 +25,13 @@
   "private": true,
   "dependencies": {
     "@angular-architects/module-federation": "^22.0.0",
-    "@angular/animations": "^22.2.3",
-    "@angular/cdk": "^22.2.4",
     "@angular/common": "^22.2.3",
     "@angular/compiler": "^22.2.3",
     "@angular/core": "^22.2.3",
     "@angular/fire": "22.0.0-canary.20261023210158.sha-29ca012",
-    "@angular/forms": "^22.2.3",
-    "@angular/material": "^22.2.4",
     "@angular/platform-browser": "^22.2.3",
-    "@angular/platform-browser-dynamic": "^22.2.3",
     "@angular/router": "^22.2.3",
-    "@ngneat/transloco": "^4.3.0",
+    "@jsverse/transloco": "^8.4.0",
     "@ngrx/effects": "^22.0.1",
     "@ngrx/operators": "^22.0.1",
     "@ngrx/store": "^22.0.1",
@@ -44,8 +39,7 @@
     "firebase": "^12.18.0",
     "ngx-webstorage": "^22.0.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.1"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.2202.4",

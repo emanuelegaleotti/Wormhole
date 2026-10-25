@@ -1,23 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-
+import { TestBed } from '@angular/core/testing'
+import { provideTestApp } from '../../../testing/test-providers'
 import { FooterComponent } from './footer.component'
 
 describe('FooterComponent', () => {
-  let component: FooterComponent
-  let fixture: ComponentFixture<FooterComponent>
+  beforeEach(() => TestBed.configureTestingModule({ providers: provideTestApp() }))
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [FooterComponent]
-    })
-      .compileComponents()
-
-    fixture = TestBed.createComponent(FooterComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
-
-  it('should create', () => {
-    expect(component).toBeTruthy()
+  it('should render the navigation links and the locale selector', async () => {
+    const fixture = TestBed.createComponent(FooterComponent)
+    await fixture.whenStable()
+    const el: HTMLElement = fixture.nativeElement
+    expect(el.querySelectorAll('a').length).toBe(2)
+    expect(el.querySelector('wormhole-locale-selector')).toBeTruthy()
   })
 })

@@ -1,3 +1,5 @@
+@use "functions" as fn;
+
 $header-xs-height: 66px;
 $header-sm-height: 66px;
 $header-md-height: 66px;
@@ -5,7 +7,7 @@ $header-lg-height: 66px;
 $header-xl-height: 66px;
 $header-xxl-height: 66px;
 
-$border-radius: toRem(8);
-$border-radius-xl: toRem(32);
-$input-height: toRem(48);
-$button-height: toRem(48);
+$border-radius: fn.toRem(8);
+$border-radius-xl: fn.toRem(32);
+$input-height: fn.toRem(48);
+$button-height: fn.toRem(48);

@@ -1,18 +1,22 @@
-<dl>
+@if (weather(); as w) {
+  <dl>
     <dt>City:</dt>
-    <dd>{{weather?.name}}</dd>
+    <dd>{{w.name}}</dd>
     <dt>Temperature:</dt>
-    <dd>{{$safeNavigationMigration(weather?.temp) | toCelsius}}</dd>
+    <dd>{{w.temp | toCelsius}}</dd>
     <dt>Min Temperature:</dt>
-    <dd>{{$safeNavigationMigration(weather?.temp_min) | toCelsius}}</dd>
+    <dd>{{w.temp_min | toCelsius}}</dd>
     <dt>Max Temperature:</dt>
-    <dd>{{$safeNavigationMigration(weather?.temp_max) | toCelsius}}</dd>
+    <dd>{{w.temp_max | toCelsius}}</dd>
     <dt>Humidity:</dt>
-    <dd>{{weather?.humidity}}</dd>
+    <dd>{{w.humidity}}</dd>
     <dt>Pressure:</dt>
-    <dd>{{weather?.pressure}}</dd>
-</dl>
-<dl *ngFor="let w of weather?.weather">
-    <dt>{{w.main}}</dt>
-    <dd>{{w.description}}</dd>
-</dl>
+    <dd>{{w.pressure}}</dd>
+  </dl>
+  @for (d of w.weather; track $index) {
+    <dl>
+      <dt>{{d.main}}</dt>
+      <dd>{{d.description}}</dd>
+    </dl>
+  }
+}

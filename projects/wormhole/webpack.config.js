@@ -37,7 +37,7 @@ module.exports = {
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-        '@ngneat/transloco': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        '@jsverse/transloco': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         ...sharedMappings.getDescriptors()
       })
 

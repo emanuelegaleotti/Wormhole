@@ -1,5 +1,7 @@
+@use "spaces";
+
 @mixin margin-utility {
-  @each $size, $space in $spaces {
+  @each $size, $space in spaces.$spaces {
     &-p-#{$size} {
       margin: $space;
     }

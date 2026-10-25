@@ -1,15 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core'
-import { SharedModule } from '../../shared/shared.module'
+import { Component } from '@angular/core'
+import { CardComponent } from '../../shared/card/card.component'
 
 @Component({
-    selector: 'wormhole-not-found',
-    templateUrl: './not-found.component.html',
-    styleUrls: ['./not-found.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [
-        SharedModule
-    ]
+  selector: 'wormhole-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.scss'],
+  imports: [CardComponent]
 })
-export class NotFoundComponent {
-
-}
+export class NotFoundComponent {}

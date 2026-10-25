@@ -1,3 +1,5 @@
+@use "../abstract/functions" as fn;
+
 $font-url: "../../assets/fonts/";
 
 @font-face {
@@ -57,17 +59,17 @@ $font-url: "../../assets/fonts/";
 }
 
 .wormhole-text-1 {
-  font-size: toRem(18);
+  font-size: fn.toRem(18);
 }
 
 .wormhole-text-2 {
-  font-size: toRem(16);
+  font-size: fn.toRem(16);
 }
 
 .wormhole-text-3 {
-  font-size: toRem(14);
+  font-size: fn.toRem(14);
 }
 
 .wormhole-text-4 {
-  font-size: toRem(12);
+  font-size: fn.toRem(12);
 }

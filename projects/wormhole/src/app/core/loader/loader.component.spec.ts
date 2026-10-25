@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LoaderComponent } from './loader.component';
+import { TestBed } from '@angular/core/testing'
+import { Store } from '@ngrx/store'
+import { provideTestApp } from '../../../testing/test-providers'
+import { LoaderActions } from '../dialog/loader/loader-state/actions/loader.action'
+import { LoaderComponent } from './loader.component'
 
 describe('LoaderComponent', () => {
-  let component: LoaderComponent;
-  let fixture: ComponentFixture<LoaderComponent>;
+  beforeEach(() => TestBed.configureTestingModule({ providers: provideTestApp() }))
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LoaderComponent ]
-    })
-    .compileComponents();
+  it('should not be visible without pending requests', () => {
+    const component = TestBed.createComponent(LoaderComponent).componentInstance
+    expect(component.loading()).toBe(0)
+  })
 
-    fixture = TestBed.createComponent(LoaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('should count open and closed loaders', () => {
+    const store = TestBed.inject(Store)
+    const component = TestBed.createComponent(LoaderComponent).componentInstance
+    store.dispatch(LoaderActions.open())
+    expect(component.loading()).toBe(1)
+    store.dispatch(LoaderActions.close())
+    expect(component.loading()).toBe(0)
+  })
+})

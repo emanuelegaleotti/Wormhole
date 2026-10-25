@@ -1,36 +1,24 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Weather } from '../weather.model';
-import { WeatherService } from '../weather.service';
+import { Component, inject, signal } from '@angular/core'
+import { Weather } from '../weather.model'
+import { WeatherService } from '../weather.service'
+import { ToCelsiusPipe } from '../../shared/pipes/to-celsius.pipe'
 
 @Component({
-    selector: 'app-weather',
-    templateUrl: './weather.component.html',
-    styleUrls: ['./weather.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-weather',
+  templateUrl: './weather.component.html',
+  styleUrls: ['./weather.component.scss'],
+  imports: [ToCelsiusPipe]
 })
-export class WeatherComponent implements OnInit {
-  lat: number = 0
-  long: number = 0
-  weather: Weather | null = null
-  constructor(
-    private readonly weatherService: WeatherService
-  ) { }
+export class WeatherComponent {
+  private readonly weatherService = inject(WeatherService)
 
-  ngOnInit(): void {
-    this.getLatLong()
-  }
-  getLatLong(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.lat = position.coords.latitude
-      this.long = position.coords.longitude
-      this.getWeather()
+  readonly weather = signal<Weather | null>(null)
+
+  constructor () {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.weatherService
+        .getWeather(position.coords.latitude, position.coords.longitude)
+        .subscribe(r => this.weather.set(r))
     })
   }
-  getWeather(): void {
-    this.weatherService.getWeather(this.lat, this.long).subscribe(r => {
-      this.weather = r
-    })
-  }
-
 }

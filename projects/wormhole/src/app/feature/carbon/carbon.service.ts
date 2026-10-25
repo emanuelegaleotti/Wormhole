@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { Observable, map } from 'rxjs'
 import { environment } from '../../../environments/environment'
 
@@ -16,9 +16,9 @@ export interface GenerationMixItem {
 
 @Injectable({ providedIn: 'root' })
 export class CarbonService {
+  private readonly http = inject(HttpClient)
   private readonly baseUrl = environment.carbonIntensityUrl
 
-  constructor (private readonly http: HttpClient) {}
 
   getIntensity (): Observable<CarbonIntensity> {
     return this.http.get<{ data: CarbonIntensity[] }>(`${this.baseUrl}/intensity`)

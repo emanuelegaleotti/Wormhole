@@ -1,23 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-
+import { TestBed } from '@angular/core/testing'
+import { provideTestApp } from '../../../testing/test-providers'
 import { AsideComponent } from './aside.component'
 
 describe('AsideComponent', () => {
-  let component: AsideComponent
-  let fixture: ComponentFixture<AsideComponent>
+  beforeEach(() => TestBed.configureTestingModule({ providers: provideTestApp() }))
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AsideComponent]
-    })
-      .compileComponents()
-
-    fixture = TestBed.createComponent(AsideComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
-
-  it('should create', () => {
-    expect(component).toBeTruthy()
+  it('should render the navigation links', async () => {
+    const fixture = TestBed.createComponent(AsideComponent)
+    await fixture.whenStable()
+    expect(fixture.nativeElement.querySelectorAll('a').length).toBe(2)
   })
 })

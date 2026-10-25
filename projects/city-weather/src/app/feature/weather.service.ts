@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { map, Observable } from 'rxjs'
 import { environment } from '../../environments/environment'
 import { Weather, WeatherDetail } from './weather.model'
@@ -8,11 +8,8 @@ import { Weather, WeatherDetail } from './weather.model'
   providedIn: 'root'
 })
 export class WeatherService {
+  private readonly http = inject(HttpClient)
 
-  constructor (
-    private readonly http: HttpClient
-  ) {
-  }
 
   getWeather (lat: number, long: number): Observable<Weather> {
     return this.http.get<{ [key: string]: any }>(

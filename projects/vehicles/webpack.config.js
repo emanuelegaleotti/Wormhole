@@ -30,7 +30,7 @@ module.exports = {
       name: 'vehicles',
       filename: 'vehiclesEntry.js',
       exposes: {
-        './VehiclesModule': './projects/vehicles/src/app/vehicles/vehicles.module.ts'
+        './Routes': './projects/vehicles/src/app/vehicles/vehicles.routes.ts'
       },
       shared: {
         ...shareAll({

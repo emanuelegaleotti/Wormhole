@@ -1,8 +1,10 @@
+@use "../abstract/functions" as fn;
+
 dl {
   dt {
-    font-size: toRem(14);
+    font-size: fn.toRem(14);
   }
   dd{
-    font-size: toRem(18);
+    font-size: fn.toRem(18);
   }
 }

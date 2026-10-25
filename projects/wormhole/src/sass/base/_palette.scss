@@ -1,3 +1,5 @@
+@use "../abstract/functions" as fn;
+
 $lavender-blush: #f3e8ee;
 $ash-gray: #bacdb0;
 $cambridge-blue: #729b79;
@@ -21,25 +23,25 @@ $colors: (
   bronze:$bronze
 ) !default;
 
-$lavender-blush-100: tint-color($lavender-blush, 10%);
-$lavender-blush-200: tint-color($lavender-blush, 20%);
-$lavender-blush-300: tint-color($lavender-blush, 30%);
-$lavender-blush-400: tint-color($lavender-blush, 40%);
+$lavender-blush-100: fn.tint-color($lavender-blush, 10%);
+$lavender-blush-200: fn.tint-color($lavender-blush, 20%);
+$lavender-blush-300: fn.tint-color($lavender-blush, 30%);
+$lavender-blush-400: fn.tint-color($lavender-blush, 40%);
 $lavender-blush-500: $lavender-blush;
-$lavender-blush-600: shade-color($lavender-blush, 60%);
-$lavender-blush-700: shade-color($lavender-blush, 70%);
-$lavender-blush-800: shade-color($lavender-blush, 80%);
-$lavender-blush-900: shade-color($lavender-blush, 90%);
+$lavender-blush-600: fn.shade-color($lavender-blush, 60%);
+$lavender-blush-700: fn.shade-color($lavender-blush, 70%);
+$lavender-blush-800: fn.shade-color($lavender-blush, 80%);
+$lavender-blush-900: fn.shade-color($lavender-blush, 90%);
 
-$ash-gray-100: tint-color($ash-gray, 10%);
-$ash-gray-200: tint-color($ash-gray, 20%);
-$ash-gray-300: tint-color($ash-gray, 30%);
-$ash-gray-400: tint-color($ash-gray, 40%);
+$ash-gray-100: fn.tint-color($ash-gray, 10%);
+$ash-gray-200: fn.tint-color($ash-gray, 20%);
+$ash-gray-300: fn.tint-color($ash-gray, 30%);
+$ash-gray-400: fn.tint-color($ash-gray, 40%);
 $ash-gray-500: $ash-gray;
-$ash-gray-600: shade-color($ash-gray, 60%);
-$ash-gray-700: shade-color($ash-gray, 70%);
-$ash-gray-800: shade-color($ash-gray, 80%);
-$ash-gray-900: shade-color($ash-gray, 90%);
+$ash-gray-600: fn.shade-color($ash-gray, 60%);
+$ash-gray-700: fn.shade-color($ash-gray, 70%);
+$ash-gray-800: fn.shade-color($ash-gray, 80%);
+$ash-gray-900: fn.shade-color($ash-gray, 90%);
 
 $ash-grays: (
   ash-gray-100:$ash-gray-100,
@@ -53,62 +55,62 @@ $ash-grays: (
   ash-gray-900:$ash-gray-900
 ) !default;
 
-$cambridge-blue-100: tint-color($cambridge-blue, 10%);
-$cambridge-blue-200: tint-color($cambridge-blue, 20%);
-$cambridge-blue-300: tint-color($cambridge-blue, 30%);
-$cambridge-blue-400: tint-color($cambridge-blue, 40%);
+$cambridge-blue-100: fn.tint-color($cambridge-blue, 10%);
+$cambridge-blue-200: fn.tint-color($cambridge-blue, 20%);
+$cambridge-blue-300: fn.tint-color($cambridge-blue, 30%);
+$cambridge-blue-400: fn.tint-color($cambridge-blue, 40%);
 $cambridge-blue-500: $cambridge-blue;
-$cambridge-blue-600: shade-color($cambridge-blue, 60%);
-$cambridge-blue-700: shade-color($cambridge-blue, 70%);
-$cambridge-blue-800: shade-color($cambridge-blue, 80%);
-$cambridge-blue-900: shade-color($cambridge-blue, 90%);
+$cambridge-blue-600: fn.shade-color($cambridge-blue, 60%);
+$cambridge-blue-700: fn.shade-color($cambridge-blue, 70%);
+$cambridge-blue-800: fn.shade-color($cambridge-blue, 80%);
+$cambridge-blue-900: fn.shade-color($cambridge-blue, 90%);
 
-$paynes-gray-100: tint-color($paynes-gray, 10%);
-$paynes-gray-200: tint-color($paynes-gray, 20%);
-$paynes-gray-300: tint-color($paynes-gray, 30%);
-$paynes-gray-400: tint-color($paynes-gray, 40%);
+$paynes-gray-100: fn.tint-color($paynes-gray, 10%);
+$paynes-gray-200: fn.tint-color($paynes-gray, 20%);
+$paynes-gray-300: fn.tint-color($paynes-gray, 30%);
+$paynes-gray-400: fn.tint-color($paynes-gray, 40%);
 $paynes-gray-500: $paynes-gray;
-$paynes-gray-600: shade-color($paynes-gray, 60%);
-$paynes-gray-700: shade-color($paynes-gray, 70%);
-$paynes-gray-800: shade-color($paynes-gray, 80%);
-$paynes-gray-900: shade-color($paynes-gray, 90%);
+$paynes-gray-600: fn.shade-color($paynes-gray, 60%);
+$paynes-gray-700: fn.shade-color($paynes-gray, 70%);
+$paynes-gray-800: fn.shade-color($paynes-gray, 80%);
+$paynes-gray-900: fn.shade-color($paynes-gray, 90%);
 
-$raisin-black-100: tint-color($raisin-black, 10%);
-$raisin-black-200: tint-color($raisin-black, 20%);
-$raisin-black-300: tint-color($raisin-black, 30%);
-$raisin-black-400: tint-color($raisin-black, 40%);
+$raisin-black-100: fn.tint-color($raisin-black, 10%);
+$raisin-black-200: fn.tint-color($raisin-black, 20%);
+$raisin-black-300: fn.tint-color($raisin-black, 30%);
+$raisin-black-400: fn.tint-color($raisin-black, 40%);
 $raisin-black-500: $raisin-black;
-$raisin-black-600: shade-color($raisin-black, 60%);
-$raisin-black-700: shade-color($raisin-black, 70%);
-$raisin-black-800: shade-color($raisin-black, 80%);
-$raisin-black-900: shade-color($raisin-black, 90%);
+$raisin-black-600: fn.shade-color($raisin-black, 60%);
+$raisin-black-700: fn.shade-color($raisin-black, 70%);
+$raisin-black-800: fn.shade-color($raisin-black, 80%);
+$raisin-black-900: fn.shade-color($raisin-black, 90%);
 
-$black-100: tint-color($black, 10%);
-$black-200: tint-color($black, 20%);
-$black-300: tint-color($black, 30%);
-$black-400: tint-color($black, 40%);
+$black-100: fn.tint-color($black, 10%);
+$black-200: fn.tint-color($black, 20%);
+$black-300: fn.tint-color($black, 30%);
+$black-400: fn.tint-color($black, 40%);
 $black-500: $black;
-$black-600: shade-color($black, 60%);
-$black-700: shade-color($black, 70%);
-$black-800: shade-color($black, 80%);
-$black-900: shade-color($black, 90%);
+$black-600: fn.shade-color($black, 60%);
+$black-700: fn.shade-color($black, 70%);
+$black-800: fn.shade-color($black, 80%);
+$black-900: fn.shade-color($black, 90%);
 
-$bronze-100: tint-color($bronze, 10%);
-$bronze-200: tint-color($bronze, 20%);
-$bronze-300: tint-color($bronze, 30%);
-$bronze-400: tint-color($bronze, 40%);
+$bronze-100: fn.tint-color($bronze, 10%);
+$bronze-200: fn.tint-color($bronze, 20%);
+$bronze-300: fn.tint-color($bronze, 30%);
+$bronze-400: fn.tint-color($bronze, 40%);
 $bronze-500: $bronze;
-$bronze-600: shade-color($bronze, 60%);
-$bronze-700: shade-color($bronze, 70%);
-$bronze-800: shade-color($bronze, 80%);
-$bronze-900: shade-color($bronze, 90%);
+$bronze-600: fn.shade-color($bronze, 60%);
+$bronze-700: fn.shade-color($bronze, 70%);
+$bronze-800: fn.shade-color($bronze, 80%);
+$bronze-900: fn.shade-color($bronze, 90%);
 
-$giants-orange-100: tint-color($giants-orange, 10%);
-$giants-orange-200: tint-color($giants-orange, 20%);
-$giants-orange-300: tint-color($giants-orange, 30%);
-$giants-orange-400: tint-color($giants-orange, 40%);
+$giants-orange-100: fn.tint-color($giants-orange, 10%);
+$giants-orange-200: fn.tint-color($giants-orange, 20%);
+$giants-orange-300: fn.tint-color($giants-orange, 30%);
+$giants-orange-400: fn.tint-color($giants-orange, 40%);
 $giants-orange-500: $giants-orange;
-$giants-orange-600: shade-color($giants-orange, 60%);
-$giants-orange-700: shade-color($giants-orange, 70%);
-$giants-orange-800: shade-color($giants-orange, 80%);
-$giants-orange-900: shade-color($giants-orange, 90%);
+$giants-orange-600: fn.shade-color($giants-orange, 60%);
+$giants-orange-700: fn.shade-color($giants-orange, 70%);
+$giants-orange-800: fn.shade-color($giants-orange, 80%);
+$giants-orange-900: fn.shade-color($giants-orange, 90%);

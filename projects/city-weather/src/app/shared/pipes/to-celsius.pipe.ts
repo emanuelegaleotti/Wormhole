@@ -1,8 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
-    name: 'toCelsius',
-    standalone: false
+    name: 'toCelsius'
 })
 export class ToCelsiusPipe implements PipeTransform {
 

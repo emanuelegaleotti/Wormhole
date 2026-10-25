@@ -1,0 +1,29 @@
+.error-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.error-modal {
+  min-width: 20rem;
+  max-width: 90vw;
+  padding: var(--wormhole-space-xs);
+  border: 2px solid var(--wormhole-black);
+  border-radius: var(--wormhole-border-radius);
+  background: var(--wormhole-white);
+  box-shadow: 2px 4px #000;
+}
+
+.error-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-modal-footer {
+  text-align: right;
+}

@@ -20,7 +20,6 @@
             "outputPath": "dist/wormhole",
             "index": "projects/wormhole/src/index.html",
             "main": "projects/wormhole/src/main.ts",
-            "polyfills": "projects/wormhole/src/polyfills.ts",
             "tsConfig": "projects/wormhole/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -72,11 +71,11 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Wormhole:build:production",
+              "buildTarget": "Wormhole:build:production",
               "extraWebpackConfig": "projects/wormhole/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "Wormhole:build:development"
+              "buildTarget": "Wormhole:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -90,7 +89,7 @@
         "extract-i18n": {
           "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "Wormhole:build",
+            "buildTarget": "Wormhole:build",
             "extraWebpackConfig": "projects/wormhole/webpack.config.js"
           }
         },
@@ -98,7 +97,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/wormhole/src/test.ts",
-            "polyfills": "projects/wormhole/src/polyfills.ts",
             "tsConfig": "projects/wormhole/tsconfig.spec.json",
             "karmaConfig": "projects/wormhole/karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -107,7 +105,7 @@
               "projects/wormhole/src/assets"
             ],
             "styles": [
-              "projects/wormhole/src/styles.scss"
+              "projects/wormhole/src/sass/styles.scss"
             ],
             "scripts": []
           }
@@ -125,7 +123,7 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "browserTarget": "Wormhole:build:production"
+            "buildTarget": "Wormhole:build:production"
           }
         }
       }
@@ -147,7 +145,6 @@
             "outputPath": "dist/vehicles",
             "index": "projects/vehicles/src/index.html",
             "main": "projects/vehicles/src/main.ts",
-            "polyfills": "projects/vehicles/src/polyfills.ts",
             "tsConfig": "projects/vehicles/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -199,11 +196,11 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "vehicles:build:production",
+              "buildTarget": "vehicles:build:production",
               "extraWebpackConfig": "projects/vehicles/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "vehicles:build:development"
+              "buildTarget": "vehicles:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -216,7 +213,7 @@
         "extract-i18n": {
           "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "vehicles:build",
+            "buildTarget": "vehicles:build",
             "extraWebpackConfig": "projects/vehicles/webpack.config.js"
           }
         },
@@ -224,7 +221,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/vehicles/src/test.ts",
-            "polyfills": "projects/vehicles/src/polyfills.ts",
             "tsConfig": "projects/vehicles/tsconfig.spec.json",
             "karmaConfig": "projects/vehicles/karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -233,7 +229,7 @@
               "projects/vehicles/src/assets"
             ],
             "styles": [
-              "projects/vehicles/src/styles.scss"
+              "projects/vehicles/src/sass/styles.scss"
             ],
             "scripts": []
           }
@@ -266,7 +262,6 @@
             "outputPath": "dist/weather",
             "index": "projects/weather/src/index.html",
             "main": "projects/weather/src/main.ts",
-            "polyfills": "projects/weather/src/polyfills.ts",
             "tsConfig": "projects/weather/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -318,11 +313,11 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "weather:build:production",
+              "buildTarget": "weather:build:production",
               "extraWebpackConfig": "projects/weather/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "weather:build:development"
+              "buildTarget": "weather:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -335,7 +330,7 @@
         "extract-i18n": {
           "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "weather:build",
+            "buildTarget": "weather:build",
             "extraWebpackConfig": "projects/weather/webpack.config.js"
           }
         },
@@ -343,7 +338,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/weather/src/test.ts",
-            "polyfills": "projects/weather/src/polyfills.ts",
             "tsConfig": "projects/weather/tsconfig.spec.json",
             "karmaConfig": "projects/weather/karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -385,7 +379,6 @@
             "outputPath": "dist/city-weather",
             "index": "projects/city-weather/src/index.html",
             "main": "projects/city-weather/src/main.ts",
-            "polyfills": "projects/city-weather/src/polyfills.ts",
             "tsConfig": "projects/city-weather/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -437,11 +430,11 @@
           "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cityWeather:build:production",
+              "buildTarget": "cityWeather:build:production",
               "extraWebpackConfig": "projects/city-weather/webpack.prod.config.js"
             },
             "development": {
-              "browserTarget": "cityWeather:build:development"
+              "buildTarget": "cityWeather:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -454,7 +447,7 @@
         "extract-i18n": {
           "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "cityWeather:build",
+            "buildTarget": "cityWeather:build",
             "extraWebpackConfig": "projects/city-weather/webpack.config.js"
           }
         },
@@ -462,7 +455,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/city-weather/src/test.ts",
-            "polyfills": "projects/city-weather/src/polyfills.ts",
             "tsConfig": "projects/city-weather/tsconfig.spec.json",
             "karmaConfig": "projects/city-weather/karma.conf.js",
             "inlineStyleLanguage": "scss",

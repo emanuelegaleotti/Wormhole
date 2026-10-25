@@ -1,30 +1,27 @@
-// abstract
-
-@import "abstract/functions";
-@import "abstract/mixins";
-@import "abstract/variables";
+@use "abstract";
 
 // base
 
-@import "base/typography";
-@import "base/palette";
-@import "base/spaces";
-@import "base/grid";
-@import "base/root";
-@import "base/paddings";
-@import "base/margins";
-@import "base/utility";
+@use "base/typography";
+@use "base/palette";
+@use "base/spaces";
+@use "base/radius";
+@use "base/sizes";
+@use "base/grid";
+@use "base/root";
+@use "base/paddings";
+@use "base/margins";
+@use "base/utility";
 
 // layouts
 
-@import "layouts/body";
-@import "layouts/main";
-
+@use "layouts/body";
+@use "layouts/main";
 
 // components
 
-@import "components/inputs";
-@import "components/titles";
-@import "components/links";
-@import "components/buttons";
-@import "components/tables";
+@use "components/inputs";
+@use "components/titles";
+@use "components/links";
+@use "components/buttons";
+@use "components/tables";

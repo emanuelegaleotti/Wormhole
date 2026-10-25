@@ -1,52 +1,29 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms'
-import { TranslocoService } from '@ngneat/transloco'
+import { Component, inject, signal } from '@angular/core'
+import { TranslocoDirective } from '@jsverse/transloco'
 import { LocalStorageService } from 'ngx-webstorage'
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from '../../locale'
 
 @Component({
-    selector: 'wormhole-locale-selector',
-    templateUrl: './locale-selector.component.html',
-    styleUrls: ['./locale-selector.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'wormhole-locale-selector',
+  templateUrl: './locale-selector.component.html',
+  styleUrls: ['./locale-selector.component.scss'],
+  imports: [TranslocoDirective]
 })
-export class LocaleSelectorComponent implements OnInit {
-  locale: { label: string, value: string }[] = [
+export class LocaleSelectorComponent {
+  private readonly localStorage = inject(LocalStorageService)
+
+  readonly locales = [
     { label: 'language.it', value: 'it-IT' },
     { label: 'language.en', value: 'en-US' }
   ]
-  localeForm: FormGroup = new FormGroup({
-    locale: new FormControl('')
-  })
-
-  constructor (
-    private readonly translocoService: TranslocoService,
-    private readonly localStorage: LocalStorageService
-  ) {}
-
-  ngOnInit (): void {
-    this.initLocale()
-    this.observeLocale()
-  }
-
-  initLocale (): void {
-    const locale = this.localStorage.retrieve('WORMHOLE_LOCALE') ?? 'en-US'
-    this.translocoService.setActiveLang(locale.slice(0,2))
-    this.localeForm.controls['locale'].setValue(locale)
-  }
-
-  observeLocale (): void {
-    this.localeForm.controls['locale'].valueChanges.subscribe(v => {
-      this.setLocale(v)
-    })
-  }
+  readonly locale = signal<string>(this.localStorage.retrieve(LOCALE_STORAGE_KEY) ?? DEFAULT_LOCALE)
 
   setLocale (locale: string): void {
-    const currentLocale = this.localStorage.retrieve('WORMHOLE_LOCALE') ?? 'en-US'
-    this.localStorage.store('WORMHOLE_LOCALE', locale)
-    if (currentLocale.slice(0,2) !== locale) {
+    const currentLocale = this.locale()
+    this.locale.set(locale)
+    this.localStorage.store(LOCALE_STORAGE_KEY, locale)
+    if (currentLocale !== locale) {
       location.reload()
     }
   }
-
 }
