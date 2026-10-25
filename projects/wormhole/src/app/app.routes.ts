@@ -19,12 +19,12 @@ export const appRoutes: Routes = [
     loadComponent: () => import('./feature/carbon/carbon.component').then(c => c.CarbonComponent)
   },
   {
-    path: 'vehicles',
+    path: 'cast',
     loadChildren: () => loadRemoteModule({
-      remoteEntry: 'http://localhost:3000/vehiclesEntry.js',
-      remoteName: 'vehicles',
+      remoteEntry: 'http://localhost:3000/castEntry.js',
+      remoteName: 'cast',
       exposedModule: './Routes'
-    }).then(m => m.VEHICLES_ROUTES)
+    }).then(m => m.CAST_ROUTES)
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }

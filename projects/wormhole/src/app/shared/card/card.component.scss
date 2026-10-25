@@ -9,18 +9,18 @@
   border: 1px solid transparent;
   border-image: var(--wormhole-frame) 8 / var(--wormhole-space-3xs) stretch;
   border-radius: var(--wormhole-radius-none);
-  background: var(--wormhole-surface);
+  background: color-mix(in srgb, var(--wormhole-grey-md, #12171a) 72%, transparent);
   backdrop-filter: blur(2px);
-  box-shadow: var(--wormhole-shadow-panel);
+  box-shadow: var(--wormhole-shadow-md);
   transition: box-shadow .4s;
 
   &:hover {
-    box-shadow: var(--wormhole-shadow-panel-hover);
+    box-shadow: var(--wormhole-shadow-lg);
   }
 
   .wormhole-card-header {
     padding: var(--wormhole-space-2xs) var(--wormhole-space-xs);
-    border-bottom: 1px solid var(--wormhole-border);
+    border-bottom: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
   }
 
   .wormhole-card-body {
@@ -29,8 +29,8 @@
 
   .wormhole-card-footer {
     padding: var(--wormhole-space-3xs) var(--wormhole-space-xs);
-    border-top: 1px solid var(--wormhole-border);
-    color: var(--wormhole-text-muted);
+    border-top: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+    color: var(--wormhole-grey-xl, #8d9b98);
     font-size: var(--wormhole-size-sm);
   }
 }

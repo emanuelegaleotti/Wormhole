@@ -1,25 +1,31 @@
 @use "../abstract/variables" as vars;
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/fonts";
+@use "../base/palette";
+@use "../base/radius";
+@use "../base/sizes";
+@use "../base/spaces";
+@use "../base/tracking";
 
 button {
   min-height: vars.$button-height;
-  padding: 0 t.space(xs);
-  border: 1px solid t.token(border-strong);
-  border-radius: t.radius(none);
+  padding: 0 map.get(spaces.$spaces, xs);
+  border: 1px solid map.get(palette.$colors, secondary);
+  border-radius: map.get(radius.$radius, none);
   background: transparent;
-  color: t.token(text);
-  font-family: t.font(body);
-  font-size: t.size(sm);
+  color: map.get(palette.$greys, "2xl");
+  font-family: map.get(fonts.$fonts, body);
+  font-size: map.get(sizes.$sizes, sm);
   font-weight: 500;
-  letter-spacing: t.tracking(md);
+  letter-spacing: map.get(tracking.$tracking, md);
   text-transform: uppercase;
   cursor: pointer;
   transition: color .3s, border-color .3s, background-color .3s, box-shadow .3s;
 
   &:hover {
-    border-color: t.token(accent);
-    color: t.token(accent);
-    box-shadow: 0 0 t.space("2xs") t.token(accent-glow);
+    border-color: map.get(palette.$colors, primary);
+    color: map.get(palette.$colors, primary);
+    box-shadow: 0 0 map.get(spaces.$spaces, "2xs") color-mix(in srgb, #{map.get(palette.$colors, primary)} 35%, transparent);
   }
 
   &:disabled {
@@ -29,16 +35,16 @@ button {
   }
 
   &.wormhole-btn-primary {
-    border-color: t.token(accent);
-    color: t.token(accent);
+    border-color: map.get(palette.$colors, primary);
+    color: map.get(palette.$colors, primary);
 
     &:hover {
-      background: t.token(accent);
-      color: t.token(accent-contrast);
+      background: map.get(palette.$colors, primary);
+      color: map.get(palette.$greys, xs);
     }
   }
 
   &.wormhole-btn-outline {
-    border-color: t.token(border);
+    border-color: color-mix(in srgb, #{map.get(palette.$colors, secondary)} 55%, transparent);
   }
 }

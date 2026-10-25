@@ -1,4 +1,5 @@
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "sizes";
 
 $font-url: "../../assets/fonts/";
 
@@ -66,17 +67,17 @@ $font-url: "../../assets/fonts/";
 }
 
 .wormhole-text-1 {
-  font-size: t.size(xl);
+  font-size: map.get(sizes.$sizes, xl);
 }
 
 .wormhole-text-2 {
-  font-size: t.size(lg);
+  font-size: map.get(sizes.$sizes, lg);
 }
 
 .wormhole-text-3 {
-  font-size: t.size(md);
+  font-size: map.get(sizes.$sizes, md);
 }
 
 .wormhole-text-4 {
-  font-size: t.size(xs);
+  font-size: map.get(sizes.$sizes, xs);
 }

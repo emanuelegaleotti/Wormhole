@@ -1,76 +1,54 @@
 @use "sass:color";
 @use "sass:string";
 
-// Winden palette: cold cave blacks, fog greens and the yellow raincoat.
-$void: #050607;
-$night: #0b0e10;
-$cave: #12171a;
-$slate: #1b2327;
-$steel: #3a4a4f;
-$fog: #8d9b98;
-$bone: #d9d6cc;
-$raincoat: #e3b72d;
-$ember: #c2492b;
-$moss: #6f9a7c;
-$teal: #344e4e;
-$amber: #46300c;
-$white: #ffffff;
+// Winden palette, named by role: the same name is used wherever that role applies.
+$primary: #e3b72d;
+$secondary: #3a4a4f;
+$accent: #344e4e;
+$success: #6f9a7c;
+$warning: #d98a1f;
+$error: #c2492b;
+$grey-xs: #050607;
+$grey-sm: #0b0e10;
+$grey-md: #12171a;
+$grey-lg: #1b2327;
+$grey-xl: #8d9b98;
+$grey-2xl: #d9d6cc;
 $black: #000000;
+$white: #ffffff;
 
 $colors: (
-  void: $void,
-  night: $night,
-  cave: $cave,
-  slate: $slate,
-  steel: $steel,
-  fog: $fog,
-  bone: $bone,
-  raincoat: $raincoat,
-  ember: $ember,
-  moss: $moss,
-  teal: $teal,
-  amber: $amber,
-  white: $white,
-  black: $black
+  primary: $primary,
+  secondary: $secondary,
+  accent: $accent,
+  success: $success,
+  warning: $warning,
+  error: $error,
+  black: $black,
+  white: $white
 ) !default;
 
-// Semantic tokens consumed by the components (also by the micro frontends).
-$tokens: (
-  background: $void,
-  surface: color.change($cave, $alpha: .72),
-  surface-raised: $slate,
-  border: color.change($steel, $alpha: .55),
-  border-strong: $steel,
-  text: $bone,
-  text-muted: $fog,
-  accent: $raincoat,
-  accent-contrast: $void,
-  danger: $ember,
-  success: $moss,
-  accent-glow: color.change($raincoat, $alpha: .35),
-  accent-soft: color.change($raincoat, $alpha: .08),
-  danger-glow: color.change($ember, $alpha: .35),
-  mist: color.change($fog, $alpha: .09),
-  atmosphere-cold: color.change($teal, $alpha: .45),
-  atmosphere-warm: color.change($amber, $alpha: .35),
-  overlay-veil: color.change($black, $alpha: .35),
-  overlay-shade: color.change($black, $alpha: .55),
-  overlay-dim: color.change($black, $alpha: .72),
-  overlay-curtain: color.change($void, $alpha: .88)
+$greys: (
+  xs: $grey-xs,
+  sm: $grey-sm,
+  md: $grey-md,
+  lg: $grey-lg,
+  xl: $grey-xl,
+  "2xl": $grey-2xl
 ) !default;
 
-// Composed values (shadows, dialog contract) built on top of the tokens.
+// Composed values built on top of the colors.
 $shadows: (
-  panel: 0 1rem 2.5rem color.change($black, $alpha: .55),
-  panel-hover: (0 1rem 2.5rem color.change($black, $alpha: .55), 0 0 2rem color.change($raincoat, $alpha: .08)),
-  dialog: (0 0 4rem color.change($black, $alpha: .85), 0 0 1px $raincoat),
-  dialog-danger: (0 0 4rem color.change($black, $alpha: .85), 0 0 2.5rem color.change($ember, $alpha: .35)),
-  snackbar: 0 1rem 2.5rem color.change($black, $alpha: .7)
+  sm: 0 1rem 2.5rem color.change($black, $alpha: .7),
+  md: 0 1rem 2.5rem color.change($black, $alpha: .55),
+  lg: (0 1rem 2.5rem color.change($black, $alpha: .55), 0 0 2rem color.change($primary, $alpha: .08)),
+  xl: (0 0 4rem color.change($black, $alpha: .85), 0 0 1px $primary),
+  xl-error: (0 0 4rem color.change($black, $alpha: .85), 0 0 2.5rem color.change($error, $alpha: .35))
 ) !default;
 
-// Frame used as border-image: steel edges with raincoat corner marks (the titles' framing).
+// Frame used as border-image: secondary edges with primary corner marks (the titles' framing).
 @function svg-hex($c) {
   @return "%23" + string.slice("#{$c}", 2);
 }
 
-$frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='.5' y='.5' width='23' height='23' stroke='#{svg-hex($steel)}' stroke-opacity='.55'/%3E%3Cpath d='M.5 8V.5H8M16 .5h7.5V8M23.5 16v7.5H16M8 23.5H.5V16' stroke='#{svg-hex($raincoat)}'/%3E%3C/svg%3E") !default;
+$frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='.5' y='.5' width='23' height='23' stroke='#{svg-hex($secondary)}' stroke-opacity='.55'/%3E%3Cpath d='M.5 8V.5H8M16 .5h7.5V8M23.5 16v7.5H16M8 23.5H.5V16' stroke='#{svg-hex($primary)}'/%3E%3C/svg%3E") !default;

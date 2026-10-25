@@ -1,6 +1,7 @@
 @use "../abstract/mixins" as mixins;
 @use "../abstract/variables" as vars;
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/spaces";
 
 main {
   position: relative;
@@ -14,7 +15,7 @@ main {
   }
 
   section {
-    padding-top: t.space(sm);
-    padding-bottom: t.space("3xl");
+    padding-top: map.get(spaces.$spaces, sm);
+    padding-bottom: map.get(spaces.$spaces, "3xl");
   }
 }

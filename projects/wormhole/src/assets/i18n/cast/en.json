@@ -1,0 +1,12 @@
+{
+  "list": {
+    "title": "Dark cast",
+    "caption": "{{total}} actors and characters",
+    "photo": "Photo",
+    "actor": "Actor",
+    "character": "Character",
+    "country": "Country",
+    "born": "Born",
+    "noResult": "No cast found"
+  }
+}

@@ -1,13 +1,15 @@
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/palette";
+@use "../base/spaces";
 
 a {
-  color: t.token(text);
+  color: map.get(palette.$greys, "2xl");
   text-decoration: none;
   cursor: pointer;
   transition: color .3s, text-shadow .3s;
 
   &:hover {
-    color: t.token(accent);
-    text-shadow: 0 0 t.space("2xs") t.token(accent-glow);
+    color: map.get(palette.$colors, primary);
+    text-shadow: 0 0 map.get(spaces.$spaces, "2xs") color-mix(in srgb, #{map.get(palette.$colors, primary)} 35%, transparent);
   }
 }

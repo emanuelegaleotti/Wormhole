@@ -7,19 +7,19 @@
   align-items: center;
   justify-content: center;
   gap: var(--wormhole-space-xs);
-  color: var(--wormhole-text-muted);
+  color: var(--wormhole-grey-xl, #8d9b98);
   font-family: var(--wormhole-font-title);
   font-size: var(--wormhole-size-md);
   letter-spacing: var(--wormhole-tracking-xl);
   text-transform: uppercase;
-  background: var(--wormhole-overlay-curtain);
+  background: color-mix(in srgb, var(--wormhole-grey-xs, #050607) 88%, transparent);
   backdrop-filter: blur(4px);
   animation: loader-in .4s ease-out;
 
   .loader-mark {
     font-size: var(--wormhole-size-5xl);
-    color: var(--wormhole-accent);
-    filter: drop-shadow(0 0 var(--wormhole-space-2xs) var(--wormhole-accent-glow));
+    color: var(--wormhole-primary, #e3b72d);
+    filter: drop-shadow(0 0 var(--wormhole-space-2xs) color-mix(in srgb, var(--wormhole-primary, #e3b72d) 35%, transparent));
     animation: loader-spin 6s linear infinite, loader-pulse 2.4s ease-in-out infinite;
   }
 }

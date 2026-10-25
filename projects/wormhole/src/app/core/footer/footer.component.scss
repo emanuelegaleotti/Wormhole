@@ -7,8 +7,8 @@ footer {
   align-items: end;
   padding-top: var(--wormhole-space-sm);
   padding-bottom: var(--wormhole-space-sm);
-  border-top: 1px solid var(--wormhole-border);
-  background: linear-gradient(0deg, var(--wormhole-overlay-dim), transparent);
+  border-top: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+  background: linear-gradient(0deg, color-mix(in srgb, var(--wormhole-black, #000) 72%, transparent), transparent);
 
   .quote {
     @include mixins.full-grid();
@@ -18,7 +18,7 @@ footer {
     gap: var(--wormhole-space-2xs);
     margin: 0 0 var(--wormhole-space-xs);
     padding: 0;
-    color: var(--wormhole-accent);
+    color: var(--wormhole-primary, #e3b72d);
     font-family: var(--wormhole-font-title);
     font-size: var(--wormhole-size-md);
     font-style: italic;
@@ -46,13 +46,13 @@ footer {
     }
 
     a {
-      color: var(--wormhole-text-muted);
+      color: var(--wormhole-grey-xl, #8d9b98);
       font-size: var(--wormhole-size-md);
       letter-spacing: var(--wormhole-tracking-md);
       text-transform: uppercase;
 
       &.active {
-        color: var(--wormhole-accent);
+        color: var(--wormhole-primary, #e3b72d);
       }
     }
   }
@@ -70,7 +70,7 @@ footer {
   .author {
     @include mixins.full-grid();
     margin: var(--wormhole-space-xs) 0 0;
-    color: var(--wormhole-text-muted);
+    color: var(--wormhole-grey-xl, #8d9b98);
     font-size: var(--wormhole-size-xs);
     letter-spacing: var(--wormhole-tracking-md);
     text-align: center;

@@ -1,13 +1,15 @@
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/palette";
+@use "../base/spaces";
 
 // Content blocks for the dialogs opened through DialogService.
 .wormhole-dialog-header {
-  padding: t.space("2xs") t.space(xs);
-  border-bottom: 1px solid t.token(border);
+  padding: map.get(spaces.$spaces, "2xs") map.get(spaces.$spaces, xs);
+  border-bottom: 1px solid color-mix(in srgb, #{map.get(palette.$colors, secondary)} 55%, transparent);
 }
 
 .wormhole-dialog-body {
-  padding: t.space(xs);
+  padding: map.get(spaces.$spaces, xs);
   min-width: min(22rem, 80vw);
 
   p {
@@ -18,16 +20,16 @@
 .wormhole-dialog-footer {
   display: flex;
   justify-content: flex-end;
-  gap: t.space("2xs");
-  padding: t.space("2xs") t.space(xs);
-  border-top: 1px solid t.token(border);
+  gap: map.get(spaces.$spaces, "2xs");
+  padding: map.get(spaces.$spaces, "2xs") map.get(spaces.$spaces, xs);
+  border-top: 1px solid color-mix(in srgb, #{map.get(palette.$colors, secondary)} 55%, transparent);
 }
 
 .wormhole-dialog-error {
-  --wormhole-dialog-border-color: #{t.token(danger)};
-  --wormhole-dialog-shadow: #{t.shadow(dialog-danger)};
+  --wormhole-dialog-border-color: #{map.get(palette.$colors, error)};
+  --wormhole-dialog-shadow: #{map.get(palette.$shadows, xl-error)};
 
   .wormhole-dialog-header h4 {
-    color: t.token(danger);
+    color: map.get(palette.$colors, error);
   }
 }

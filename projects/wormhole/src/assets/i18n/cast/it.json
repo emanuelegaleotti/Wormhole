@@ -1,0 +1,12 @@
+{
+  "list": {
+    "title": "Il cast di Dark",
+    "caption": "{{total}} attori e personaggi",
+    "photo": "Foto",
+    "actor": "Attore",
+    "character": "Personaggio",
+    "country": "Paese",
+    "born": "Nascita",
+    "noResult": "Nessun membro del cast trovato"
+  }
+}

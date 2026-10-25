@@ -1,0 +1,36 @@
+.lorenz-pager {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--wormhole-space-xs);
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+
+      .page {
+        min-height: var(--wormhole-space-md, 2.5rem);
+        border-color: transparent;
+
+        &[aria-current="page"] {
+          color: var(--wormhole-primary, #e3b72d);
+          text-shadow: 0 0 var(--wormhole-space-2xs, 1rem) color-mix(in srgb, var(--wormhole-primary, #e3b72d) 35%, transparent);
+          border-bottom-color: var(--wormhole-primary, #e3b72d);
+        }
+      }
+    }
+  }
+
+  button {
+    min-height: var(--wormhole-space-md, 2.5rem);
+    padding: 0 var(--wormhole-space-2xs);
+  }
+}

@@ -1,16 +1,22 @@
 @use "../abstract/mixins" as mixins;
 @use "../abstract/variables" as vars;
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/fonts";
+@use "../base/palette";
+@use "../base/radius";
+@use "../base/sizes";
+@use "../base/spaces";
+@use "../base/tracking";
 
 label {
   display: block;
-  margin-bottom: t.space("3xs");
+  margin-bottom: map.get(spaces.$spaces, "3xs");
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: t.token(text-muted);
-  font-size: t.size(xs);
-  letter-spacing: t.tracking(md);
+  color: map.get(palette.$greys, xl);
+  font-size: map.get(sizes.$sizes, xs);
+  letter-spacing: map.get(tracking.$tracking, md);
   text-transform: uppercase;
 }
 
@@ -18,25 +24,25 @@ input,
 select {
   width: 100%;
   min-height: vars.$input-height;
-  padding: 0 t.space("2xs");
-  border: 1px solid t.token(border);
-  border-bottom-color: t.token(border-strong);
-  border-radius: t.radius(none);
-  background: t.token(overlay-veil);
-  color: t.token(text);
-  font-family: t.font(body);
-  font-size: t.size(lg);
-  letter-spacing: t.tracking(xs);
+  padding: 0 map.get(spaces.$spaces, "2xs");
+  border: 1px solid color-mix(in srgb, #{map.get(palette.$colors, secondary)} 55%, transparent);
+  border-bottom-color: map.get(palette.$colors, secondary);
+  border-radius: map.get(radius.$radius, none);
+  background: color-mix(in srgb, #{map.get(palette.$colors, black)} 35%, transparent);
+  color: map.get(palette.$greys, "2xl");
+  font-family: map.get(fonts.$fonts, body);
+  font-size: map.get(sizes.$sizes, lg);
+  letter-spacing: map.get(tracking.$tracking, xs);
   transition: border-color .3s, box-shadow .3s;
-  @include mixins.placeholder(t.token(text-muted));
+  @include mixins.placeholder(map.get(palette.$greys, xl));
 
   &:focus {
-    border-color: t.token(accent);
-    box-shadow: 0 0 t.space("2xs") t.token(accent-glow);
+    border-color: map.get(palette.$colors, primary);
+    box-shadow: 0 0 map.get(spaces.$spaces, "2xs") color-mix(in srgb, #{map.get(palette.$colors, primary)} 35%, transparent);
   }
 }
 
 select option {
-  background: t.hue(night);
-  color: t.token(text);
+  background: map.get(palette.$greys, sm);
+  color: map.get(palette.$greys, "2xl");
 }

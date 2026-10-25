@@ -1,0 +1,49 @@
+@use '../../../sass/abstract/mixins' as mixins;
+
+section {
+  grid-template-rows: auto auto;
+
+  article {
+    @include mixins.full-grid();
+
+    table {
+      width: 100%;
+    }
+
+    caption {
+      padding: var(--wormhole-space-2xs, 1rem) 0;
+      color: var(--wormhole-grey-xl, #8d9b98);
+      font-size: var(--wormhole-size-xs, .75rem);
+      letter-spacing: var(--wormhole-tracking-md, .15em);
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    th[scope='row'] {
+      font-weight: inherit;
+    }
+
+    img {
+      display: block;
+      object-fit: cover;
+      border: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+      border-radius: var(--wormhole-radius-none, 0);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    app-pager {
+      display: inline-block;
+    }
+
+    &.wormhole-alert {
+      @include mixins.full-grid();
+    }
+  }
+}

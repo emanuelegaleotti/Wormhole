@@ -8,11 +8,11 @@
   align-items: center;
   gap: var(--wormhole-space-2xs);
   padding: var(--wormhole-space-3xs) var(--wormhole-space-2xs) var(--wormhole-space-3xs) var(--wormhole-space-xs);
-  border: 1px solid var(--wormhole-border-strong);
-  border-left: 3px solid var(--wormhole-accent);
-  background: var(--wormhole-night);
-  color: var(--wormhole-text);
-  box-shadow: var(--wormhole-shadow-snackbar);
+  border: 1px solid var(--wormhole-secondary, #3a4a4f);
+  border-left: 3px solid var(--wormhole-primary, #e3b72d);
+  background: var(--wormhole-grey-sm, #0b0e10);
+  color: var(--wormhole-grey-2xl, #d9d6cc);
+  box-shadow: var(--wormhole-shadow-sm);
   animation: snackbar-in .35s ease-out;
 
   button {

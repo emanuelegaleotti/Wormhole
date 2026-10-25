@@ -5,7 +5,7 @@
 @use "radius";
 @use "tracking";
 @use "fonts";
-@use "../abstract/tokens" as t;
+@use "sass:map";
 
 :root {
   color-scheme: dark;
@@ -13,8 +13,8 @@
   @each $color, $value in palette.$colors {
     --wormhole-#{$color}: #{$value};
   }
-  @each $token, $value in palette.$tokens {
-    --wormhole-#{$token}: #{$value};
+  @each $size, $value in palette.$greys {
+    --wormhole-grey-#{$size}: #{$value};
   }
   @each $size, $space in spaces.$spaces {
     --wormhole-space-#{$size}: #{$space};
@@ -41,13 +41,13 @@
   --wormhole-frame: #{palette.$frame};
 
   // Same contract as the dialogs of angular-develop-universe, themed for Winden.
-  --wormhole-dialog-background: #{t.hue(night)};
+  --wormhole-dialog-background: #{map.get(palette.$greys, sm)};
   --wormhole-dialog-border: 1px solid;
-  --wormhole-dialog-border-color: #{t.token(border-strong)};
-  --wormhole-dialog-border-radius: #{t.radius(none)};
-  --wormhole-dialog-color: #{t.token(text)};
-  --wormhole-dialog-shadow: #{t.shadow(dialog)};
-  --wormhole-dialog-backdrop-background: #{t.token(overlay-curtain)};
+  --wormhole-dialog-border-color: #{map.get(palette.$colors, secondary)};
+  --wormhole-dialog-border-radius: #{map.get(radius.$radius, none)};
+  --wormhole-dialog-color: #{map.get(palette.$greys, "2xl")};
+  --wormhole-dialog-shadow: #{map.get(palette.$shadows, xl)};
+  --wormhole-dialog-backdrop-background: color-mix(in srgb, #{map.get(palette.$greys, xs)} 88%, transparent);
 }
 
 *, *::before, *::after {

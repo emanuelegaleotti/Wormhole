@@ -1,22 +1,26 @@
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/palette";
+@use "../base/sizes";
+@use "../base/spaces";
+@use "../base/tracking";
 
 dl {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: t.space("4xs") t.space(xs);
-  margin: 0 0 t.space("2xs");
+  gap: map.get(spaces.$spaces, "4xs") map.get(spaces.$spaces, xs);
+  margin: 0 0 map.get(spaces.$spaces, "2xs");
 
   dt {
-    color: t.token(text-muted);
-    font-size: t.size(xs);
-    letter-spacing: t.tracking(md);
+    color: map.get(palette.$greys, xl);
+    font-size: map.get(sizes.$sizes, xs);
+    letter-spacing: map.get(tracking.$tracking, md);
     text-transform: uppercase;
     align-self: center;
   }
 
   dd {
     margin: 0;
-    font-size: t.size(xl);
+    font-size: map.get(sizes.$sizes, xl);
   }
 }
 

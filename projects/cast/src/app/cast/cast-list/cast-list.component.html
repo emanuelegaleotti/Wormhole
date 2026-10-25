@@ -1,0 +1,45 @@
+<section class="wormhole-grid" *transloco="let t">
+  <h2>{{t('cast.list.title')}}</h2>
+  @if (members().length) {
+    <article>
+      <table>
+        <caption>{{t('cast.list.caption', { total: total() })}}</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">{{t('cast.list.photo')}}</span></th>
+            <th scope="col">{{t('cast.list.actor')}}</th>
+            <th scope="col">{{t('cast.list.character')}}</th>
+            <th scope="col">{{t('cast.list.country')}}</th>
+            <th scope="col">{{t('cast.list.born')}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (m of members(); track m.id + '-' + m.character) {
+            <tr>
+              <td>
+                @if (m.photo) {
+                  <img [src]="m.photo" [alt]="m.actor" width="48" height="68" loading="lazy">
+                }
+              </td>
+              <th scope="row"><a [href]="m.actorUrl" target="_blank" rel="noopener">{{m.actor}}</a></th>
+              <td><a [href]="m.characterUrl" target="_blank" rel="noopener">{{m.character}}</a></td>
+              <td>{{m.country ?? '—'}}</td>
+              <td>
+                @if (m.birthday) {
+                  <time [attr.datetime]="m.birthday">{{m.birthday | date: 'mediumDate'}}</time>
+                } @else {
+                  —
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      <app-pager [totalItems]="total()" [pageIndex]="currentPage()" (whenPageSelected)="setPage($event)"></app-pager>
+    </article>
+  } @else {
+    <article class="wormhole-alert">
+      {{t('cast.list.noResult')}}
+    </article>
+  }
+</section>

@@ -4,15 +4,15 @@ wormhole-card {
 
 .carbon-value {
   margin: 0 0 var(--wormhole-space-3xs);
-  color: var(--wormhole-accent);
+  color: var(--wormhole-primary, #e3b72d);
   font-family: var(--wormhole-font-title);
   font-size: var(--wormhole-size-4xl);
   font-weight: 300;
   letter-spacing: var(--wormhole-tracking-xs);
-  text-shadow: 0 0 var(--wormhole-space-xs) var(--wormhole-accent-glow);
+  text-shadow: 0 0 var(--wormhole-space-xs) color-mix(in srgb, var(--wormhole-primary, #e3b72d) 35%, transparent);
 
   small {
-    color: var(--wormhole-text-muted);
+    color: var(--wormhole-grey-xl, #8d9b98);
     font-family: var(--wormhole-font-body);
     font-size: var(--wormhole-size-sm);
     letter-spacing: var(--wormhole-tracking-sm);
@@ -21,7 +21,7 @@ wormhole-card {
 
 .carbon-error {
   margin: 0;
-  color: var(--wormhole-danger);
+  color: var(--wormhole-error, #c2492b);
 }
 
 .carbon-index {
@@ -29,9 +29,9 @@ wormhole-card {
   letter-spacing: var(--wormhole-tracking-sm);
   text-transform: uppercase;
 
-  &-very-low, &-low { color: var(--wormhole-success); }
-  &-moderate { color: var(--wormhole-accent); }
-  &-high, &-very-high { color: var(--wormhole-danger); }
+  &-very-low, &-low { color: var(--wormhole-success, #6f9a7c); }
+  &-moderate { color: var(--wormhole-primary, #e3b72d); }
+  &-high, &-very-high { color: var(--wormhole-error, #c2492b); }
 }
 
 .carbon-mix {
@@ -42,7 +42,7 @@ wormhole-card {
   font-size: var(--wormhole-size-md);
 
   dt {
-    color: var(--wormhole-text-muted);
+    color: var(--wormhole-grey-xl, #8d9b98);
     font-size: inherit;
     letter-spacing: var(--wormhole-tracking-sm);
   }
@@ -57,25 +57,25 @@ wormhole-card {
     width: 100%;
     height: 2px;
     border: 0;
-    background: var(--wormhole-border);
+    background: color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
     appearance: none;
 
     &::-webkit-meter-bar {
       height: 2px;
       border: 0;
       border-radius: var(--wormhole-radius-none);
-      background: var(--wormhole-border);
+      background: color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
     }
 
     &::-webkit-meter-optimum-value,
     &::-webkit-meter-suboptimum-value,
     &::-webkit-meter-even-less-good-value {
-      background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
-      box-shadow: 0 0 var(--wormhole-space-3xs) var(--wormhole-accent-glow);
+      background: linear-gradient(90deg, var(--wormhole-success, #6f9a7c), var(--wormhole-primary, #e3b72d));
+      box-shadow: 0 0 var(--wormhole-space-3xs) color-mix(in srgb, var(--wormhole-primary, #e3b72d) 35%, transparent);
     }
 
     &::-moz-meter-bar {
-      background: linear-gradient(90deg, var(--wormhole-success), var(--wormhole-accent));
+      background: linear-gradient(90deg, var(--wormhole-success, #6f9a7c), var(--wormhole-primary, #e3b72d));
     }
   }
 }

@@ -9,8 +9,8 @@
     z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse 40% 30% at 20% 70%, var(--wormhole-mist), transparent),
-      radial-gradient(ellipse 45% 35% at 80% 30%, var(--wormhole-mist), transparent);
+      radial-gradient(ellipse 40% 30% at 20% 70%, color-mix(in srgb, var(--wormhole-grey-xl, #8d9b98) 9%, transparent), transparent),
+      radial-gradient(ellipse 45% 35% at 80% 30%, color-mix(in srgb, var(--wormhole-grey-xl, #8d9b98) 9%, transparent), transparent);
     animation: fog-drift 60s ease-in-out infinite alternate;
   }
 }

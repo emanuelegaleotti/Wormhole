@@ -1,4 +1,7 @@
-@use "../abstract/tokens" as t;
+@use "sass:map";
+@use "../base/fonts";
+@use "../base/palette";
+@use "../base/sizes";
 
 // Film grain and vignette, drawn once on top of the whole app.
 $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -7,7 +10,7 @@ html {
   line-height: 1.6;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
-  scrollbar-color: t.hue(steel) t.hue(void);
+  scrollbar-color: map.get(palette.$colors, secondary) map.get(palette.$greys, xs);
 
   body {
     position: relative;
@@ -15,14 +18,14 @@ html {
     padding: 0;
     min-height: 100vh;
     background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, t.token(atmosphere-cold), transparent 70%),
-      radial-gradient(ellipse 70% 40% at 50% 115%, t.token(atmosphere-warm), transparent 70%),
-      t.hue(void);
+      radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, #{map.get(palette.$colors, accent)} 45%, transparent), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 50% 115%, color-mix(in srgb, #{map.get(palette.$colors, warning)} 11%, transparent), transparent 70%),
+      map.get(palette.$greys, xs);
     background-attachment: fixed;
-    color: t.token(text);
-    font-size: t.size(xl);
+    color: map.get(palette.$greys, "2xl");
+    font-size: map.get(sizes.$sizes, xl);
     font-weight: 300;
-    font-family: t.font(body);
+    font-family: map.get(fonts.$fonts, body);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 
@@ -43,14 +46,14 @@ html {
     }
 
     &::after {
-      background: radial-gradient(ellipse at center, transparent 45%, t.token(overlay-dim) 100%);
+      background: radial-gradient(ellipse at center, transparent 45%, color-mix(in srgb, #{map.get(palette.$colors, black)} 72%, transparent) 100%);
     }
   }
 }
 
 ::selection {
-  background: t.token(accent);
-  color: t.token(accent-contrast);
+  background: map.get(palette.$colors, primary);
+  color: map.get(palette.$greys, xs);
 }
 
 * {
@@ -59,7 +62,7 @@ html {
   }
 
   &:focus-visible {
-    outline: 1px solid t.token(accent);
+    outline: 1px solid map.get(palette.$colors, primary);
     outline-offset: 3px;
   }
 }

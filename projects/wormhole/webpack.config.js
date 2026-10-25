@@ -28,7 +28,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {
-        vehicles: 'vehicles@http://localhost:3000/vehiclesEntry.js',
+        cast: 'cast@http://localhost:3000/castEntry.js',
         weather: 'weather@http://localhost:3300/weatherEntry.js',
         cityWeather: 'cityWeather@http://localhost:3600/cityWeatherEntry.js'
       },

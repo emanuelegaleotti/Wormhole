@@ -3,8 +3,8 @@
 header {
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid var(--wormhole-border);
-  background: linear-gradient(180deg, var(--wormhole-overlay-dim), transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--wormhole-black, #000) 72%, transparent), transparent);
 
   &::after {
     content: "";
@@ -13,7 +13,7 @@ header {
     right: 0;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--wormhole-accent), transparent);
+    background: linear-gradient(90deg, transparent, var(--wormhole-primary, #e3b72d), transparent);
     opacity: .6;
   }
 
@@ -37,15 +37,15 @@ header {
 
   .brand-mark {
     font-size: var(--wormhole-size-4xl);
-    color: var(--wormhole-accent);
-    filter: drop-shadow(0 0 var(--wormhole-space-3xs) var(--wormhole-accent-glow));
+    color: var(--wormhole-primary, #e3b72d);
+    filter: drop-shadow(0 0 var(--wormhole-space-3xs) color-mix(in srgb, var(--wormhole-primary, #e3b72d) 35%, transparent));
     animation: wormhole-spin 40s linear infinite;
   }
 
   .tagline {
     grid-column: 1 / -1;
     margin: 0;
-    color: var(--wormhole-text-muted);
+    color: var(--wormhole-grey-xl, #8d9b98);
     font-family: var(--wormhole-font-title);
     font-size: var(--wormhole-size-md);
     font-style: italic;

@@ -6,7 +6,7 @@ aside {
   nav {
     grid-column: 1 / -1;
     padding: var(--wormhole-space-2xs) 0;
-    border-bottom: 1px solid var(--wormhole-border);
+    border-bottom: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
 
     ul {
       display: flex;
@@ -20,7 +20,7 @@ aside {
     a {
       position: relative;
       padding: var(--wormhole-space-4xs) 0;
-      color: var(--wormhole-text-muted);
+      color: var(--wormhole-grey-xl, #8d9b98);
       font-family: var(--wormhole-font-title);
       font-size: var(--wormhole-size-md);
       letter-spacing: var(--wormhole-tracking-lg);
@@ -33,7 +33,7 @@ aside {
         bottom: 0;
         width: 100%;
         height: 1px;
-        background: var(--wormhole-accent);
+        background: var(--wormhole-primary, #e3b72d);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform .4s;
@@ -45,7 +45,7 @@ aside {
       }
 
       &.active {
-        color: var(--wormhole-accent);
+        color: var(--wormhole-primary, #e3b72d);
       }
     }
   }
