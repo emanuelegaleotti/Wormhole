@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing'
-import { EventMessage, LorentzEventBusService, PRESENCE_MESSAGE } from 'lorentz-event-bus'
-import { provideNgxWebstorage, withLocalStorage, withSessionStorage } from 'ngx-webstorage'
+import { ALL, EventMessage, LorentzEventBusService, PRESENCE_MESSAGE } from 'lorentz-event-bus'
 import { TimelineChatComponent } from '../../../timeline-chat/timeline-chat.component'
 
 describe('TimelineChatComponent', () => {
@@ -14,7 +13,6 @@ describe('TimelineChatComponent', () => {
   }
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [provideNgxWebstorage(withLocalStorage(), withSessionStorage())] })
     bus = TestBed.inject(LorentzEventBusService)
     sent = []
     const original = bus.sendEventBusMessage.bind(bus)
@@ -24,22 +22,32 @@ describe('TimelineChatComponent', () => {
     })
   })
 
-  it('should announce itself on the bus when it connects', async () => {
+  it('should announce itself on the bus with a service message', async () => {
     const fixture = create()
     await fixture.whenStable()
-    expect(sent).toEqual([new EventMessage('all', PRESENCE_MESSAGE, '1986')])
+    expect(sent).toEqual([new EventMessage(ALL, PRESENCE_MESSAGE, '1986', 'service')])
   })
 
-  it('should list the messages and the presences coming from the other timelines', async () => {
+  it('should log the service messages instead of listing them', async () => {
+    const log = spyOn(console, 'log')
     const fixture = create()
     await fixture.whenStable()
-    bus.sendEventBusMessage(new EventMessage('all', PRESENCE_MESSAGE, '2019'))
+    bus.announcePresence('2019')
+    await fixture.whenStable()
+    expect(log).toHaveBeenCalledWith(jasmine.stringContaining('2019'))
+    expect(fixture.nativeElement.querySelectorAll('.messages li:not(.empty)').length).toBe(0)
+  })
+
+  it('should list the application messages coming from the other timelines', async () => {
+    const fixture = create()
+    await fixture.whenStable()
+    bus.sendEventBusMessage(new EventMessage(ALL, 'Hello everybody', '2019'))
     bus.sendEventBusMessage(new EventMessage('1986', 'Hello from the future', '2019'))
     bus.sendEventBusMessage(new EventMessage('1953', 'Not for you', '2019'))
     await fixture.whenStable()
     const items: HTMLElement[] = Array.from(fixture.nativeElement.querySelectorAll('.messages li'))
     expect(items.length).toBe(2)
-    expect(items[0].textContent).toContain('2019 is connected and available')
+    expect(items[0].textContent).toContain('to all')
     expect(items[1].textContent).toContain('Hello from the future')
   })
 
@@ -56,7 +64,7 @@ describe('TimelineChatComponent', () => {
     await fixture.whenStable()
     element.querySelector('form')?.dispatchEvent(new Event('submit'))
     await fixture.whenStable()
-    expect(sent[sent.length - 1]).toEqual(new EventMessage('1953', 'Anybody there?', '1986'))
+    expect(sent[sent.length - 1]).toEqual(new EventMessage('1953', 'Anybody there?', '1986', 'application'))
     expect(input.value).toBe('')
   })
 })

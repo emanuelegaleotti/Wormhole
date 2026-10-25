@@ -1,7 +1,6 @@
-import { Injectable, inject } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { filter, fromEvent, map, Observable } from 'rxjs'
-import { EventMessage } from './event-message.model'
-import { LocalStorageService, SessionStorageService } from 'ngx-webstorage'
+import { ALL, EventAddress, EventMessage } from './event-message.model'
 
 export const PRESENCE_MESSAGE = 'lorentz-event-bus:connected'
 
@@ -11,10 +10,7 @@ export const PRESENCE_MESSAGE = 'lorentz-event-bus:connected'
 export class LorentzEventBusService {
   eventBus: CustomEvent = new CustomEvent(
     'lorentz-event-bus',
-    { detail: new EventMessage('all', 'Init event bus', 'lorentz service') })
-
-  private readonly sessionStorage = inject(SessionStorageService)
-  private readonly localStorage = inject(LocalStorageService)
+    { detail: new EventMessage(ALL, 'Init event bus', 'lorentz service', 'service') })
 
   constructor () {
     this.dispatchEvent()
@@ -28,37 +24,21 @@ export class LorentzEventBusService {
     this.dispatchEvent()
   }
 
-  // Messages addressed to `address` or broadcast to everybody (`to: 'all'`).
-  listen (address: string): Observable<EventMessage> {
+  // Messages addressed to `address` or broadcast to everybody (`to: ALL`).
+  listen (address: EventAddress): Observable<EventMessage> {
     return fromEvent<CustomEvent<EventMessage>>(window, 'lorentz-event-bus').pipe(
       map(event => event.detail),
-      filter(message => message.to === address || message.to === 'all')
+      filter(message => message.to === address || message.to === ALL)
     )
   }
 
   // Tells the others that `from` is connected to the bus and available.
   announcePresence (from: string): void {
-    this.sendEventBusMessage(new EventMessage('all', PRESENCE_MESSAGE, from))
+    this.sendEventBusMessage(new EventMessage(ALL, PRESENCE_MESSAGE, from, 'service'))
   }
 
   dispatchEvent (): void {
     window.dispatchEvent(this.eventBus)
   }
-
-  sendSessionBusMessage (message: EventMessage): void {
-    this.sessionStorage.store('lorentz-event-bus', JSON.stringify(message))
-  }
-
-  sendLocalBusMessage (message: EventMessage): void {
-    this.localStorage.store('lorentz-event-bus', JSON.stringify(message))
-  }
-
-  clearSessionBusMessage (): void {
-    this.sessionStorage.clear('lorentz-event-bus')
-  }
-
-  clearLocalBusMessage (): void {
-    this.localStorage.clear('lorentz-event-bus')
-  }
-
 }
+

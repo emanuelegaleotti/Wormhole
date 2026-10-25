@@ -7,24 +7,26 @@ Library for the communication between micro frontends. Messages travel on a brow
 ## Usage
 
 ```ts
-import { EventMessage, LorentzEventBusService } from 'lorentz-event-bus'
+import { ALL, EventMessage, LorentzEventBusService } from 'lorentz-event-bus'
 
 const bus = inject(LorentzEventBusService)
 
 // send to a single recipient...
 bus.sendEventBusMessage(new EventMessage('1986', 'Hello from 2019', '2019'))
 // ...or to everybody
-bus.sendEventBusMessage(new EventMessage('all', 'Hello timelines', '2019'))
+bus.sendEventBusMessage(new EventMessage(ALL, 'Hello timelines', '2019'))
 
 // receive what is addressed to this recipient (or broadcast)
 bus.listen('1986').pipe(takeUntilDestroyed()).subscribe(m => console.log(m.from, m.message))
 ```
 
-`EventMessage` has `to` (recipient or `all`), `message` and an optional `from`.
+`EventMessage` has `to` (an `EventAddress`: `ALL` or a recipient string), `message`, an optional `from` and a `type`, `application` by default:
 
-`announcePresence(from)` broadcasts a `PRESENCE_MESSAGE` to everybody: a micro frontend calls it as soon as it connects to the bus, so the others know it is available.
+- `user`: authentication and authorization;
+- `service`: bus housekeeping, no application data;
+- `application`: application data.
 
-`sendSessionBusMessage` / `sendLocalBusMessage` persist the last message in `sessionStorage` / `localStorage`.
+`announcePresence(from)` broadcasts a `service` message with `PRESENCE_MESSAGE` to everybody: a micro frontend calls it as soon as it connects to the bus, so the others know it is available.
 
 The home of Wormhole shows the bus at work: the `timeline-1953`, `timeline-1986` and `timeline-2019` micro frontends simulate a chat between the three timelines of Dark, passing every message through the bus.
 

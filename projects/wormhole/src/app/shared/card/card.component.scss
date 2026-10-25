@@ -4,6 +4,8 @@
 
 .wormhole-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   // Steel edges with yellow corner marks, drawn by the frame image.
   border: 1px solid transparent;
@@ -24,6 +26,9 @@
   }
 
   .wormhole-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: var(--wormhole-space-xs);
   }
 

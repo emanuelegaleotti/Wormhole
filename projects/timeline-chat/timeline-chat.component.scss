@@ -1,15 +1,28 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .timeline-chat {
-  display: grid;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   gap: var(--wormhole-space-2xs, 1rem);
 }
 
 .identity {
+  container-type: inline-size;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: var(--wormhole-space-3xs, .5rem);
   margin: 0;
+  white-space: nowrap;
 
   strong {
+    font-size: clamp(var(--wormhole-size-2xs, .6875rem), 3.8cqi, var(--wormhole-size-lg, 1rem));
     color: var(--wormhole-primary, #e3b72d);
     font-family: var(--wormhole-font-title);
     letter-spacing: var(--wormhole-tracking-md, .15em);
@@ -28,7 +41,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--wormhole-space-3xs, .5rem);
-  height: calc(var(--wormhole-space-3xl, 4.5rem) * 3);
+  flex: 1 1 0;
+  min-height: calc(var(--wormhole-space-3xl, 4.5rem) * 3);
   margin: 0;
   padding: var(--wormhole-space-3xs, .5rem);
   overflow-y: auto;
@@ -62,15 +76,6 @@
 
     p {
       margin: var(--wormhole-space-4xs, .25rem) 0 0;
-    }
-
-    &.presence {
-      border-left-color: var(--wormhole-success, #6f9a7c);
-
-      p {
-        color: var(--wormhole-success, #6f9a7c);
-        font-style: italic;
-      }
     }
 
     &.empty {

@@ -2,8 +2,8 @@ import { DatePipe } from '@angular/common'
 import { afterRenderEffect, Component, computed, DestroyRef, ElementRef, inject, input, OnInit, signal, viewChild } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { filter } from 'rxjs'
-import { EventMessage, LorentzEventBusService, PRESENCE_MESSAGE } from 'lorentz-event-bus'
-import { ChatMessage, Timeline, TIMELINES } from './timeline-chat.model'
+import { ALL, EventMessage, LorentzEventBusService } from 'lorentz-event-bus'
+import { ChatMessage, Recipient, Timeline, TimelineYear, TIMELINES } from './timeline-chat.model'
 
 // One side of the chat between the timelines: everything it says and hears goes through the Lorentz event bus.
 @Component({
@@ -22,7 +22,8 @@ export class TimelineChatComponent implements OnInit {
 
   readonly messages = signal<ChatMessage[]>([])
   readonly draft = signal('')
-  readonly recipient = signal('all')
+  readonly all = ALL
+  readonly recipient = signal<Recipient>(ALL)
   readonly recipients = computed(() => TIMELINES.filter(year => year !== this.timeline().year))
 
   constructor () {
@@ -36,19 +37,20 @@ export class TimelineChatComponent implements OnInit {
   ngOnInit (): void {
     const own = this.timeline().year
     this.bus.listen(own).pipe(
-      filter(m => m.from !== undefined && m.from !== own && (TIMELINES as readonly string[]).includes(m.from)),
+      filter(m => m.from !== own),
       takeUntilDestroyed(this.destroyRef)
-    ).subscribe(m => this.add({
-      from: m.from as string,
-      to: m.to,
-      text: m.message,
-      presence: m.message === PRESENCE_MESSAGE
-    }))
+    ).subscribe(m => {
+      if (m.type === 'service') {
+        console.log(`[${own}] service message from ${m.from}: ${m.message}`)
+      } else if (m.type === 'application' && this.isTimeline(m.from)) {
+        this.add({ from: m.from, to: m.to as Recipient, text: m.message })
+      }
+    })
     this.bus.announcePresence(own)
   }
 
   setRecipient (event: Event): void {
-    this.recipient.set((event.target as HTMLSelectElement).value)
+    this.recipient.set((event.target as HTMLSelectElement).value as Recipient)
   }
 
   setDraft (event: Event): void {
@@ -62,6 +64,10 @@ export class TimelineChatComponent implements OnInit {
       this.bus.sendEventBusMessage(new EventMessage(this.recipient(), text, this.timeline().year))
       this.draft.set('')
     }
+  }
+
+  private isTimeline (year?: string): year is TimelineYear {
+    return (TIMELINES as readonly string[]).includes(year ?? '')
   }
 
   private add (m: Omit<ChatMessage, 'id' | 'at'>): void {

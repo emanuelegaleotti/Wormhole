@@ -5,6 +5,7 @@ import { Timeline } from '../../../timeline-chat/timeline-chat.model'
 @Component({
   selector: 'app-timeline-1986',
   template: '<app-timeline-chat [timeline]="timeline" />',
+  styles: ':host { display: contents }',
   imports: [TimelineChatComponent]
 })
 export class Timeline1986Component {

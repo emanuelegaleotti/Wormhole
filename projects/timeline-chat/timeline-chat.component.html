@@ -5,17 +5,13 @@
   </p>
   <ol #log class="messages" aria-live="polite">
     @for (m of messages(); track m.id) {
-      <li [class.presence]="m.presence">
+      <li>
         <header>
           <cite>{{m.from}}</cite>
-          <small>{{m.to === 'all' ? 'to everyone' : 'to you'}}</small>
+          <small>{{m.to === all ? 'to all' : 'to you'}}</small>
           <time [attr.datetime]="m.at.toISOString()">{{m.at | date: 'HH:mm:ss'}}</time>
         </header>
-        @if (m.presence) {
-          <p>{{m.from}} is connected and available</p>
-        } @else {
-          <p>{{m.text}}</p>
-        }
+        <p>{{m.text}}</p>
       </li>
     } @empty {
       <li class="empty">No messages yet</li>
@@ -25,7 +21,7 @@
     <label>
       To
       <select (change)="setRecipient($event)">
-        <option value="all">Everyone</option>
+        <option [value]="all">{{all}}</option>
         @for (year of recipients(); track year) {
           <option [value]="year">{{year}}</option>
         }
