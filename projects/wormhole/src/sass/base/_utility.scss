@@ -1,3 +1,14 @@
 .wormhole-text-right.wormhole-text-right {
   text-align: right;
 }
+
+// Triquetra symbol inlined in the pages: it scales with the font size and takes the text color.
+.triquetra {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: .07;
+  stroke-linejoin: round;
+}

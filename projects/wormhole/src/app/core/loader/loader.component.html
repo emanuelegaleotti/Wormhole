@@ -1,6 +1,11 @@
 @if (loading() > 0) {
   <output class="loader" aria-live="polite" *transloco="let t">
-    <wormhole-triquetra class="loader-mark"></wormhole-triquetra>
+    <svg class="triquetra loader-mark" viewBox="-1.3 -1.3 2.6 2.6" aria-hidden="true" focusable="false">
+      <circle cx="0" cy="0" r="1.2" />
+      <path d="M0 -1A1.1 1.1 0 0 1 0 .5A1.1 1.1 0 0 1 0 -1Z" />
+      <path d="M.866 .5A1.1 1.1 0 0 1 -.433 -.25A1.1 1.1 0 0 1 .866 .5Z" />
+      <path d="M-.866 .5A1.1 1.1 0 0 1 .433 -.25A1.1 1.1 0 0 1 -.866 .5Z" />
+    </svg>
     {{t('loader.loading')}}
   </output>
 }
