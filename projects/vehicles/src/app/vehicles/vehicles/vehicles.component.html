@@ -18,7 +18,7 @@
         <td><a [routerLink]="p.id">Detail</a></td>
       </tbody>
     </table>
-    <lorentz-pager [totalItems]="allVehicles" (whenPageSelected)="setPage($event)"></lorentz-pager>
+    <app-pager [totalItems]="allVehicles" (whenPageSelected)="setPage($event)"></app-pager>
   </article>
   <ng-template #noResult>
     <article class="wormhole-alert">

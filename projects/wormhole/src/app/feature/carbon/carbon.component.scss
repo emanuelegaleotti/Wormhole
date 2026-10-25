@@ -1,0 +1,44 @@
+.carbon-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.carbon-index {
+  font-weight: bold;
+  text-transform: capitalize;
+
+  &-very-low, &-low { color: #2e7d32; }
+  &-moderate { color: #f9a825; }
+  &-high, &-very-high { color: #c62828; }
+}
+
+.carbon-mix {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: grid;
+    grid-template-columns: 6rem 1fr 3.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.carbon-fuel {
+  text-transform: capitalize;
+}
+
+.carbon-bar {
+  background: #e0e0e0;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    background: #2e7d32;
+  }
+}

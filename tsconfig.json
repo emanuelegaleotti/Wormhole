@@ -10,26 +10,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "lorentz": [
-        "dist/lorentz"
-      ],
-      "lorentz-cognito": [
-        "dist/lorentz-cognito"
-      ],
-      "lorentz-components": [
-        "dist/lorentz-components"
-      ],
-      "lorentz-dialog": [
-        "dist/lorentz-dialog"
-      ],
       "lorentz-event-bus": [
         "dist/lorentz-event-bus"
-      ],
-      "lorentz-inputs": [
-        "dist/lorentz-inputs"
-      ],
-      "lorentz-keycloak": [
-        "dist/lorentz-keycloak"
       ]
     },
     "noFallthroughCasesInSwitch": true,

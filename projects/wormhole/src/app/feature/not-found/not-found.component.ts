@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core'
-import {  LorentzComponentsModule } from '../../../../../lorentz-components'
+import { SharedModule } from '../../shared/shared.module'
 
 @Component({
     selector: 'wormhole-not-found',
@@ -7,7 +7,7 @@ import {  LorentzComponentsModule } from '../../../../../lorentz-components'
     styleUrls: ['./not-found.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
-        LorentzComponentsModule
+        SharedModule
     ]
 })
 export class NotFoundComponent {

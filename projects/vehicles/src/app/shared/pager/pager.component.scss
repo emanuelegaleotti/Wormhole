@@ -1,0 +1,38 @@
+.lorenz-pager {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto 2fr auto auto;
+  align-items: center;
+  justify-content: center;
+
+  h4 {
+    grid-column: 1/6;
+  }
+
+  .pagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+      padding: var(--wormhole-space-2xs);
+
+      &:not(:last-child) {
+        margin-right: var(--wormhole-space-3xs);
+      }
+
+      &.active {
+        color: blue;
+      }
+
+      a {
+      }
+    }
+  }
+
+  button {
+    padding: var(--wormhole-space-2xs);
+  }
+}

@@ -5,7 +5,6 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { SharedModule } from '../shared/shared.module'
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
-import { LorentzComponentsModule } from '../../../../lorentz-components'
 
 
 
@@ -19,8 +18,7 @@ import { LorentzComponentsModule } from '../../../../lorentz-components'
     CommonModule,
     VehiclesRoutingModule,
     SharedModule,
-    TranslocoModule,
-    LorentzComponentsModule
+    TranslocoModule
   ],
   providers:[{ provide: TRANSLOCO_SCOPE, useValue: 'vehicles' }]
 })

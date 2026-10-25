@@ -1,0 +1,47 @@
+<section class="wormhole-grid"
+         *transloco="let t">
+  @if (error()) {
+    <wormhole-card>
+      <p card-body class="carbon-error">{{t('carbon.error')}}</p>
+    </wormhole-card>
+  } @else {
+    <wormhole-card>
+      <h4 card-header>{{t('carbon.current')}}</h4>
+      <div card-body>
+        @if (intensity(); as data) {
+          <p class="carbon-value">{{currentValue | number}} <small>{{t('carbon.unit')}}</small></p>
+          <p>{{t('carbon.forecast')}}: {{data.intensity.forecast | number}} {{t('carbon.unit')}}</p>
+          <p>{{t('carbon.index')}}:
+            <span class="carbon-index" [ngClass]="'carbon-index-' + indexKey().replace(' ', '-')">
+              {{t('carbon.indexes.' + indexKey())}}
+            </span>
+          </p>
+        }
+      </div>
+      <small card-footer>{{t('carbon.source')}}</small>
+    </wormhole-card>
+    <wormhole-card>
+      <h4 card-header>{{t('carbon.mix')}}</h4>
+      <ul card-body class="carbon-mix">
+        @for (item of mix(); track item.fuel) {
+          <li>
+            <span class="carbon-fuel">{{item.fuel}}</span>
+            <span class="carbon-bar"><span [style.width.%]="item.perc"></span></span>
+            <span>{{item.perc | number:'1.0-1'}}%</span>
+          </li>
+        }
+      </ul>
+    </wormhole-card>
+    <wormhole-card>
+      <h4 card-header>{{t('carbon.calculator')}}</h4>
+      <div card-body>
+        <label for="carbon-kwh">{{t('carbon.kwh')}}</label>
+        <input id="carbon-kwh" type="number" min="0" step="any"
+               [ngModel]="kwh()" (ngModelChange)="kwh.set($event)">
+        <p class="carbon-value">
+          {{t('carbon.result')}}: {{emissions | number:'1.0-1'}} {{t('carbon.grams')}}
+        </p>
+      </div>
+    </wormhole-card>
+  }
+</section>

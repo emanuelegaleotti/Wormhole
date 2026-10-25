@@ -28,20 +28,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Feature
-- Planets: crud with base component and service
-- Starships: crud with Ngrx state
-- People: crud with light Ngrx state
-- Veichles: crud with micro FE module
+- Carbon footprint: carbon intensity of the electricity grid, generation mix and a kWh to gCO2 calculator (free [Carbon Intensity API](https://carbonintensity.org.uk), no key required)
+- Vehicles: crud with micro FE module
 - Weather: micro FE components
 - City-Weather: micro fe components with reactive form
+- Lorentz event bus: library for communication between micro frontends
 - Loader: Http interceptor with ngrx and dynamic components
 - Http error: Http interceptor
 - Compodoc
-
-## TODO 
-- Components lib
-- Cypress
-- Firestore
-- Sentry
-- CVA
-- 

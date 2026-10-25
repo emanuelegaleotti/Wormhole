@@ -13,8 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TranslocoHttpLoader, TranslocoRootModule } from './transloco-root.module'
 import { provideNgxWebstorage } from 'ngx-webstorage'
-import { AngularFireModule } from '@angular/fire/compat'
-import { ErrorInterceptor, LoaderInterceptor, LorentzDialogModule } from '../../../lorentz-dialog'
+import { ErrorInterceptor, LoaderInterceptor, LorentzDialogModule } from './core/dialog'
 import { provideRouter, RouterOutlet } from '@angular/router'
 import { appRoutes } from './app-routing.module'
 
@@ -31,7 +30,6 @@ import { appRoutes } from './app-routing.module'
         EffectsModule.forRoot([]),
         MatDialogModule,
         TranslocoRootModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
         LorentzDialogModule,
         RouterOutlet], providers: [
         provideRouter(appRoutes),

@@ -15,20 +15,8 @@ export const appRoutes: Routes = [
     loadComponent: () => import('./feature/not-allowed/not-allowed.component').then(c => c.NotAllowedComponent)
   },
   {
-    path: 'planets',
-    loadChildren: () => import('./feature/planets/planets.module').then(m => m.PlanetsModule)
-  },
-  {
-    path: 'starships',
-    loadChildren: () => import('./feature/starships/starships.module').then(m => m.StarshipsModule)
-  },
-  {
-    path: 'people',
-    loadChildren: () => import('./feature/people/people.module').then(m => m.PeopleModule)
-  },
-  {
-    path: 'films',
-    loadChildren: () => import('./feature/films/films.module').then(m => m.FilmsModule)
+    path: 'carbon',
+    loadComponent: () => import('./feature/carbon/carbon.component').then(c => c.CarbonComponent)
   },
   {
     path: 'vehicles',

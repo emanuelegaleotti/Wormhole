@@ -1,11 +1,7 @@
 {
   "menu": {
-    "planets": "Pianeti",
-    "starships": "Astronavi",
-    "people": "Persone",
     "vehicles": "Veicoli",
-    "carbon": "Impatto ecologico",
-    "films": "Film"
+    "carbon": "Impatto ecologico"
   },
   "language": {
     "en": "Inglese",
@@ -24,6 +20,27 @@
     },
     "cityWeather": {
       "title": "Meteo per città"
+    }
+  },
+  "carbon": {
+    "title": "Intensità di carbonio della rete elettrica (UK)",
+    "current": "Intensità attuale",
+    "unit": "gCO2/kWh",
+    "forecast": "Previsione",
+    "index": "Livello",
+    "mix": "Mix di generazione",
+    "calculator": "Calcolatore impronta",
+    "kwh": "Energia consumata (kWh)",
+    "result": "Emissioni stimate",
+    "grams": "gCO2",
+    "error": "Impossibile caricare i dati sul carbonio",
+    "source": "Dati: Carbon Intensity API (National Grid ESO)",
+    "indexes": {
+      "very low": "Molto bassa",
+      "low": "Bassa",
+      "moderate": "Moderata",
+      "high": "Alta",
+      "very high": "Molto alta"
     }
   }
 }

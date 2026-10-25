@@ -1,11 +1,7 @@
 {
   "menu": {
-    "planets": "Planets",
-    "starships": "Starships",
-    "people": "People",
     "vehicles": "Vehicles",
-    "carbon": "Carbon impact",
-    "films": "Films"
+    "carbon": "Carbon footprint"
   },
   "language": {
     "en": "English",
@@ -24,6 +20,27 @@
     },
     "cityWeather": {
       "title": "Weather by city"
+    }
+  },
+  "carbon": {
+    "title": "Carbon intensity of the electricity grid (UK)",
+    "current": "Current intensity",
+    "unit": "gCO2/kWh",
+    "forecast": "Forecast",
+    "index": "Level",
+    "mix": "Generation mix",
+    "calculator": "Footprint calculator",
+    "kwh": "Energy consumed (kWh)",
+    "result": "Estimated emissions",
+    "grams": "gCO2",
+    "error": "Unable to load carbon data",
+    "source": "Data: Carbon Intensity API (National Grid ESO)",
+    "indexes": {
+      "very low": "Very low",
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High",
+      "very high": "Very high"
     }
   }
 }
