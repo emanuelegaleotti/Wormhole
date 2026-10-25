@@ -1,6 +1,9 @@
 import { Injectable, inject } from '@angular/core'
+import { filter, fromEvent, map, Observable } from 'rxjs'
 import { EventMessage } from './event-message.model'
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage'
+
+export const PRESENCE_MESSAGE = 'lorentz-event-bus:connected'
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +26,19 @@ export class LorentzEventBusService {
       { detail: message }
     )
     this.dispatchEvent()
+  }
+
+  // Messages addressed to `address` or broadcast to everybody (`to: 'all'`).
+  listen (address: string): Observable<EventMessage> {
+    return fromEvent<CustomEvent<EventMessage>>(window, 'lorentz-event-bus').pipe(
+      map(event => event.detail),
+      filter(message => message.to === address || message.to === 'all')
+    )
+  }
+
+  // Tells the others that `from` is connected to the bus and available.
+  announcePresence (from: string): void {
+    this.sendEventBusMessage(new EventMessage('all', PRESENCE_MESSAGE, from))
   }
 
   dispatchEvent (): void {

@@ -18,7 +18,10 @@
     "start:cast": "ng serve cast -o --port 3000",
     "start:weather": "ng serve weather -o --prot 3300",
     "start:cityWeather": "ng serve cityWeather -o --port 3600",
-    "start:all": "concurrently \"npm run start:wormhole\" \"npm run start:cast\"  \"npm run start:weather\" \"npm run start:cityWeather\"",
+    "start:timeline-1953": "ng serve timeline-1953 --port 3953",
+    "start:timeline-1986": "ng serve timeline-1986 --port 3986",
+    "start:timeline-2019": "ng serve timeline-2019 --port 4019",
+    "start:all": "concurrently \"npm run start:wormhole\" \"npm run start:cast\"  \"npm run start:weather\" \"npm run start:cityWeather\" \"npm run start:timeline-1953\" \"npm run start:timeline-1986\" \"npm run start:timeline-2019\"",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
     "compodoc": "npx compodoc -p tsconfig.doc.json"
   },

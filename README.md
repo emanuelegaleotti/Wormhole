@@ -41,7 +41,7 @@ Visual identity inspired by the Netflix series *Dark*: Winden palette (void blac
 - Cast: micro FE (TVmaze API) with the paginated cast of Dark, exposing standalone routes (`./Routes`)
 - Weather: micro FE components
 - City-Weather: micro FE component with signals
-- Lorentz event bus: library for communication between micro frontends
+- Lorentz event bus: library for communication between micro frontends; the home shows it at work with three timeline micro frontends (`timeline-1953`, `timeline-1986`, `timeline-2019`, ports 3953/3986/4019) chatting through it and announcing their presence when they connect
 - Loader: Http interceptor with ngrx and signals
 - Http error: Http interceptor opening an error dialog through `DialogService`
 - Compodoc

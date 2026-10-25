@@ -30,6 +30,10 @@
     },
     "cityWeather": {
       "title": "Weather by city"
+    },
+    "timelines": {
+      "title": "Timelines",
+      "description": "Three micro frontends, one per timeline, chatting through the Lorentz event bus: write to the others and read what reaches you."
     }
   },
   "carbon": {

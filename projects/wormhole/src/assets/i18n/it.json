@@ -30,6 +30,10 @@
     },
     "cityWeather": {
       "title": "Meteo per città"
+    },
+    "timelines": {
+      "title": "Linee temporali",
+      "description": "Tre microfrontend, uno per linea temporale, che chattano tramite il Lorentz event bus: scrivi agli altri e leggi i messaggi che ti arrivano."
     }
   },
   "carbon": {

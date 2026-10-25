@@ -16,4 +16,32 @@
          card-body
     ></div>
   </wormhole-card>
+  <header>
+    <h2>{{t('homepage.timelines.title')}}</h2>
+    <p>{{t('homepage.timelines.description')}}</p>
+  </header>
+  <wormhole-card class="timeline">
+    <h4 card-header>1953</h4>
+    <div [lorentzSetComponent]="'Timeline1953Component'"
+         [remoteUrl]="'http://localhost:3953/timeline1953Entry.js'"
+         [remoteName]="'timeline1953'"
+         card-body
+    ></div>
+  </wormhole-card>
+  <wormhole-card class="timeline">
+    <h4 card-header>1986</h4>
+    <div [lorentzSetComponent]="'Timeline1986Component'"
+         [remoteUrl]="'http://localhost:3986/timeline1986Entry.js'"
+         [remoteName]="'timeline1986'"
+         card-body
+    ></div>
+  </wormhole-card>
+  <wormhole-card class="timeline">
+    <h4 card-header>2019</h4>
+    <div [lorentzSetComponent]="'Timeline2019Component'"
+         [remoteUrl]="'http://localhost:4019/timeline2019Entry.js'"
+         [remoteName]="'timeline2019'"
+         card-body
+    ></div>
+  </wormhole-card>
 </section>

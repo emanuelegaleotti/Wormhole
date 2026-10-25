@@ -518,6 +518,333 @@
           }
         }
       }
+    },
+    "timeline-1953": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/timeline-1953",
+      "sourceRoot": "projects/timeline-1953/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/timeline-1953",
+            "index": "projects/timeline-1953/src/index.html",
+            "main": "projects/timeline-1953/src/main.ts",
+            "tsConfig": "projects/timeline-1953/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-1953/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-1953/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/timeline-1953/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/timeline-1953/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "timeline-1953:build:production",
+              "extraWebpackConfig": "projects/timeline-1953/webpack.prod.config.js"
+            },
+            "development": {
+              "buildTarget": "timeline-1953:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 3953,
+            "publicHost": "http://localhost:3953",
+            "extraWebpackConfig": "projects/timeline-1953/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "buildTarget": "timeline-1953:build",
+            "extraWebpackConfig": "projects/timeline-1953/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/timeline-1953/src/test.ts",
+            "tsConfig": "projects/timeline-1953/tsconfig.spec.json",
+            "karmaConfig": "projects/timeline-1953/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-1953/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-1953/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/timeline-1953/**/*.ts",
+              "projects/timeline-1953/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "timeline-1986": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/timeline-1986",
+      "sourceRoot": "projects/timeline-1986/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/timeline-1986",
+            "index": "projects/timeline-1986/src/index.html",
+            "main": "projects/timeline-1986/src/main.ts",
+            "tsConfig": "projects/timeline-1986/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-1986/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-1986/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/timeline-1986/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/timeline-1986/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "timeline-1986:build:production",
+              "extraWebpackConfig": "projects/timeline-1986/webpack.prod.config.js"
+            },
+            "development": {
+              "buildTarget": "timeline-1986:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 3986,
+            "publicHost": "http://localhost:3986",
+            "extraWebpackConfig": "projects/timeline-1986/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "buildTarget": "timeline-1986:build",
+            "extraWebpackConfig": "projects/timeline-1986/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/timeline-1986/src/test.ts",
+            "tsConfig": "projects/timeline-1986/tsconfig.spec.json",
+            "karmaConfig": "projects/timeline-1986/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-1986/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-1986/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/timeline-1986/**/*.ts",
+              "projects/timeline-1986/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "timeline-2019": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/timeline-2019",
+      "sourceRoot": "projects/timeline-2019/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/timeline-2019",
+            "index": "projects/timeline-2019/src/index.html",
+            "main": "projects/timeline-2019/src/main.ts",
+            "tsConfig": "projects/timeline-2019/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-2019/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-2019/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/timeline-2019/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/timeline-2019/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "timeline-2019:build:production",
+              "extraWebpackConfig": "projects/timeline-2019/webpack.prod.config.js"
+            },
+            "development": {
+              "buildTarget": "timeline-2019:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4019,
+            "publicHost": "http://localhost:4019",
+            "extraWebpackConfig": "projects/timeline-2019/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "buildTarget": "timeline-2019:build",
+            "extraWebpackConfig": "projects/timeline-2019/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/timeline-2019/src/test.ts",
+            "tsConfig": "projects/timeline-2019/tsconfig.spec.json",
+            "karmaConfig": "projects/timeline-2019/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/timeline-2019/src/favicon.ico"
+            ],
+            "styles": [
+              "projects/timeline-2019/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/timeline-2019/**/*.ts",
+              "projects/timeline-2019/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

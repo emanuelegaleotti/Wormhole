@@ -1,24 +1,36 @@
-# LorentzEventBus
+# Lorentz event bus
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+Library for the communication between micro frontends. Messages travel on a browser `CustomEvent` named `lorentz-event-bus` dispatched on `window`, so micro frontends bundled and deployed separately can talk to each other without sharing any instance.
 
-## Code scaffolding
+`LorentzEventBusService` needs the `ngx-webstorage` providers (`provideNgxWebstorage(withLocalStorage(), withSessionStorage())`), used by the storage based variants of the bus.
 
-Run `ng generate component component-name --project lorentz-event-bus` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project lorentz-event-bus`.
-> Note: Don't forget to add `--project lorentz-event-bus` or else it will be added to the default project in your `angular.json` file. 
+## Usage
 
-## Build
+```ts
+import { EventMessage, LorentzEventBusService } from 'lorentz-event-bus'
 
-Run `ng build lorentz-event-bus` to build the project. The build artifacts will be stored in the `dist/` directory.
+const bus = inject(LorentzEventBusService)
 
-## Publishing
+// send to a single recipient...
+bus.sendEventBusMessage(new EventMessage('1986', 'Hello from 2019', '2019'))
+// ...or to everybody
+bus.sendEventBusMessage(new EventMessage('all', 'Hello timelines', '2019'))
 
-After building your library with `ng build lorentz-event-bus`, go to the dist folder `cd dist/lorentz-event-bus` and run `npm publish`.
+// receive what is addressed to this recipient (or broadcast)
+bus.listen('1986').pipe(takeUntilDestroyed()).subscribe(m => console.log(m.from, m.message))
+```
 
-## Running unit tests
+`EventMessage` has `to` (recipient or `all`), `message` and an optional `from`.
 
-Run `ng test lorentz-event-bus` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`announcePresence(from)` broadcasts a `PRESENCE_MESSAGE` to everybody: a micro frontend calls it as soon as it connects to the bus, so the others know it is available.
 
-## Further help
+`sendSessionBusMessage` / `sendLocalBusMessage` persist the last message in `sessionStorage` / `localStorage`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The home of Wormhole shows the bus at work: the `timeline-1953`, `timeline-1986` and `timeline-2019` micro frontends simulate a chat between the three timelines of Dark, passing every message through the bus.
+
+## Build and test
+
+```
+ng build lorentz-event-bus   # output in dist/lorentz-event-bus, used by the other projects through the tsconfig path
+ng test lorentz-event-bus
+```

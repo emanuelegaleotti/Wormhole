@@ -1,0 +1,96 @@
+.timeline-chat {
+  display: grid;
+  gap: var(--wormhole-space-2xs, 1rem);
+}
+
+.identity {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+
+  strong {
+    color: var(--wormhole-primary, #e3b72d);
+    font-family: var(--wormhole-font-title);
+    letter-spacing: var(--wormhole-tracking-md, .15em);
+    text-transform: uppercase;
+  }
+
+  small {
+    color: var(--wormhole-grey-xl, #8d9b98);
+    font-size: var(--wormhole-size-xs, .75rem);
+    letter-spacing: var(--wormhole-tracking-md, .15em);
+    text-transform: uppercase;
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wormhole-space-3xs, .5rem);
+  height: calc(var(--wormhole-space-3xl, 4.5rem) * 3);
+  margin: 0;
+  padding: var(--wormhole-space-3xs, .5rem);
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid color-mix(in srgb, var(--wormhole-secondary, #3a4a4f) 55%, transparent);
+  background: color-mix(in srgb, var(--wormhole-grey-xs, #050607) 55%, transparent);
+
+  li {
+    padding: var(--wormhole-space-3xs, .5rem);
+    border-left: 2px solid var(--wormhole-primary, #e3b72d);
+    background: color-mix(in srgb, var(--wormhole-grey-md, #12171a) 72%, transparent);
+
+    header {
+      display: flex;
+      gap: var(--wormhole-space-3xs, .5rem);
+      align-items: baseline;
+      color: var(--wormhole-grey-xl, #8d9b98);
+      font-size: var(--wormhole-size-xs, .75rem);
+      letter-spacing: var(--wormhole-tracking-sm, .1em);
+    }
+
+    cite {
+      color: var(--wormhole-primary, #e3b72d);
+      font-style: normal;
+      text-transform: uppercase;
+    }
+
+    time {
+      margin-left: auto;
+    }
+
+    p {
+      margin: var(--wormhole-space-4xs, .25rem) 0 0;
+    }
+
+    &.presence {
+      border-left-color: var(--wormhole-success, #6f9a7c);
+
+      p {
+        color: var(--wormhole-success, #6f9a7c);
+        font-style: italic;
+      }
+    }
+
+    &.empty {
+      border-left-color: transparent;
+      background: none;
+      color: var(--wormhole-grey-xl, #8d9b98);
+    }
+  }
+}
+
+form {
+  display: grid;
+  gap: var(--wormhole-space-3xs, .5rem);
+
+  label {
+    display: grid;
+    gap: var(--wormhole-space-4xs, .25rem);
+  }
+
+  button {
+    justify-self: end;
+  }
+}

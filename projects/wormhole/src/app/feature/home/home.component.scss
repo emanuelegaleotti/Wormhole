@@ -11,5 +11,15 @@ section {
     @include mixins.media-breakpoint-up(lg) {
       grid-column: span 6;
     }
+
+    &.timeline {
+      @include mixins.media-breakpoint-up(lg) {
+        grid-column: span 4;
+      }
+    }
+  }
+
+  header {
+    grid-column: 1 / -1;
   }
 }
